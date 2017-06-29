@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="common/common :: common-meta" />
 <body>
-<a th:href="@{/signup}">Sign up</a>
+<header th:replace="common/common :: common-header" />
+
+<a th:href="@{/signup}" th:if="${loggedInUser} == null">Sign up</a>
+<a th:href="@{/login}" th:if="${loggedInUser} == null">Login</a>
+
+<footer th:replace="common/common :: common-footer" />
 </body>
 </html>
