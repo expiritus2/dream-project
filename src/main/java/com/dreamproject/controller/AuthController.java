@@ -27,18 +27,15 @@ public class AuthController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Principal principal) {
-//        if(principal != null){
-//            return "redirect:/";
-//        }
-        return "login";
+    public String login() {
+        return "auth/login";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signup(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "signup";
+        return "auth/signup";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -46,7 +43,7 @@ public class AuthController {
         Set<UserRole> userRoles = new HashSet<>();
         userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
         userService.createUser(user, userRoles);
-        return "signup";
+        return "auth/signup";
     }
 
 
