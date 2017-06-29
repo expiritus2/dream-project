@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/admin")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
-public class AdminController {
+@RequestMapping(value = "/personal-area")
+@PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
+public class PersonalAreaController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String admin(){
-        return "admin/index";
+    public String personalArea(){
+        return "personal-area/index";
     }
 }

@@ -42,12 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/images/**",
-            "/",
             "/inline.bundle.js",
             "/main.bundle.js",
             "/polyfills.bundle.js",
             "/styles.bundle.js",
             "/vendor.bundle.js",
+            "/",
             "/signup"
     };
 
