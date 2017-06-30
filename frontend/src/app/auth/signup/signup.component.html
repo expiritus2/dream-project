@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <input ngModel type="text"  name="username" placeholder="name"/>
+  <input ngModel type="password" name="password" placeholder="password"/>
+  <input ngModel type="email" name="email" placeholder="email"/>
+  <button type="submit">Send</button>
+  <p *ngIf="success">User was created</p>
+  <p *ngIf="error">User already exists</p>
+</form>

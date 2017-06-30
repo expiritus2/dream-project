@@ -2,6 +2,7 @@ package com.dreamproject.entity;
 
 import com.dreamproject.entity.security.Authority;
 import com.dreamproject.entity.security.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,27 +18,32 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", nullable = false, updatable = false)
     private Long userId;
-    private String username;
-    private String password;
     private String firstName;
     private String lastName;
+    private String username;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    private String password;
+
 
     private boolean enabled = true;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
     public User() {
     }
 
-    public User(String username, String password, boolean enabled) {
+    public User(String firstName, String lastName, String username, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
+        this.email = email;
         this.password = password;
-        this.enabled = enabled;
     }
 
     public Long getUserId() {

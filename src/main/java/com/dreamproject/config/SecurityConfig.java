@@ -42,13 +42,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/images/**",
+            "/inline.bundle.js.map",
             "/inline.bundle.js",
+            "/main.bundle.js.map",
             "/main.bundle.js",
+            "/polyfills.bundle.js.map",
             "/polyfills.bundle.js",
+            "/styles.bundle.js.map",
             "/styles.bundle.js",
+            "/vendor.bundle.js.map",
             "/vendor.bundle.js",
             "/",
-            "/signup"
+            "/signup",
+            "/api/**"
     };
 
     @Override

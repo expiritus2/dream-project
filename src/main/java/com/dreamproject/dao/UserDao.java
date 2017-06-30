@@ -1,6 +1,5 @@
 package com.dreamproject.dao;
 
-
 import com.dreamproject.entity.User;
 import org.springframework.data.repository.CrudRepository;
 

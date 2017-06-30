@@ -1,22 +1,20 @@
 package com.dreamproject.controller;
 
-
 import com.dreamproject.dao.RoleDao;
 import com.dreamproject.entity.User;
 import com.dreamproject.entity.security.UserRole;
 import com.dreamproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
-import java.util.HashSet;
-import java.util.Set;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
 
-@Controller
+@RestController
+@RequestMapping(value = "/api/auth")
 public class AuthController {
 
     @Autowired
@@ -25,25 +23,25 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "/signup", method = RequestMethod.PUT)
+    public List<User> signupPut(@RequestBody Map<String, Object> parameters, HttpServletResponse response) {
+        User userData = new User();
+        userData.setUsername(parameters.get("username").toString());
+        userData.setPassword(parameters.get("password").toString());
+        userData.setEmail(parameters.get("email").toString());
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return "auth/login";
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signup(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "auth/signup";
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String singupPost(@ModelAttribute("user") User user, Model model) {
         Set<UserRole> userRoles = new HashSet<>();
-        userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
-        userService.createUser(user, userRoles);
-        return "auth/signup";
+        userRoles.add(new UserRole(userData, roleDao.findByName("ROLE_USER")));
+        User user = userService.createUser(userData, userRoles);
+        List<User> userObject = new ArrayList<>();
+        if(user == null){
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return userObject;
+        }
+        userObject.add(user);
+        response.setStatus(HttpServletResponse.SC_OK);
+        return userObject;
+
     }
 
 
