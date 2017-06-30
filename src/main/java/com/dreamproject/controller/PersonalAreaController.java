@@ -12,6 +12,6 @@ public class PersonalAreaController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String personalArea(){
-        return "personal-area/index";
+        return "forward:/index.html";
     }
 }

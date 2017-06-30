@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminController {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/**"}, method = RequestMethod.GET)
     public String admin(){
-        return "admin/index";
+        return "forward:/index.html";
     }
 }

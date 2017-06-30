@@ -11,9 +11,7 @@ import java.security.Principal;
 public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Model model, Principal principal){
-        System.out.println(principal);
-        model.addAttribute("loggedInUser", principal);
-        return "home";
+    public String home(){
+        return "forward:/index.html";
     }
 }
