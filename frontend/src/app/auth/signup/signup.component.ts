@@ -31,13 +31,11 @@ export class SignupComponent implements OnInit {
 
 
   onSubmit(){
-    console.info(this.signupForm);
     const value = this.signupForm.value;
     const user = new User(value.firstName, value.lastName, value.email, value.password);
     this.authService.createUser(user)
       .subscribe(
       (response: Response) => {
-        console.log(response);
         if(response.status === 200){
           this.success = true;
           this.error = false;
@@ -45,6 +43,7 @@ export class SignupComponent implements OnInit {
         }
       },
       (err) => {
+        console.info(err);
         this.success = false;
         this.error = true;
       }
