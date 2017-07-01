@@ -1,8 +1,16 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <input ngModel type="text"  name="username" placeholder="name"/>
-  <input ngModel type="password" name="password" placeholder="password"/>
-  <input ngModel type="email" name="email" placeholder="email"/>
-  <button type="submit">Send</button>
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <input ngModel type="text" name="firstName" required placeholder="first name"/>
+
+  <input ngModel type="text" name="lastName" required placeholder="last name"/>
+
+  <input ngModel type="email" name="email" email #email="ngModel" placeholder="email"/>
+  <span *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+
+  <input ngModel type="password" name="password" [(ngModel)]="password" required minlength="6" placeholder="password"/>
+  <input ngModel type="password" name="repeatPassword" #repeatPassword="ngModel" (input)="matchPasswords($event)" required placeholder="repeat password">
+  <span *ngIf="!passMatch && repeatPassword.touched">Passwords not match</span>
+
+  <button [disabled]="!f.valid || !passMatch" type="submit">Send</button>
   <p *ngIf="success">User was created</p>
   <p *ngIf="error">User already exists</p>
 </form>

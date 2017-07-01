@@ -1,3 +1,3 @@
 export class User{
-  constructor(private username: string, private password: string, private email: string){}
+  constructor(private firstName, private lastName, private email: string, private password: string){}
 }

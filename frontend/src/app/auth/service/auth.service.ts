@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 import {User} from "../model/user.mode";
 import 'rxjs/Rx';
 

@@ -26,9 +26,11 @@ public class AuthController {
     @RequestMapping(value = "/signup", method = RequestMethod.PUT)
     public List<User> signupPut(@RequestBody Map<String, Object> parameters, HttpServletResponse response) {
         User userData = new User();
-        userData.setUsername(parameters.get("username").toString());
+        userData.setFirstName(parameters.get("firstName").toString());
+        userData.setLastName(parameters.get("lastName").toString());
+        userData.setUsername(parameters.get("email").toString());
         userData.setPassword(parameters.get("password").toString());
-        userData.setEmail(parameters.get("email").toString());
+        System.out.println(userData);
 
         Set<UserRole> userRoles = new HashSet<>();
         userRoles.add(new UserRole(userData, roleDao.findByName("ROLE_USER")));
