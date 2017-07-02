@@ -11,15 +11,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import sun.plugin.liveconnect.SecurityContextHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
 import java.security.SecureRandom;
 
 @Configuration
@@ -62,27 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
 
     }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests()
-//                .antMatchers(PUBLIC_MATCHES).permitAll()
-//                .anyRequest().authenticated();
-//
-//        http
-//                .cors().disable()
-//                .csrf().disable()
-//                .formLogin()
-//                .successHandler(successHandler())
-//                .failureHandler(failureHandler())
-//                .loginPage("/login").permitAll()
-//                .and()
-//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .deleteCookies("remember-me").permitAll()
-//                .and()
-//                .rememberMe();
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -94,18 +76,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().disable()
                 .csrf().disable()
-                .formLogin().failureUrl("/login?error").defaultSuccessUrl("/").loginPage("/login").permitAll()
+                .formLogin()
+                .successHandler(successHandler())
+                .failureHandler(failureHandler())
+                .loginPage("/login")
+                .permitAll()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/?logout").deleteCookies("remember-me")
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/?logout=true").deleteCookies("remember-me")
                 .and()
-                .rememberMe();
+                .rememberMe()
+                .and();
     }
 
     private AuthenticationSuccessHandler successHandler() {
         return new AuthenticationSuccessHandler() {
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                response.getWriter().append("OK");
+                System.out.println(authentication);
+                String username = authentication.getName();
+                response.getWriter().append(username);
                 response.setStatus(200);
             }
         };

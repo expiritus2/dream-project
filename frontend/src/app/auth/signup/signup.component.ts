@@ -1,9 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {AuthService} from "../service/auth.service";
-import {FormGroup, FormBuilder, Validators, NgForm} from "@angular/forms";
-import {User} from "../model/user.mode";
+import {NgForm} from "@angular/forms";
+import {User} from "../model/user.model";
 import {Response} from "@angular/http";
-import {repeat} from "rxjs/operator/repeat";
 
 @Component({
   selector: 'app-signup',
@@ -19,35 +18,35 @@ export class SignupComponent implements OnInit {
   success = false;
   error = false;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
 
-  matchPasswords(event: any){
+  matchPasswords(event: any) {
     this.passMatch = event.target.value == this.password;
   }
 
 
-
-  onSubmit(){
+  onSubmit() {
     const value = this.signupForm.value;
     const user = new User(value.firstName, value.lastName, value.email, value.password);
     this.authService.createUser(user)
       .subscribe(
-      (response: Response) => {
-        if(response.status === 200){
-          this.success = true;
-          this.error = false;
-          this.signupForm.reset();
+        (response: Response) => {
+          if (response.status === 200) {
+            this.success = true;
+            this.error = false;
+            this.signupForm.reset();
+          }
+        },
+        (err) => {
+          console.info(err);
+          this.success = false;
+          this.error = true;
         }
-      },
-      (err) => {
-        console.info(err);
-        this.success = false;
-        this.error = true;
-      }
-    )
+      )
   }
 
 }

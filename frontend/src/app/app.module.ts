@@ -10,6 +10,8 @@ import {HomeComponent} from "./home/home.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {SignupComponent} from "./auth/signup/signup.component";
+import {PersonalAreaComponent} from "./personal-area/personal-area.component";
+import { AccessDeniedComponent } from './auth/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {SignupComponent} from "./auth/signup/signup.component";
     HomeComponent,
     NotFoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PersonalAreaComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,

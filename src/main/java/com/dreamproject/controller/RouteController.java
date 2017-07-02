@@ -10,13 +10,13 @@ public class RouteController {
 
     @RequestMapping(value = {"/admin", "/admin/**"}, method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String admin(){
+    public String admin() {
         return "forward:/index.html";
     }
 
     @RequestMapping(value = "/personal-area")
     @PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
-    public String personalArea(){
+    public String personalArea() {
         return "forward:/index.html";
     }
 
@@ -24,4 +24,5 @@ public class RouteController {
     public String home() {
         return "forward:/index.html";
     }
+
 }

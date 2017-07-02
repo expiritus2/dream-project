@@ -30,7 +30,6 @@ public class AuthController {
         userData.setLastName(parameters.get("lastName").toString());
         userData.setUsername(parameters.get("email").toString());
         userData.setPassword(parameters.get("password").toString());
-        System.out.println(userData);
 
         Set<UserRole> userRoles = new HashSet<>();
         userRoles.add(new UserRole(userData, roleDao.findByName("ROLE_USER")));
@@ -45,6 +44,4 @@ public class AuthController {
         return userObject;
 
     }
-
-
 }

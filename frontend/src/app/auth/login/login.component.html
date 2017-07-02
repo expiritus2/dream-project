@@ -1,6 +1,8 @@
-<form action="/login" method="post">
-  <input type="text" placeholder="Username" name="username" id="username" required="required" autofocus="autofocus"/>
-  <input type="password" roleId="inputPassword" class="form-control" placeholder="Password" id="password" name="password" required="required"/>
-  <input type="checkbox" name="remember-me" id="remember-me"/> Remember me
-  <button type="submit">Sign in</button>
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <input ngModel type="text" name="username" id="username" required autofocus="autofocus" placeholder="Username"/>
+
+  <input ngModel type="password" id="password" name="password" required placeholder="Password"/>
+  <span *ngIf="loginError">Login/password is not valid</span>
+
+  <button [disabled]="!f.valid" type="submit">Sign in</button>
 </form>
