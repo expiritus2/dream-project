@@ -1,8 +1,8 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm">
-  <input ngModel type="text" name="username" id="username" required autofocus="autofocus" placeholder="Username"/>
+  <input ngModel type="text" name="username" id="username" required autofocus="autofocus" placeholder="{{ 'Login.UsernameLabel' | translate }}"/>
 
-  <input ngModel type="password" id="password" name="password" required placeholder="Password"/>
-  <span *ngIf="loginError">Login/password is not valid</span>
+  <input ngModel type="password" id="password" name="password" required placeholder="{{ 'Login.PasswordLabel' | translate }}"/>
+  <span *ngIf="loginError">{{ 'Login.ErrorText' | translate }}</span>
 
-  <button [disabled]="!f.valid" type="submit">Sign in</button>
+  <button [disabled]="!f.valid" type="submit">{{ 'Login.SubmitBtnText' | translate }}</button>
 </form>

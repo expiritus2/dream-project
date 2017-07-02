@@ -1,7 +1,7 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {Http, HttpModule} from "@angular/http";
 
 import {AppComponent} from "./app.component";
 import {AdminComponent} from "./admin/admin.component";
@@ -12,6 +12,12 @@ import {LoginComponent} from "./auth/login/login.component";
 import {SignupComponent} from "./auth/signup/signup.component";
 import {PersonalAreaComponent} from "./personal-area/personal-area.component";
 import { AccessDeniedComponent } from './auth/access-denied/access-denied.component';
+import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
+import { LocaleComponent } from './locale/locale.component';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -22,14 +28,20 @@ import { AccessDeniedComponent } from './auth/access-denied/access-denied.compon
     LoginComponent,
     SignupComponent,
     PersonalAreaComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    LocaleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,16 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm">
-  <input ngModel type="text" name="firstName" required placeholder="first name"/>
+  <input ngModel type="text" name="firstName" required placeholder="{{ 'SignUp.FirstNameLabel' | translate }}"/>
 
-  <input ngModel type="text" name="lastName" required placeholder="last name"/>
+  <input ngModel type="text" name="lastName" required placeholder="{{ 'SignUp.LastNameLabel' | translate }}"/>
 
-  <input ngModel type="email" name="email" email #email="ngModel" placeholder="email"/>
-  <span *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+  <input ngModel type="email" name="email" email #email="ngModel" placeholder="{{ 'SignUp.EmailLabel' | translate }}"/>
+  <span *ngIf="!email.valid && email.touched">{{ 'SignUp.InvalidEmail' | translate }}</span>
 
-  <input ngModel type="password" name="password" [(ngModel)]="password" required minlength="6" placeholder="password"/>
-  <input ngModel type="password" name="repeatPassword" #repeatPassword="ngModel" (input)="matchPasswords($event)" required placeholder="repeat password">
-  <span *ngIf="!passMatch && repeatPassword.touched">Passwords not match</span>
+  <input ngModel type="password" name="password" [(ngModel)]="password" required minlength="6" placeholder="{{ 'SignUp.PasswordLabel' | translate }}"/>
+  <input ngModel type="password" name="repeatPassword" #repeatPassword="ngModel" (input)="matchPasswords($event)" required placeholder="{{ 'SignUp.RepeatPasswordLabel' | translate }}">
+  <span *ngIf="!passMatch && repeatPassword.touched">{{ 'SignUp.PasswordsNotMatch' | translate }}</span>
 
-  <button [disabled]="!f.valid || !passMatch" type="submit">Send</button>
-  <p *ngIf="success">User was created</p>
-  <p *ngIf="error">User already exists</p>
+  <button [disabled]="!f.valid || !passMatch" type="submit">{{ 'SignUp.SubmitButtonText' | translate }}</button>
+  <p *ngIf="success">{{ 'SignUp.CreateUserSuccess' | translate }}</p>
+  <p *ngIf="error">{{ 'SignUp.UserAlreadyExist' | translate }}</p>
 </form>
