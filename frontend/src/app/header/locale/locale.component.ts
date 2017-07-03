@@ -11,14 +11,25 @@ import {ActivatedRoute} from "@angular/router";
 export class LocaleComponent implements OnInit {
 
   private subscription: Subscription;
+  listLangs: string[];
   selectedLang = "en";
 
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
+    this.listLangs = translate.getLangs();
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+    let preferLanguage = localStorage.getItem("language");
+    if(preferLanguage != null){
+      translate.use(preferLanguage);
+      this.selectedLang = preferLanguage;
+    } else {
+      let defaultLang = browserLang.match(/en|ru/) ? browserLang : 'en';
+      translate.use(defaultLang);
+      this.selectedLang = defaultLang;
+    }
+
 
     this.subscription = this.activatedRoute.queryParams.subscribe(
       (param: any) => {
@@ -34,6 +45,7 @@ export class LocaleComponent implements OnInit {
   onChangeLanguage(event: any){
     let lang = event.target.value;
     this.translate.use(lang);
+    localStorage.setItem("language", lang);
   }
 
   ngOnInit() {

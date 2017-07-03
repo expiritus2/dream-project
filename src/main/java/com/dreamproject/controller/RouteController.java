@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
+
 @Controller
 public class RouteController {
 
@@ -14,7 +16,7 @@ public class RouteController {
         return "forward:/index.html";
     }
 
-    @RequestMapping(value = "/personal-area")
+    @RequestMapping(value = "/personal-area", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
     public String personalArea() {
         return "forward:/index.html";

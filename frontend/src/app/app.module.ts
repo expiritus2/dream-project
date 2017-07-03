@@ -13,7 +13,9 @@ import {SignupComponent} from "./auth/signup/signup.component";
 import {PersonalAreaComponent} from "./personal-area/personal-area.component";
 import { AccessDeniedComponent } from './auth/access-denied/access-denied.component';
 import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
-import { LocaleComponent } from './locale/locale.component';
+import { LocaleComponent } from './header/locale/locale.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -29,7 +31,9 @@ export function createTranslateLoader(http: Http) {
     SignupComponent,
     PersonalAreaComponent,
     AccessDeniedComponent,
-    LocaleComponent
+    LocaleComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const currentUrl = window.location.href;
     if (currentUrl.indexOf("logout") != -1) {
-      localStorage.clear();
+      localStorage.setItem("userName", "");
     }
   }
 }
