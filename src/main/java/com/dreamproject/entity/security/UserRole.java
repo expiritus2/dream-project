@@ -1,12 +1,13 @@
 package com.dreamproject.entity.security;
 
 
+import com.dreamproject.config.WebConfig;
 import com.dreamproject.entity.User;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_role")
+@Table(name = WebConfig.PREFIX + "user_role")
 public class UserRole {
 
     @Id

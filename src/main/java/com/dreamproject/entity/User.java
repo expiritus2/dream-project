@@ -1,5 +1,6 @@
 package com.dreamproject.entity;
 
+import com.dreamproject.config.WebConfig;
 import com.dreamproject.entity.security.Authority;
 import com.dreamproject.entity.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -9,9 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = WebConfig.PREFIX + "user")
 public class User implements UserDetails {
 
     @Id
@@ -28,6 +31,13 @@ public class User implements UserDetails {
 
 
     private boolean enabled = true;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TargetObject> lostObject;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TargetObject> foundObject;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -125,15 +135,33 @@ public class User implements UserDetails {
         this.userRoles = userRoles;
     }
 
+    public List<TargetObject> getLostObject() {
+        return lostObject;
+    }
+
+    public void setLostObject(List<TargetObject> lostObject) {
+        this.lostObject = lostObject;
+    }
+
+    public List<TargetObject> getFoundObject() {
+        return foundObject;
+    }
+
+    public void setFoundObject(List<TargetObject> foundObject) {
+        this.foundObject = foundObject;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", enabled=" + enabled +
+                ", lostObject=" + lostObject +
+                ", foundObject=" + foundObject +
                 ", userRoles=" + userRoles +
                 '}';
     }

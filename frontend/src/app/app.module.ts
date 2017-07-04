@@ -2,6 +2,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Http, HttpModule} from "@angular/http";
+import {AgmCoreModule} from '@agm/core';
 
 import {AppComponent} from "./app.component";
 import {AdminComponent} from "./admin/admin.component";
@@ -16,6 +17,7 @@ import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-trans
 import { LocaleComponent } from './header/locale/locale.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { GoogleMapComponent } from './personal-area/google-map/google-map.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -33,7 +35,8 @@ export function createTranslateLoader(http: Http) {
     AccessDeniedComponent,
     LocaleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,9 @@ export function createTranslateLoader(http: Http) {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
       deps: [Http]
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAnMTHGnLJvyQJDXW8t-OVA2hZ2qDflHrI'
     })
   ],
   providers: [],

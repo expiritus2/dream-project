@@ -1,10 +1,13 @@
 package com.dreamproject.entity.security;
 
+import com.dreamproject.config.WebConfig;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = WebConfig.PREFIX + "role")
 public class Role {
 
     @Id

@@ -93,7 +93,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new AuthenticationSuccessHandler() {
             @Override
             public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                System.out.println(authentication);
                 String username = authentication.getName();
                 response.getWriter().append(username);
                 response.setStatus(200);
