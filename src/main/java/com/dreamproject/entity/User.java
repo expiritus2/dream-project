@@ -32,6 +32,8 @@ public class User implements UserDetails {
 
     private boolean enabled = true;
 
+
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<TargetObject> lostObject;
 

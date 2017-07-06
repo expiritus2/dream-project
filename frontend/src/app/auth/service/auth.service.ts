@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Http, Headers} from "@angular/http";
 import {User} from "../model/user.model";
+import {WebConfig} from "../../webconfig.config";
 
 @Injectable()
 export class AuthService {
@@ -9,11 +10,11 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.http.put("http://localhost:8080/api/auth/signup", user);
+    return this.http.put(WebConfig.HOST + "/api/auth/signup", user);
   }
 
   sendCredential(username: string, password: string){
-    const url = 'http://localhost:8080/login';
+    const url = WebConfig.HOST + '/login';
     const params = 'username=' + username + '&password=' + password;
     const headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -23,7 +24,7 @@ export class AuthService {
   }
 
   logout(){
-    const url = 'http://localhost:8080/logout';
+    const url = WebConfig.HOST + '/logout';
     return this.http.get(url, { withCredentials: true });
   }
 }

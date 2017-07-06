@@ -3,7 +3,6 @@ import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Http, HttpModule} from "@angular/http";
 import {AgmCoreModule} from "@agm/core";
-
 import {AppComponent} from "./app.component";
 import {AdminComponent} from "./admin/admin.component";
 import {AppRoutingModule} from "./app-routing.module";

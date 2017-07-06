@@ -1,36 +1,39 @@
-import {Component, ElementRef, EventEmitter, NgZone, OnInit, ViewChild} from "@angular/core";
+import {Component, EventEmitter, OnInit} from "@angular/core";
 import {Marker} from "../model/marker.model";
-import {FormControl} from "@angular/forms";
-import {MapsAPILoader} from "@agm/core";
+import {Response} from "@angular/http";
+import {TargetObjectService} from "../service/target-object.service";
+import {AgmInfoWindow} from "@agm/core";
 
 @Component({
   selector: 'app-google-map',
   templateUrl: './google-map.component.html',
-  styleUrls: ['./google-map.component.css']
+  styleUrls: ['./google-map.component.css'],
+  providers: [TargetObjectService]
 })
 export class GoogleMapComponent implements OnInit {
 
-  @ViewChild("search") public searchElementRef: ElementRef;
 
-  private zoom: number = 10;
+  public zoom: number = 10;
 
-  private lat = 53.837918599999995;
-  private lng = 27.647920400000004;
-  public searchControl: FormControl;
+  public lat = 53.837918599999995;
+  public lng = 27.647920400000004;
 
-  markers: Marker[] = [
-    new Marker(0, 'image.png', 'Company One', 53.909090, 27.88999),
-    new Marker(1, 'image.png', 'Company Two', 54.0000111, 28.99999),
-    new Marker(2, 'image.png', 'Company Three', 52.345435454, 26.3242424)
-  ];
+  markers: Marker[];
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+  infoWindow: AgmInfoWindow;
 
+  constructor(private targetObjectService: TargetObjectService) {
   }
 
   ngOnInit() {
-    this.searchControl = new FormControl();
     this.setCurrentPosition();
+    this.targetObjectService.findAll()
+      .subscribe(
+        (response: Response) => {
+          this.markers = this.targetObjectService.packObjects(response.json());
+          console.info(this.markers);
+        }
+      );
   }
 
   private setCurrentPosition() {
@@ -52,10 +55,11 @@ export class GoogleMapComponent implements OnInit {
 
   }
 
-  onHoverMarker(event: EventEmitter<MouseEvent>) {
+  onHoverMarker(event: EventEmitter<MouseEvent>, info: AgmInfoWindow) {
+    info.open();
   }
 
-  onMouseOut(event: EventEmitter<MouseEvent>) {
+  onMouseOut(event: EventEmitter<MouseEvent>, info: AgmInfoWindow) {
 
   }
 

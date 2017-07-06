@@ -1,6 +1,7 @@
 package com.dreamproject.entity;
 
 import com.dreamproject.config.WebConfig;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -20,7 +21,19 @@ public class TargetObject {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
+
+    public TargetObject() {
+    }
+
+    public TargetObject(String name, String fileName, double latitude, double longitude, User user) {
+        this.name = name;
+        this.fileName = fileName;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
@@ -88,7 +101,7 @@ public class TargetObject {
 
     @Override
     public String toString() {
-        return "TargetObject{" +
+        return "TargetObjectService{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", fileName='" + fileName + '\'' +

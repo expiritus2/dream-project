@@ -1,10 +1,13 @@
 package com.dreamproject;
 
 import com.dreamproject.dao.RoleDao;
+import com.dreamproject.dao.TargetObjectDao;
 import com.dreamproject.dao.UserDao;
+import com.dreamproject.entity.TargetObject;
 import com.dreamproject.entity.User;
 import com.dreamproject.entity.security.Role;
 import com.dreamproject.entity.security.UserRole;
+import com.dreamproject.service.TargetObjectService;
 import com.dreamproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,6 +28,9 @@ public class DreamProjectApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private TargetObjectService targetObjectService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DreamProjectApplication.class, args);
@@ -59,5 +65,26 @@ public class DreamProjectApplication implements CommandLineRunner {
 		Set<UserRole> userRoles2 = new HashSet<>();
 		userRoles2.add(new UserRole(user2, roleDao.findByName("ROLE_USER")));
 		userService.createUser(user2, userRoles2);
+
+		User user3 = new User();
+		user3.setFirstName("Test");
+		user3.setLastName("User");
+		user3.setUsername("test.user@gmail.com");
+		user3.setPassword("210280");
+		Set<UserRole> userRoles3 = new HashSet<>();
+		userRoles3.add(new UserRole(user3, roleDao.findByName("ROLE_USER")));
+		userService.createUser(user3, userRoles3);
+
+		TargetObject targetObject1 = new TargetObject("First Marker", "file.txt", 53.844627797824955, 27.627525329589844, user2);
+		targetObjectService.save(targetObject1);
+
+		TargetObject targetObject2 = new TargetObject("Second Marker", "file2.txt", 53.861638751487305, 27.6361083984375, user1);
+		targetObjectService.save(targetObject2);
+
+		TargetObject targetObject3 = new TargetObject("Third Marker", "file3.txt", 53.8577916408477, 27.660484313964844, user3);
+		targetObjectService.save(targetObject3);
+
+		TargetObject targetObject4 = new TargetObject("Fifth Marker", "file4.png", 53.84705835738316, 27.691383361816406, user3);
+		targetObjectService.save(targetObject4);
 	}
 }
