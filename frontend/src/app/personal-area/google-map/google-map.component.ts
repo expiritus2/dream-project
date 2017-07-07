@@ -20,18 +20,16 @@ export class GoogleMapComponent implements OnInit {
 
   markers: Marker[];
 
-  infoWindow: AgmInfoWindow;
 
   constructor(private targetObjectService: TargetObjectService) {
   }
 
   ngOnInit() {
     this.setCurrentPosition();
-    this.targetObjectService.findAll()
+    this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
           this.markers = this.targetObjectService.packObjects(response.json());
-          console.info(this.markers);
         }
       );
   }

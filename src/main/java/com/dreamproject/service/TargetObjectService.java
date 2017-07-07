@@ -9,4 +9,7 @@ public interface TargetObjectService {
     void save(TargetObject targetObject);
 
     List<TargetObject> findAll();
+
+    List<TargetObject> findObjectByUserId(long id);
+
 }

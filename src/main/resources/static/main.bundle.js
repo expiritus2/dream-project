@@ -2025,8 +2025,8 @@ var TargetObjectService = (function () {
         this.http = http;
         this.markers = [];
     }
-    TargetObjectService.prototype.findAll = function () {
-        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].HOST + "/api/target/findall");
+    TargetObjectService.prototype.findOwnObjects = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].HOST + "/api/target/findOwn", { withCredentials: true });
     };
     TargetObjectService.prototype.packObjects = function (objects) {
         var markers = [];
@@ -2180,10 +2180,9 @@ var GoogleMapComponent = (function () {
     GoogleMapComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.setCurrentPosition();
-        this.targetObjectService.findAll()
+        this.targetObjectService.findOwnObjects()
             .subscribe(function (response) {
             _this.markers = _this.targetObjectService.packObjects(response.json());
-            console.info(_this.markers);
         });
     };
     GoogleMapComponent.prototype.setCurrentPosition = function () {

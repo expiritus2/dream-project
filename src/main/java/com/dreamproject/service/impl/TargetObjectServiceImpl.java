@@ -27,4 +27,8 @@ public class TargetObjectServiceImpl implements TargetObjectService {
     public List<TargetObject> findAll() {
         return (List<TargetObject>)targetObjectDao.findAll();
     }
+
+    public List<TargetObject> findObjectByUserId(long id){
+        return targetObjectDao.findAllByUserUserId(id);
+    }
 }

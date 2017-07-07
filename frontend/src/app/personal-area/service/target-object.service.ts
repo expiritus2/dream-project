@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 
@@ -11,8 +11,8 @@ export class TargetObjectService{
   constructor(private http: Http){
   }
 
-  findAll() {
-    return this.http.get(WebConfig.HOST + "/api/target/findall");
+  findOwnObjects() {
+    return this.http.get(WebConfig.HOST + "/api/target/findOwn", {withCredentials: true});
   }
 
   packObjects(objects: any): Marker[]{
