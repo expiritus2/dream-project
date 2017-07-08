@@ -3,6 +3,7 @@ import {Marker} from "../model/marker.model";
 import {Response} from "@angular/http";
 import {TargetObjectService} from "../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-google-map',
@@ -21,7 +22,7 @@ export class GoogleMapComponent implements OnInit {
   markers: Marker[];
 
 
-  constructor(private targetObjectService: TargetObjectService) {
+  constructor(private targetObjectService: TargetObjectService, private router: Router) {
   }
 
   ngOnInit() {
@@ -30,6 +31,9 @@ export class GoogleMapComponent implements OnInit {
       .subscribe(
         (response: Response) => {
           this.markers = this.targetObjectService.packObjects(response.json());
+        },
+        (err) => {
+          console.info(err);
         }
       );
   }

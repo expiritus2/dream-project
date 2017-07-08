@@ -5,6 +5,7 @@ import com.dreamproject.entity.User;
 import com.dreamproject.service.TargetObjectService;
 import com.dreamproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/target")
+@PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
 public class TargetObjectController {
 
     @Autowired

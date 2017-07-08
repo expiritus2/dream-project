@@ -16,7 +16,7 @@ public class RouteController {
         return "forward:/index.html";
     }
 
-    @RequestMapping(value = "/personal-area", method = RequestMethod.GET)
+    @RequestMapping(value = {"/personal-area", "/api", "/api/**"}, method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
     public String personalArea() {
         return "forward:/index.html";

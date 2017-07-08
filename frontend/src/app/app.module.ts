@@ -17,6 +17,7 @@ import {LocaleComponent} from "./header/locale/locale.component";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {GoogleMapComponent} from "./personal-area/google-map/google-map.component";
+import {TargetObjectService} from "./personal-area/service/target-object.service";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -49,11 +50,10 @@ export function createTranslateLoader(http: Http) {
       deps: [Http]
     }),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAnMTHGnLJvyQJDXW8t-OVA2hZ2qDflHrI',
-      libraries: ['places']
+      apiKey: 'AIzaSyAnMTHGnLJvyQJDXW8t-OVA2hZ2qDflHrI'
     })
   ],
-  providers: [],
+  providers: [GoogleMapComponent, TargetObjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
