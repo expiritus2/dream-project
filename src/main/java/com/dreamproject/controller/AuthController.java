@@ -42,6 +42,6 @@ public class AuthController {
         userObject.add(user);
         response.setStatus(HttpServletResponse.SC_OK);
         return userObject;
-
     }
+
 }

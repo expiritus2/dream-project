@@ -23,6 +23,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/notFound").setViewName("forward:/index.html");
+        registry.addViewController("/access-denied").setViewName("forward:/index.html");
     }
 
 
