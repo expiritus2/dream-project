@@ -19,6 +19,7 @@ export class GoogleMapComponent implements OnInit {
   public lng = 27.647920400000004;
 
   markers: Marker[];
+  namesObjects: string[];
 
 
   constructor(private targetObjectService: TargetObjectService) {
@@ -33,6 +34,17 @@ export class GoogleMapComponent implements OnInit {
         },
         (err) => {
 
+        }
+      );
+
+    this.targetObjectService.findAllExistsNamesObjects()
+      .subscribe(
+        (response: Response) => {
+          this.namesObjects = response.json();
+          console.info(response.json());
+        },
+        (err) => {
+          console.info(err);
         }
       );
   }

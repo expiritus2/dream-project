@@ -2,17 +2,18 @@ package com.dreamproject.entity;
 
 import com.dreamproject.config.WebConfig;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = WebConfig.PREFIX + "search_object")
+@Table(name = WebConfig.PREFIX + "target_object")
 public class TargetObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+
     private String fileName;
     private double latitude;
     private double longitude;
@@ -24,16 +25,22 @@ public class TargetObject {
     @JsonIgnore
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "type_object_id")
+    private TypeObject typeObject;
+
     public TargetObject() {
     }
 
-    public TargetObject(String name, String fileName, double latitude, double longitude, User user) {
-        this.name = name;
+
+    public TargetObject(TypeObject typeObject, String fileName, double latitude, double longitude, User user) {
+        this.typeObject = typeObject;
         this.fileName = fileName;
         this.latitude = latitude;
         this.longitude = longitude;
         this.user = user;
     }
+
 
     public Long getId() {
         return id;
@@ -41,14 +48,6 @@ public class TargetObject {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getFileName() {
@@ -99,17 +98,25 @@ public class TargetObject {
         this.draggable = draggable;
     }
 
+    public TypeObject getTypeObject() {
+        return typeObject;
+    }
+
+    public void setTypeObject(TypeObject typeObject) {
+        this.typeObject = typeObject;
+    }
+
     @Override
     public String toString() {
-        return "TargetObjectService{" +
+        return "TargetObject{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", draggable=" + draggable +
                 ", positionIsChanged=" + positionIsChanged +
                 ", user=" + user +
+                ", typeObject=" + typeObject +
                 '}';
     }
 }

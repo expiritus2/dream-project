@@ -21,7 +21,7 @@ webpackEmptyContext.id = 124;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gendir_app_app_module_ngfactory__ = __webpack_require__(138);
 
 
@@ -126,7 +126,7 @@ var AdminComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_header_header_component__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_translate_src_translate_pipe__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_translate_src_translate_service__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__footer_footer_component_ngfactory__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_footer_footer_component__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_app_component__ = __webpack_require__(90);
@@ -195,10 +195,10 @@ var AppComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" /*
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__not_found_not_found_component_ngfactory__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component_ngfactory__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_platform_browser__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_platform_browser__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_router__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_translate_src_translate_service__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_translate_src_translate_parser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__agm_core_utils_browser_globals__ = __webpack_require__(54);
@@ -389,11 +389,11 @@ var AccessDeniedComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_translate_src_translate_pipe__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_translate_src_translate_service__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_login_login_component__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_auth_service_auth_service__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_router__ = __webpack_require__(16);
 /* unused harmony export RenderType_LoginComponent */
 /* unused harmony export View_LoginComponent_0 */
 /* unused harmony export View_LoginComponent_Host_0 */
@@ -602,10 +602,10 @@ var LoginComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_translate_src_translate_pipe__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_translate_src_translate_service__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_signup_signup_component__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_auth_service_auth_service__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__(12);
 /* unused harmony export RenderType_SignupComponent */
 /* unused harmony export View_SignupComponent_0 */
 /* unused harmony export View_SignupComponent_Host_0 */
@@ -1053,7 +1053,7 @@ var FooterComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__locale_locale_component_ngfactory__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_header_locale_locale_component__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_translate_src_translate_service__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_header_header_component__ = __webpack_require__(92);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_HeaderComponent; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_HeaderComponent_0;
@@ -1121,11 +1121,11 @@ var HeaderComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locale_component_css_shim_ngstyle__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_header_locale_locale_component__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_translate_src_translate_service__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_LocaleComponent; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_LocaleComponent_0;
 /* unused harmony export View_LocaleComponent_Host_0 */
@@ -1362,26 +1362,27 @@ var NotFoundComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_3
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__google_map_component_css_shim_ngstyle__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agm_core_directives_marker__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_marker_manager__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gendir_node_modules_agm_core_directives_info_window_ngfactory__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__agm_core_directives_info_window__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_info_window_manager__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_translate_src_translate_pipe__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ng2_translate_src_translate_service__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_personal_area_google_map_google_map_component__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__gendir_node_modules_agm_core_directives_map_ngfactory__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__agm_core_services_managers_circle_manager__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__agm_core_services_managers_polyline_manager__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_polygon_manager__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_data_layer_manager__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__agm_core_directives_map__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_common__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__app_personal_area_service_target_object_service__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core_directives_marker__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_marker_manager__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gendir_node_modules_agm_core_directives_info_window_ngfactory__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core_directives_info_window__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_info_window_manager__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ng2_translate_src_translate_pipe__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_translate_src_translate_service__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_common__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_personal_area_google_map_google_map_component__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__gendir_node_modules_agm_core_directives_map_ngfactory__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_circle_manager__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_polyline_manager__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_polygon_manager__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__agm_core_services_managers_data_layer_manager__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__agm_core_directives_map__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__app_personal_area_service_target_object_service__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http__ = __webpack_require__(12);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_GoogleMapComponent; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_GoogleMapComponent_0;
 /* unused harmony export View_GoogleMapComponent_Host_0 */
@@ -1414,10 +1415,20 @@ var NotFoundComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_3
 
 
 
+
 var styles_GoogleMapComponent = [__WEBPACK_IMPORTED_MODULE_0__google_map_component_css_shim_ngstyle__["a" /* styles */]];
 var RenderType_GoogleMapComponent = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_27" /* ɵcrt */]({ encapsulation: 0,
     styles: styles_GoogleMapComponent, data: {} });
 function View_GoogleMapComponent_1(_l) {
+    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 3, 'option', [], null, null, null, null, null)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](147456, null, 0, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* NgSelectOption */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["_0" /* Renderer */], [8, null]], { value: [0, 'value'] }, null), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](147456, null, 0, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* ɵq */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_core__["_0" /* Renderer */], [8, null]], { value: [0, 'value'] }, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n']))], function (_ck, _v) {
+        var currVal_0 = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_36" /* ɵinlineInterpolate */](1, '', _v.context.$implicit, '');
+        _ck(_v, 1, 0, currVal_0);
+        var currVal_1 = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_36" /* ɵinlineInterpolate */](1, '', _v.context.$implicit, '');
+        _ck(_v, 2, 0, currVal_1);
+    }, null);
+}
+function View_GoogleMapComponent_2(_l) {
     return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 17, 'agm-marker', [], null, [[null, 'markerClick'], [null, 'mouseOver'],
             [null, 'mouseOut'], [null, 'dragEnd']], function (_v, en, $event) {
             var ad = true;
@@ -1439,9 +1450,9 @@ function View_GoogleMapComponent_1(_l) {
                 ad = (pd_3 && ad);
             }
             return ad;
-        }, null, null)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](1720320, null, 1, __WEBPACK_IMPORTED_MODULE_2__agm_core_directives_marker__["a" /* AgmMarker */], [__WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_marker_manager__["a" /* MarkerManager */]], { latitude: [0, 'latitude'], longitude: [1, 'longitude'], draggable: [2,
+        }, null, null)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](1720320, null, 1, __WEBPACK_IMPORTED_MODULE_3__agm_core_directives_marker__["a" /* AgmMarker */], [__WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_marker_manager__["a" /* MarkerManager */]], { latitude: [0, 'latitude'], longitude: [1, 'longitude'], draggable: [2,
                 'draggable'] }, { markerClick: 'markerClick', dragEnd: 'dragEnd', mouseOver: 'mouseOver',
-            mouseOut: 'mouseOut' }), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_39" /* ɵqud */](603979776, 1, { infoWindow: 1 }), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n    '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 12, 'agm-info-window', [], null, null, null, __WEBPACK_IMPORTED_MODULE_4__gendir_node_modules_agm_core_directives_info_window_ngfactory__["a" /* View_AgmInfoWindow_0 */], __WEBPACK_IMPORTED_MODULE_4__gendir_node_modules_agm_core_directives_info_window_ngfactory__["b" /* RenderType_AgmInfoWindow */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](770048, [[1, 4], ['info', 4]], 0, __WEBPACK_IMPORTED_MODULE_5__agm_core_directives_info_window__["a" /* AgmInfoWindow */], [__WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n      '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, 0, 2, 'p', [], null, null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'strong', [], null, null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['',
+            mouseOut: 'mouseOut' }), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_39" /* ɵqud */](603979776, 1, { infoWindow: 1 }), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n    '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 12, 'agm-info-window', [], null, null, null, __WEBPACK_IMPORTED_MODULE_5__gendir_node_modules_agm_core_directives_info_window_ngfactory__["a" /* View_AgmInfoWindow_0 */], __WEBPACK_IMPORTED_MODULE_5__gendir_node_modules_agm_core_directives_info_window_ngfactory__["b" /* RenderType_AgmInfoWindow */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](770048, [[1, 4], ['info', 4]], 0, __WEBPACK_IMPORTED_MODULE_6__agm_core_directives_info_window__["a" /* AgmInfoWindow */], [__WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n      '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, 0, 2, 'p', [], null, null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'strong', [], null, null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['',
             ''])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n      '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, 0, 1, 'p', [], null, null, null, null, null)),
         (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 0, 'img', [], [[8, 'src',
                 4]], null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n      '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, 0, 1, 'a', [['class', 'deleteMarker']], null, [[null, 'click']], function (_v, en, $event) {
@@ -1467,10 +1478,12 @@ function View_GoogleMapComponent_1(_l) {
     });
 }
 function View_GoogleMapComponent_0(_l) {
-    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'input', [['type',
-                'text']], [[8, 'placeholder', 0]], null, null, null, null)),
-        __WEBPACK_IMPORTED_MODULE_1__angular_core__["_32" /* ɵpid */](131072, __WEBPACK_IMPORTED_MODULE_7_ng2_translate_src_translate_pipe__["a" /* TranslatePipe */], [__WEBPACK_IMPORTED_MODULE_8_ng2_translate_src_translate_service__["b" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["S" /* ChangeDetectorRef */]]),
-        (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n'])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 13, 'agm-map', [], [[2, 'sebm-google-map-container', null]], [[null, 'mapClick']], function (_v, en, $event) {
+    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'input', [['list',
+                'objects'], ['type', 'text']], [[8, 'placeholder', 0]], null, null, null, null)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_32" /* ɵpid */](131072, __WEBPACK_IMPORTED_MODULE_8_ng2_translate_src_translate_pipe__["a" /* TranslatePipe */], [__WEBPACK_IMPORTED_MODULE_9_ng2_translate_src_translate_service__["b" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_core__["S" /* ChangeDetectorRef */]]), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n'])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 3, 'datalist', [['id', 'objects']], null, null, null, null, null)), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n  '])),
+        (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_38" /* ɵand */](16777216, null, null, 1, null, View_GoogleMapComponent_1)),
+        __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](802816, null, 0, __WEBPACK_IMPORTED_MODULE_10__angular_common__["l" /* NgForOf */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["_3" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* TemplateRef */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_core__["l" /* IterableDiffers */]], { ngForOf: [0, 'ngForOf'] }, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n'])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 13, 'agm-map', [], [[2, 'sebm-google-map-container', null]], [[null, 'mapClick']], function (_v, en, $event) {
             var ad = true;
             var _co = _v.component;
             if (('mapClick' === en)) {
@@ -1478,37 +1491,39 @@ function View_GoogleMapComponent_0(_l) {
                 ad = (pd_0 && ad);
             }
             return ad;
-        }, __WEBPACK_IMPORTED_MODULE_10__gendir_node_modules_agm_core_directives_map_ngfactory__["a" /* View_AgmMap_0 */], __WEBPACK_IMPORTED_MODULE_10__gendir_node_modules_agm_core_directives_map_ngfactory__["b" /* RenderType_AgmMap */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_marker_manager__["a" /* MarkerManager */], __WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_marker_manager__["a" /* MarkerManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], __WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */],
-            __WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_marker_manager__["a" /* MarkerManager */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_12__agm_core_services_managers_circle_manager__["a" /* CircleManager */], __WEBPACK_IMPORTED_MODULE_12__agm_core_services_managers_circle_manager__["a" /* CircleManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_13__agm_core_services_managers_polyline_manager__["a" /* PolylineManager */], __WEBPACK_IMPORTED_MODULE_13__agm_core_services_managers_polyline_manager__["a" /* PolylineManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_polygon_manager__["a" /* PolygonManager */], __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_polygon_manager__["a" /* PolygonManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]),
-        __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_kml_layer_manager__["a" /* KmlLayerManager */], __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_kml_layer_manager__["a" /* KmlLayerManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_data_layer_manager__["a" /* DataLayerManager */], __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_data_layer_manager__["a" /* DataLayerManager */], [__WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], [__WEBPACK_IMPORTED_MODULE_17__agm_core_services_maps_api_loader_maps_api_loader__["a" /* MapsAPILoader */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](770048, null, 0, __WEBPACK_IMPORTED_MODULE_18__agm_core_directives_map__["a" /* AgmMap */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_11__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */]], { longitude: [0, 'longitude'],
+        }, __WEBPACK_IMPORTED_MODULE_12__gendir_node_modules_agm_core_directives_map_ngfactory__["a" /* View_AgmMap_0 */], __WEBPACK_IMPORTED_MODULE_12__gendir_node_modules_agm_core_directives_map_ngfactory__["b" /* RenderType_AgmMap */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_marker_manager__["a" /* MarkerManager */], __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_marker_manager__["a" /* MarkerManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_info_window_manager__["a" /* InfoWindowManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */],
+            __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_marker_manager__["a" /* MarkerManager */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_circle_manager__["a" /* CircleManager */], __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_circle_manager__["a" /* CircleManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_polyline_manager__["a" /* PolylineManager */], __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_polyline_manager__["a" /* PolylineManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_polygon_manager__["a" /* PolygonManager */], __WEBPACK_IMPORTED_MODULE_16__agm_core_services_managers_polygon_manager__["a" /* PolygonManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]),
+        __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_17__agm_core_services_managers_kml_layer_manager__["a" /* KmlLayerManager */], __WEBPACK_IMPORTED_MODULE_17__agm_core_services_managers_kml_layer_manager__["a" /* KmlLayerManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_18__agm_core_services_managers_data_layer_manager__["a" /* DataLayerManager */], __WEBPACK_IMPORTED_MODULE_18__agm_core_services_managers_data_layer_manager__["a" /* DataLayerManager */], [__WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], __WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */], [__WEBPACK_IMPORTED_MODULE_19__agm_core_services_maps_api_loader_maps_api_loader__["a" /* MapsAPILoader */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["q" /* NgZone */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](770048, null, 0, __WEBPACK_IMPORTED_MODULE_20__agm_core_directives_map__["a" /* AgmMap */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["P" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_13__agm_core_services_google_maps_api_wrapper__["a" /* GoogleMapsAPIWrapper */]], { longitude: [0, 'longitude'],
             latitude: [1, 'latitude'], zoom: [2, 'zoom'], disableDefaultUI: [3, 'disableDefaultUI'],
-            zoomControl: [4, 'zoomControl'], fullscreenControl: [5, 'fullscreenControl'] }, { mapClick: 'mapClick' }), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n  '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_38" /* ɵand */](16777216, null, 0, 1, null, View_GoogleMapComponent_1)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](802816, null, 0, __WEBPACK_IMPORTED_MODULE_19__angular_common__["l" /* NgForOf */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["_3" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* TemplateRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["l" /* IterableDiffers */]], { ngForOf: [0, 'ngForOf'] }, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n'])), (_l()(),
+            zoomControl: [4, 'zoomControl'], fullscreenControl: [5, 'fullscreenControl'] }, { mapClick: 'mapClick' }), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n  '])), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_38" /* ɵand */](16777216, null, 0, 1, null, View_GoogleMapComponent_2)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](802816, null, 0, __WEBPACK_IMPORTED_MODULE_10__angular_common__["l" /* NgForOf */], [__WEBPACK_IMPORTED_MODULE_1__angular_core__["_3" /* ViewContainerRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["_10" /* TemplateRef */], __WEBPACK_IMPORTED_MODULE_1__angular_core__["l" /* IterableDiffers */]], { ngForOf: [0, 'ngForOf'] }, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](0, ['\n'])), (_l()(),
             __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n']))], function (_ck, _v) {
         var _co = _v.component;
-        var currVal_2 = _co.lng;
-        var currVal_3 = _co.lat;
-        var currVal_4 = _co.zoom;
-        var currVal_5 = false;
+        var currVal_1 = _co.namesObjects;
+        _ck(_v, 6, 0, currVal_1);
+        var currVal_3 = _co.lng;
+        var currVal_4 = _co.lat;
+        var currVal_5 = _co.zoom;
         var currVal_6 = false;
-        var currVal_7 = true;
-        _ck(_v, 12, 0, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7);
-        var currVal_8 = _co.markers;
-        _ck(_v, 15, 0, currVal_8);
+        var currVal_7 = false;
+        var currVal_8 = true;
+        _ck(_v, 17, 0, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8);
+        var currVal_9 = _co.markers;
+        _ck(_v, 20, 0, currVal_9);
     }, function (_ck, _v) {
         var currVal_0 = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_36" /* ɵinlineInterpolate */](1, '', __WEBPACK_IMPORTED_MODULE_1__angular_core__["_33" /* ɵunv */](_v, 0, 0, __WEBPACK_IMPORTED_MODULE_1__angular_core__["_34" /* ɵnov */](_v, 1).transform('PersonalArea.InputNameObject')), '');
         _ck(_v, 0, 0, currVal_0);
-        var currVal_1 = true;
-        _ck(_v, 3, 0, currVal_1);
+        var currVal_2 = true;
+        _ck(_v, 8, 0, currVal_2);
     });
 }
 function View_GoogleMapComponent_Host_0(_l) {
-    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'app-google-map', [], null, null, null, View_GoogleMapComponent_0, RenderType_GoogleMapComponent)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_9__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], [__WEBPACK_IMPORTED_MODULE_20__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], __WEBPACK_IMPORTED_MODULE_21__angular_router__["c" /* Router */]], null, null)], function (_ck, _v) {
-        _ck(_v, 1, 0);
+    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 2, 'app-google-map', [], null, null, null, View_GoogleMapComponent_0, RenderType_GoogleMapComponent)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_21__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], __WEBPACK_IMPORTED_MODULE_21__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], [__WEBPACK_IMPORTED_MODULE_22__angular_http__["i" /* Http */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_11__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], [__WEBPACK_IMPORTED_MODULE_21__app_personal_area_service_target_object_service__["a" /* TargetObjectService */]], null, null)], function (_ck, _v) {
+        _ck(_v, 2, 0);
     }, null);
 }
-var GoogleMapComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" /* ɵccf */]('app-google-map', __WEBPACK_IMPORTED_MODULE_9__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], View_GoogleMapComponent_Host_0, {}, {}, []);
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50LnRzIiwibmc6Ly8vaG9tZS91YnVudHUvSWRlYVByb2plY3RzL2RyZWFtLXByb2plY3QvZnJvbnRlbmQvc3JjL2FwcC9wZXJzb25hbC1hcmVhL2dvb2dsZS1tYXAvZ29vZ2xlLW1hcC5jb21wb25lbnQuaHRtbCIsIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50LnRzLkdvb2dsZU1hcENvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIjxpbnB1dCB0eXBlPVwidGV4dFwiIHBsYWNlaG9sZGVyPVwie3sgJ1BlcnNvbmFsQXJlYS5JbnB1dE5hbWVPYmplY3QnIHwgdHJhbnNsYXRlIH19XCI+XG48YWdtLW1hcFxuICBbbGF0aXR1ZGVdPVwibGF0XCJcbiAgW2xvbmdpdHVkZV09XCJsbmdcIlxuICBbem9vbV09XCJ6b29tXCJcbiAgW2Rpc2FibGVEZWZhdWx0VUldPVwiZmFsc2VcIlxuICBbem9vbUNvbnRyb2xdPVwiZmFsc2VcIlxuICBbZnVsbHNjcmVlbkNvbnRyb2xdPVwidHJ1ZVwiXG4gIChtYXBDbGljayk9XCJvbk1hcENsaWNrZWQoJGV2ZW50KVwiPlxuICA8YWdtLW1hcmtlclxuICAgICpuZ0Zvcj1cImxldCBtYXJrZXIgb2YgbWFya2VyczsgbGV0IGkgPSBpbmRleFwiXG4gICAgW2xhdGl0dWRlXT1cIm1hcmtlci5sYXRcIlxuICAgIFtsb25naXR1ZGVdPVwibWFya2VyLmxuZ1wiXG4gICAgW21hcmtlckRyYWdnYWJsZV09XCJtYXJrZXIuZHJhZ2dhYmxlXCJcbiAgICAobWFya2VyQ2xpY2spPVwib25DbGlja01hcmtlcihtYXJrZXIsIGkpXCJcbiAgICAobW91c2VPdmVyKT1cIm9uSG92ZXJNYXJrZXIoJGV2ZW50LCBpbmZvKVwiXG4gICAgKG1vdXNlT3V0KT1cIm9uTW91c2VPdXQoJGV2ZW50LCBpbmZvKVwiXG4gICAgKGRyYWdFbmQpPVwib25NYXJrZXJEcmFnRW5kKG1hcmtlciwgJGV2ZW50KVwiXG4gID5cbiAgICA8YWdtLWluZm8td2luZG93ICNpbmZvPlxuICAgICAgPHA+PHN0cm9uZz57eyBtYXJrZXIubmFtZSB9fTwvc3Ryb25nPjwvcD5cbiAgICAgIDxwPjxpbWcgc3JjPVwie3sgbWFya2VyLmZpbGVuYW1lIH19XCI+PC9wPlxuICAgICAgPGEgY2xhc3M9XCJkZWxldGVNYXJrZXJcIiAoY2xpY2spPVwib25EZWxldGVNYXJrZXIobWFya2VyLCBpKVwiPkRlbGV0ZTwvYT5cbiAgICA8L2FnbS1pbmZvLXdpbmRvdz5cbiAgPC9hZ20tbWFya2VyPlxuPC9hZ20tbWFwPlxuIiwiPGFwcC1nb29nbGUtbWFwPjwvYXBwLWdvb2dsZS1tYXA+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztvQkNTRTtNQUFBO1VBQUE7UUFBQTtRQUFBO1FBS0U7VUFBQTtVQUFBO1FBQUE7UUFDQTtVQUFBO1VBQUE7UUFBQTtRQUNBO1VBQUE7VUFBQTtRQUFBO1FBQ0E7VUFBQTtVQUFBO1FBQUE7UUFSRjtNQUFBLHVDQUFBO01BQUE7VUFBQTtVQUFBLDBEQVNDO01BQUEsYUFDQztNQUFBO2lDQUFBLFVBQUE7TUFBQSxrRUFBdUI7TUFBQSxlQUNyQjtNQUFBLDBEQUFHO01BQUE7TUFBQSw0Q0FBUTtNQUFBLE1BQThCLGlDQUN6QztNQUFBO01BQUc7VUFBQSw4REFBcUM7VUFBQSxlQUN4QztVQUFBO1lBQUE7WUFBQTtZQUF3QjtjQUFBO2NBQUE7WUFBQTtZQUF4QjtVQUFBLGdDQUE0RDtNQUFVLCtCQUN0RDs7SUFabEI7SUFDQTtJQUNBO0lBSkYsV0FFRSxVQUNBLFVBQ0EsU0FKRjtJQVVFOztJQUNhO0lBQUE7SUFDSDtRQUFBO0lBQUwsWUFBSyxTQUFMOzs7O29CQXJCVDtNQUFBO2FBQW1CO01BQStELHVDQUNsRjtVQUFBO1VBQUE7WUFBQTtZQUFBO1lBT0U7Y0FBQTtjQUFBO1lBQUE7WUFQRjtVQUFBOzJCQUFBO29EQUFBOzhCQUFBO1VBQUE7OEJBQUE7Z0RBQUE7YUFBQTttQkFBQTtVQUFBO21DQUFBLHNDQUFBO1VBQUE7Y0FBQTtjQUFBO1VBQUEsdUJBT29DLDZCQUNsQztVQUFBLG1FQUFBO1VBQUE7VUFBQSx1Q0FlYSwyQkFDTDtpQkFBQTs7SUF0QlI7SUFEQTtJQUVBO0lBQ0E7SUFDQTtJQUNBO0lBTkYsWUFFRSxVQURBLFVBRUEsVUFDQSxVQUNBLFVBQ0EsU0FORjtJQVNJO0lBREYsWUFDRSxTQURGOztJQVRpQjtRQUFBO0lBQW5CLFdBQW1CLFNBQW5CO0lBQ0E7SUFBQSxXQUFBLFNBQUE7Ozs7b0JDREE7TUFBQTttQ0FBQSxVQUFBO01BQUE7SUFBQTs7OzsifQ==
+var GoogleMapComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" /* ɵccf */]('app-google-map', __WEBPACK_IMPORTED_MODULE_11__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], View_GoogleMapComponent_Host_0, {}, {}, []);
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50LnRzIiwibmc6Ly8vaG9tZS91YnVudHUvSWRlYVByb2plY3RzL2RyZWFtLXByb2plY3QvZnJvbnRlbmQvc3JjL2FwcC9wZXJzb25hbC1hcmVhL2dvb2dsZS1tYXAvZ29vZ2xlLW1hcC5jb21wb25lbnQuaHRtbCIsIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9nb29nbGUtbWFwL2dvb2dsZS1tYXAuY29tcG9uZW50LnRzLkdvb2dsZU1hcENvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIjxpbnB1dCBsaXN0PVwib2JqZWN0c1wiIHR5cGU9XCJ0ZXh0XCIgcGxhY2Vob2xkZXI9XCJ7eyAnUGVyc29uYWxBcmVhLklucHV0TmFtZU9iamVjdCcgfCB0cmFuc2xhdGUgfX1cIj5cbjxkYXRhbGlzdCBpZD1cIm9iamVjdHNcIj5cbiAgPG9wdGlvbiAqbmdGb3I9XCJsZXQgbmFtZSBvZiBuYW1lc09iamVjdHNcIiB2YWx1ZT1cInt7IG5hbWUgfX1cIj5cbjwvZGF0YWxpc3Q+XG48YWdtLW1hcFxuICBbbGF0aXR1ZGVdPVwibGF0XCJcbiAgW2xvbmdpdHVkZV09XCJsbmdcIlxuICBbem9vbV09XCJ6b29tXCJcbiAgW2Rpc2FibGVEZWZhdWx0VUldPVwiZmFsc2VcIlxuICBbem9vbUNvbnRyb2xdPVwiZmFsc2VcIlxuICBbZnVsbHNjcmVlbkNvbnRyb2xdPVwidHJ1ZVwiXG4gIChtYXBDbGljayk9XCJvbk1hcENsaWNrZWQoJGV2ZW50KVwiPlxuICA8YWdtLW1hcmtlclxuICAgICpuZ0Zvcj1cImxldCBtYXJrZXIgb2YgbWFya2VyczsgbGV0IGkgPSBpbmRleFwiXG4gICAgW2xhdGl0dWRlXT1cIm1hcmtlci5sYXRcIlxuICAgIFtsb25naXR1ZGVdPVwibWFya2VyLmxuZ1wiXG4gICAgW21hcmtlckRyYWdnYWJsZV09XCJtYXJrZXIuZHJhZ2dhYmxlXCJcbiAgICAobWFya2VyQ2xpY2spPVwib25DbGlja01hcmtlcihtYXJrZXIsIGkpXCJcbiAgICAobW91c2VPdmVyKT1cIm9uSG92ZXJNYXJrZXIoJGV2ZW50LCBpbmZvKVwiXG4gICAgKG1vdXNlT3V0KT1cIm9uTW91c2VPdXQoJGV2ZW50LCBpbmZvKVwiXG4gICAgKGRyYWdFbmQpPVwib25NYXJrZXJEcmFnRW5kKG1hcmtlciwgJGV2ZW50KVwiXG4gID5cbiAgICA8YWdtLWluZm8td2luZG93ICNpbmZvPlxuICAgICAgPHA+PHN0cm9uZz57eyBtYXJrZXIubmFtZSB9fTwvc3Ryb25nPjwvcD5cbiAgICAgIDxwPjxpbWcgc3JjPVwie3sgbWFya2VyLmZpbGVuYW1lIH19XCI+PC9wPlxuICAgICAgPGEgY2xhc3M9XCJkZWxldGVNYXJrZXJcIiAoY2xpY2spPVwib25EZWxldGVNYXJrZXIobWFya2VyLCBpKVwiPkRlbGV0ZTwvYT5cbiAgICA8L2FnbS1pbmZvLXdpbmRvdz5cbiAgPC9hZ20tbWFya2VyPlxuPC9hZ20tbWFwPlxuIiwiPGFwcC1nb29nbGUtbWFwPjwvYXBwLWdvb2dsZS1tYXA+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDRUU7TUFBQSwrRUFBQTtNQUFBO01BQUEsMENBQUE7a0JBQUEsc0RBQTZEO01BQUE7SUFBbkI7SUFBMUMsV0FBMEMsU0FBMUM7SUFBMEM7SUFBMUMsV0FBMEMsU0FBMUM7Ozs7b0JBVUE7TUFBQTtVQUFBO1FBQUE7UUFBQTtRQUtFO1VBQUE7VUFBQTtRQUFBO1FBQ0E7VUFBQTtVQUFBO1FBQUE7UUFDQTtVQUFBO1VBQUE7UUFBQTtRQUNBO1VBQUE7VUFBQTtRQUFBO1FBUkY7TUFBQSx1Q0FBQTtNQUFBO1VBQUE7VUFBQSwwREFTQztNQUFBLGFBQ0M7TUFBQTtpQ0FBQSxVQUFBO01BQUEsa0VBQXVCO01BQUEsZUFDckI7TUFBQSwwREFBRztNQUFBO01BQUEsNENBQVE7TUFBQSxNQUE4QixpQ0FDekM7TUFBQTtNQUFHO1VBQUEsOERBQXFDO1VBQUEsZUFDeEM7VUFBQTtZQUFBO1lBQUE7WUFBd0I7Y0FBQTtjQUFBO1lBQUE7WUFBeEI7VUFBQSxnQ0FBNEQ7TUFBVSwrQkFDdEQ7O0lBWmxCO0lBQ0E7SUFDQTtJQUpGLFdBRUUsVUFDQSxVQUNBLFNBSkY7SUFVRTs7SUFDYTtJQUFBO0lBQ0g7UUFBQTtJQUFMLFlBQUssU0FBTDs7OztvQkF4QlQ7TUFBQTtNQUFBLHFDQUFrQzswQkFBQSxHQUErRCx1Q0FDakc7TUFBQTtNQUFBLDRDQUF1QjtNQUNyQjthQUFBOzRCQUFBLHlDQUNTO1VBQUEsU0FDWDtVQUFBO1VBQUE7WUFBQTtZQUFBO1lBT0U7Y0FBQTtjQUFBO1lBQUE7WUFQRjtVQUFBOzJCQUFBO29EQUFBOzhCQUFBO1VBQUE7OEJBQUE7Z0RBQUE7YUFBQTttQkFBQTtVQUFBO21DQUFBLHNDQUFBO1VBQUE7Y0FBQTtjQUFBO1VBQUEsdUJBT29DLDZCQUNsQztVQUFBLG1FQUFBO1VBQUE7VUFBQSx1Q0FlYSwyQkFDTDtpQkFBQTs7SUExQkE7SUFBUixXQUFRLFNBQVI7SUFJQTtJQURBO0lBRUE7SUFDQTtJQUNBO0lBQ0E7SUFORixZQUVFLFVBREEsVUFFQSxVQUNBLFVBQ0EsVUFDQSxTQU5GO0lBU0k7SUFERixZQUNFLFNBREY7O0lBWmdDO1FBQUE7SUFBbEMsV0FBa0MsU0FBbEM7SUFJQTtJQUFBLFdBQUEsU0FBQTs7OztvQkNKQTtNQUFBO21DQUFBOzhCQUFBLG1CQUFBO01BQUE7SUFBQTs7OzsifQ==
 //# sourceMappingURL=google-map.component.ngfactory.js.map
 
 /***/ }),
@@ -1541,11 +1556,10 @@ var GoogleMapComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__personal_area_component_css_shim_ngstyle__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_map_google_map_component_ngfactory__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_personal_area_google_map_google_map_component__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_personal_area_service_target_object_service__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_personal_area_personal_area_component__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_target_object_service__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_personal_area_google_map_google_map_component__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_personal_area_personal_area_component__ = __webpack_require__(61);
 /* unused harmony export RenderType_PersonalAreaComponent */
 /* unused harmony export View_PersonalAreaComponent_0 */
 /* unused harmony export View_PersonalAreaComponent_Host_0 */
@@ -1563,22 +1577,21 @@ var GoogleMapComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_
 
 
 
-
 var styles_PersonalAreaComponent = [__WEBPACK_IMPORTED_MODULE_0__personal_area_component_css_shim_ngstyle__["a" /* styles */]];
 var RenderType_PersonalAreaComponent = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_27" /* ɵcrt */]({ encapsulation: 0,
     styles: styles_PersonalAreaComponent, data: {} });
 function View_PersonalAreaComponent_0(_l) {
-    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'app-google-map', [], null, null, null, __WEBPACK_IMPORTED_MODULE_2__google_map_google_map_component_ngfactory__["a" /* View_GoogleMapComponent_0 */], __WEBPACK_IMPORTED_MODULE_2__google_map_google_map_component_ngfactory__["b" /* RenderType_GoogleMapComponent */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_3__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], [__WEBPACK_IMPORTED_MODULE_4__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n']))], function (_ck, _v) {
-        _ck(_v, 1, 0);
-    }, null);
-}
-function View_PersonalAreaComponent_Host_0(_l) {
-    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 2, 'app-personal-area', [], null, null, null, View_PersonalAreaComponent_0, RenderType_PersonalAreaComponent)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](4608, null, __WEBPACK_IMPORTED_MODULE_4__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], __WEBPACK_IMPORTED_MODULE_4__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], [__WEBPACK_IMPORTED_MODULE_6__angular_http__["i" /* Http */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_7__app_personal_area_personal_area_component__["a" /* PersonalAreaComponent */], [], null, null)], function (_ck, _v) {
+    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 2, 'app-google-map', [], null, null, null, __WEBPACK_IMPORTED_MODULE_2__google_map_google_map_component_ngfactory__["a" /* View_GoogleMapComponent_0 */], __WEBPACK_IMPORTED_MODULE_2__google_map_google_map_component_ngfactory__["b" /* RenderType_GoogleMapComponent */])), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_37" /* ɵprd */](512, null, __WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], __WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_target_object_service__["a" /* TargetObjectService */], [__WEBPACK_IMPORTED_MODULE_4__angular_http__["i" /* Http */]]), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_5__app_personal_area_google_map_google_map_component__["a" /* GoogleMapComponent */], [__WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_target_object_service__["a" /* TargetObjectService */]], null, null), (_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_31" /* ɵted */](null, ['\n']))], function (_ck, _v) {
         _ck(_v, 2, 0);
     }, null);
 }
-var PersonalAreaComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" /* ɵccf */]('app-personal-area', __WEBPACK_IMPORTED_MODULE_7__app_personal_area_personal_area_component__["a" /* PersonalAreaComponent */], View_PersonalAreaComponent_Host_0, {}, {}, []);
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9wZXJzb25hbC1hcmVhLmNvbXBvbmVudC5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9ob21lL3VidW50dS9JZGVhUHJvamVjdHMvZHJlYW0tcHJvamVjdC9mcm9udGVuZC9zcmMvYXBwL3BlcnNvbmFsLWFyZWEvcGVyc29uYWwtYXJlYS5jb21wb25lbnQudHMiLCJuZzovLy9ob21lL3VidW50dS9JZGVhUHJvamVjdHMvZHJlYW0tcHJvamVjdC9mcm9udGVuZC9zcmMvYXBwL3BlcnNvbmFsLWFyZWEvcGVyc29uYWwtYXJlYS5jb21wb25lbnQuaHRtbCIsIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9wZXJzb25hbC1hcmVhLmNvbXBvbmVudC50cy5QZXJzb25hbEFyZWFDb21wb25lbnRfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCI8YXBwLWdvb2dsZS1tYXA+PC9hcHAtZ29vZ2xlLW1hcD5cbiIsIjxhcHAtcGVyc29uYWwtYXJlYT48L2FwcC1wZXJzb25hbC1hcmVhPiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ0FBO01BQUE7c0NBQUEsVUFBQTtNQUFBLGdFQUFpQztNQUFBO0lBQWpDOzs7O29CQ0FBO01BQUE7c0NBQUE7NkJBQUEsa0JBQUE7TUFBQTtJQUFBOzs7OyJ9
+function View_PersonalAreaComponent_Host_0(_l) {
+    return __WEBPACK_IMPORTED_MODULE_1__angular_core__["_28" /* ɵvid */](0, [(_l()(), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_29" /* ɵeld */](0, null, null, 1, 'app-personal-area', [], null, null, null, View_PersonalAreaComponent_0, RenderType_PersonalAreaComponent)), __WEBPACK_IMPORTED_MODULE_1__angular_core__["_30" /* ɵdid */](114688, null, 0, __WEBPACK_IMPORTED_MODULE_6__app_personal_area_personal_area_component__["a" /* PersonalAreaComponent */], [], null, null)], function (_ck, _v) {
+        _ck(_v, 1, 0);
+    }, null);
+}
+var PersonalAreaComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["_35" /* ɵccf */]('app-personal-area', __WEBPACK_IMPORTED_MODULE_6__app_personal_area_personal_area_component__["a" /* PersonalAreaComponent */], View_PersonalAreaComponent_Host_0, {}, {}, []);
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9wZXJzb25hbC1hcmVhLmNvbXBvbmVudC5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9ob21lL3VidW50dS9JZGVhUHJvamVjdHMvZHJlYW0tcHJvamVjdC9mcm9udGVuZC9zcmMvYXBwL3BlcnNvbmFsLWFyZWEvcGVyc29uYWwtYXJlYS5jb21wb25lbnQudHMiLCJuZzovLy9ob21lL3VidW50dS9JZGVhUHJvamVjdHMvZHJlYW0tcHJvamVjdC9mcm9udGVuZC9zcmMvYXBwL3BlcnNvbmFsLWFyZWEvcGVyc29uYWwtYXJlYS5jb21wb25lbnQuaHRtbCIsIm5nOi8vL2hvbWUvdWJ1bnR1L0lkZWFQcm9qZWN0cy9kcmVhbS1wcm9qZWN0L2Zyb250ZW5kL3NyYy9hcHAvcGVyc29uYWwtYXJlYS9wZXJzb25hbC1hcmVhLmNvbXBvbmVudC50cy5QZXJzb25hbEFyZWFDb21wb25lbnRfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCI8YXBwLWdvb2dsZS1tYXA+PC9hcHAtZ29vZ2xlLW1hcD5cbiIsIjxhcHAtcGVyc29uYWwtYXJlYT48L2FwcC1wZXJzb25hbC1hcmVhPiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7TUFBQTtzQ0FBQTs2QkFBQSxrQkFBQTtNQUFBLHNEQUFpQztNQUFBO0lBQWpDOzs7O29CQ0FBO01BQUE7c0NBQUEsVUFBQTtNQUFBO0lBQUE7Ozs7In0=
 //# sourceMappingURL=personal-area.component.ngfactory.js.map
 
 /***/ }),
@@ -1588,7 +1601,7 @@ var PersonalAreaComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__agm_core_directives_info_window__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__agm_core_directives_info_window__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agm_core_services_managers_info_window_manager__ = __webpack_require__(23);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_AgmInfoWindow; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_AgmInfoWindow_0;
@@ -1631,11 +1644,11 @@ var AgmInfoWindowNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["_35" /
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__agm_core_services_managers_marker_manager__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agm_core_services_google_maps_api_wrapper__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core_services_managers_info_window_manager__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_circle_manager__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__agm_core_services_managers_polyline_manager__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_polygon_manager__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__agm_core_services_managers_data_layer_manager__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core_services_managers_circle_manager__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__agm_core_services_managers_polyline_manager__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core_services_managers_polygon_manager__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__agm_core_services_managers_data_layer_manager__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__agm_core_directives_map__ = __webpack_require__(52);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_AgmMap; });
@@ -1802,7 +1815,7 @@ module.exports = __webpack_require__(125);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(96);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 
@@ -1875,7 +1888,7 @@ var AccessDeniedComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_auth_service__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 
 
@@ -2016,7 +2029,7 @@ var PersonalAreaComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_marker_model__ = __webpack_require__(95);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TargetObjectService; });
@@ -2026,10 +2039,12 @@ var PersonalAreaComponent = (function () {
 var TargetObjectService = (function () {
     function TargetObjectService(http) {
         this.http = http;
-        this.markers = [];
     }
     TargetObjectService.prototype.findOwnObjects = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].HOST + "/api/target/findOwn", { withCredentials: true });
+    };
+    TargetObjectService.prototype.findAllExistsNamesObjects = function () {
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].HOST + "/api/target/findAllExistsNames", { withCredentials: true });
     };
     TargetObjectService.prototype.packObjects = function (objects) {
         var markers = [];
@@ -2037,7 +2052,7 @@ var TargetObjectService = (function () {
         for (var i = 0; i < countObjects; i++) {
             var object = objects[i];
             var id = object.id;
-            var name = object.name;
+            var name = object.typeObject.name;
             var fileName = object.filename;
             var lat = object.latitude;
             var lng = object.longitude;
@@ -2114,7 +2129,7 @@ var HeaderComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ng2_translate__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocaleComponent; });
 
 
@@ -2170,15 +2185,12 @@ var LocaleComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__model_marker_model__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_target_object_service__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(9);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleMapComponent; });
 
 
-
 var GoogleMapComponent = (function () {
-    function GoogleMapComponent(targetObjectService, router) {
+    function GoogleMapComponent(targetObjectService) {
         this.targetObjectService = targetObjectService;
-        this.router = router;
         this.zoom = 10;
         this.lat = 53.837918599999995;
         this.lng = 27.647920400000004;
@@ -2190,6 +2202,13 @@ var GoogleMapComponent = (function () {
             .subscribe(function (response) {
             _this.markers = _this.targetObjectService.packObjects(response.json());
         }, function (err) {
+        });
+        this.targetObjectService.findAllExistsNamesObjects()
+            .subscribe(function (response) {
+            _this.namesObjects = response.json();
+            console.info(_this.namesObjects);
+        }, function (err) {
+            console.info(err);
         });
     };
     GoogleMapComponent.prototype.setCurrentPosition = function () {
@@ -2221,7 +2240,7 @@ var GoogleMapComponent = (function () {
         marker.lng = event.coords.lng;
         marker.positionIsChanged = true;
     };
-    GoogleMapComponent.ctorParameters = function () { return [{ type: __WEBPACK_IMPORTED_MODULE_1__service_target_object_service__["a" /* TargetObjectService */] }, { type: __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] }]; };
+    GoogleMapComponent.ctorParameters = function () { return [{ type: __WEBPACK_IMPORTED_MODULE_1__service_target_object_service__["a" /* TargetObjectService */] }]; };
     return GoogleMapComponent;
 }());
 

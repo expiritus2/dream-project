@@ -6,8 +6,6 @@ import {Marker} from "../model/marker.model";
 @Injectable()
 export class TargetObjectService{
 
-  markers: Marker[] = [];
-
   constructor(private http: Http){
   }
 
@@ -15,13 +13,18 @@ export class TargetObjectService{
     return this.http.get(WebConfig.HOST + "/api/target/findOwn", {withCredentials: true});
   }
 
+  findAllExistsNamesObjects(){
+    return this.http.get(WebConfig.HOST + "/api/target/findAllExistsNames", {withCredentials: true});
+  }
+
   packObjects(objects: any): Marker[]{
     let markers: Marker[] = [];
     let countObjects = objects.length;
+    let lang = localStorage.getItem("language");
     for(let i = 0; i < countObjects; i++){
       let object = objects[i];
       let id = object.id;
-      let name = object.name;
+      let name = lang == "en" ? object.typeObject.nameEn : object.typeObject.nameRu;
       let fileName = object.filename;
       let lat = object.latitude;
       let lng = object.longitude;

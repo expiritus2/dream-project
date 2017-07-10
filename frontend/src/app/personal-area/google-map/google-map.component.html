@@ -1,4 +1,8 @@
-<input type="text" placeholder="{{ 'PersonalArea.InputNameObject' | translate }}">
+<input list="objects" type="text" placeholder="{{ 'PersonalArea.InputNameObject' | translate }}">
+<datalist id="objects">
+  <option *ngFor="let object of namesObjects" value="{{ object.nameEn }}">
+  <option *ngFor="let object of namesObjects" value="{{ object.nameRu }}">
+</datalist>
 <agm-map
   [latitude]="lat"
   [longitude]="lng"
