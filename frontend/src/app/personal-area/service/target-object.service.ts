@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Headers, RequestOptions, Http} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 

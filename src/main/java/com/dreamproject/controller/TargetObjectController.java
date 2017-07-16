@@ -3,15 +3,18 @@ package com.dreamproject.controller;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.entity.TypeObject;
 import com.dreamproject.entity.User;
+import com.dreamproject.service.FileUploadService;
 import com.dreamproject.service.TargetObjectService;
 import com.dreamproject.service.TypeObjectService;
 import com.dreamproject.service.UserService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.List;
@@ -30,14 +33,23 @@ public class TargetObjectController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private FileUploadService fileUploadService;
+
     @RequestMapping(value = "/findOwn", method = RequestMethod.GET)
-    public List<TargetObject> getObjects(Principal principal){
+    public List<TargetObject> getObjects(Principal principal) {
         User user = userService.findByUsername(principal.getName());
         return targetObjectService.findObjectByUserId(user.getUserId());
     }
 
     @RequestMapping(value = "/findAllExistsNames", method = RequestMethod.GET)
-    public List<TypeObject> getAllExistsNamesObjects(){
+    public List<TypeObject> getAllExistsNamesObjects() {
         return typeObjectService.findAll();
+    }
+
+
+    @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files) {
+        return fileUploadService.uploadFiles(files);
     }
 }

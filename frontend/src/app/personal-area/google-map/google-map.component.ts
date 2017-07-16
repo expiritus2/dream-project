@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, OnInit} from "@angular/core";
+import {Component, EventEmitter, OnInit} from "@angular/core";
 import {Marker} from "../model/marker.model";
 import {Response} from "@angular/http";
 import {TargetObjectService} from "../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
+import "rxjs/Rx";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-google-map',
@@ -19,7 +21,6 @@ export class GoogleMapComponent implements OnInit {
   public lng = 27.647920400000004;
 
   markers: Marker[];
-  namesObjects: string[];
 
 
   constructor(private targetObjectService: TargetObjectService) {
@@ -34,17 +35,6 @@ export class GoogleMapComponent implements OnInit {
         },
         (err) => {
 
-        }
-      );
-
-    this.targetObjectService.findAllExistsNamesObjects()
-      .subscribe(
-        (response: Response) => {
-          this.namesObjects = response.json();
-          console.info(response.json());
-        },
-        (err) => {
-          console.info(err);
         }
       );
   }

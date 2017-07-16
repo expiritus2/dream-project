@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div>
+    <input list="objects" type="text" placeholder="{{ 'PersonalArea.InputNameObject' | translate }}">
+    <datalist id="objects">
+      <option *ngFor="let object of namesObjects" value="{{ object.nameEn }}">
+      <option *ngFor="let object of namesObjects" value="{{ object.nameRu }}">
+    </datalist>
+  </div>
+  <div>
+    <p><label for="imageObject">{{ 'PersonalArea.InputFileLabel' | translate }}</label></p>
+    <p><input (change)="onFileChange($event)" type="file" name="file" [multiple]="true" id="imageObject"></p>
+  </div>
+</form>

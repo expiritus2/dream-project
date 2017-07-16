@@ -19,6 +19,7 @@
     "InvalidEmail": "Please enter a valid email"
   },
   "PersonalArea": {
-    "InputNameObject": "Enter the name of the object you are looking for"
+    "InputNameObject": "Enter the name of the object you are looking for",
+    "InputFileLabel": "Please upload image of search object"
   }
 }

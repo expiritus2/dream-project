@@ -1,0 +1,19 @@
+import {Injectable} from "@angular/core";
+import {WebConfig} from "../../webconfig.config";
+import {Http} from "@angular/http";
+
+@Injectable()
+export class FileUploadService{
+
+  constructor(private http: Http){}
+
+  uploadImage(file: File){
+      let formData: FormData = new FormData();
+      formData.append("file", file, file.name);
+      let headers = new Headers();
+      headers.append('Content-Type', 'multipart/form-data');
+      headers.append('Accept', 'application/json');
+      return this.http.post(WebConfig.HOST + "/api/target/uploadImage", formData);
+  }
+
+}

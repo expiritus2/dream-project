@@ -17,6 +17,7 @@ import {LocaleComponent} from "./header/locale/locale.component";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {GoogleMapComponent} from "./personal-area/google-map/google-map.component";
+import { InfoTargetObjectComponent } from './personal-area/info-target-object/info-target-object.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -35,7 +36,8 @@ export function createTranslateLoader(http: Http) {
     LocaleComponent,
     HeaderComponent,
     FooterComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    InfoTargetObjectComponent
   ],
   imports: [
     BrowserModule,

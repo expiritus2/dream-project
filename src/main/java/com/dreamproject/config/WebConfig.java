@@ -9,6 +9,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -33,6 +34,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
             container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND,
                     "/notFound"));
         };
+    }
+
+    private int maxUploadSizeInMb = 5 * 1024 * 1024;
+
+    @Bean
+    public CommonsMultipartResolver multipartResolver() {
+
+        CommonsMultipartResolver cmr = new CommonsMultipartResolver();
+        cmr.setMaxUploadSize(maxUploadSizeInMb * 2);
+        cmr.setMaxUploadSizePerFile(maxUploadSizeInMb); //bytes
+        return cmr;
+
     }
 
 
