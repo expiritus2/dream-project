@@ -7,6 +7,7 @@ import com.dreamproject.service.FileUploadService;
 import com.dreamproject.service.TargetObjectService;
 import com.dreamproject.service.TypeObjectService;
 import com.dreamproject.service.UserService;
+import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class TargetObjectController {
 
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files) {
-        return fileUploadService.uploadFiles(files);
+    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, HttpServletRequest request) {
+        return fileUploadService.uploadFiles(files, request);
     }
 }

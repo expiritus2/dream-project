@@ -2,9 +2,9 @@ package com.dreamproject.entity;
 
 import com.dreamproject.config.WebConfig;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = WebConfig.PREFIX + "target_object")
@@ -14,7 +14,10 @@ public class TargetObject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String fileName;
+    @OneToMany(mappedBy = "targetObject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<ImageObject> imageObject;
+
     private double latitude;
     private double longitude;
     private boolean draggable = false;
@@ -33,9 +36,8 @@ public class TargetObject {
     }
 
 
-    public TargetObject(TypeObject typeObject, String fileName, double latitude, double longitude, User user) {
+    public TargetObject(TypeObject typeObject, double latitude, double longitude, User user) {
         this.typeObject = typeObject;
-        this.fileName = fileName;
         this.latitude = latitude;
         this.longitude = longitude;
         this.user = user;
@@ -50,12 +52,12 @@ public class TargetObject {
         this.id = id;
     }
 
-    public String getFileName() {
-        return fileName;
+    public List<ImageObject> getImageObject() {
+        return imageObject;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setImageObject(List<ImageObject> imageObject) {
+        this.imageObject = imageObject;
     }
 
     public double getLatitude() {
@@ -110,7 +112,7 @@ public class TargetObject {
     public String toString() {
         return "TargetObject{" +
                 "id=" + id +
-                ", fileName='" + fileName + '\'' +
+                ", imageObject=" + imageObject +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", draggable=" + draggable +

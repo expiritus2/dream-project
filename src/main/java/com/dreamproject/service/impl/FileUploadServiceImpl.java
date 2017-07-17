@@ -4,11 +4,14 @@ import com.dreamproject.service.FileUploadService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,10 +27,11 @@ public class FileUploadServiceImpl implements FileUploadService {
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUploadService.class);
 
-    private static final String UPLOADED_FOLDER = "/home/ubuntu/IdeaProjects/dream-project/tempFolder";
+    private static final String UPLOADED_FOLDER = "src/main/resources/files";
+
 
     @Override
-    public ResponseEntity<?> uploadFiles(MultipartFile[] files) {
+    public ResponseEntity<?> uploadFiles(MultipartFile[] files, HttpServletRequest request) {
 
         LOG.debug("Multiple file upload");
 
