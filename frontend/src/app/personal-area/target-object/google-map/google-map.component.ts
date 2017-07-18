@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit} from "@angular/core";
-import {Marker} from "../model/marker.model";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Marker} from "../../model/marker.model";
 import {Response} from "@angular/http";
-import {TargetObjectService} from "../service/target-object.service";
+import {TargetObjectService} from "../../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
 import "rxjs/Rx";
 import {NgForm} from "@angular/forms";
@@ -14,13 +14,12 @@ import {NgForm} from "@angular/forms";
 })
 export class GoogleMapComponent implements OnInit {
 
+  @Output() positionObject = new EventEmitter<Marker>();
 
-  public zoom: number = 10;
-
-  public lat = 53.837918599999995;
-  public lng = 27.647920400000004;
-
-  markers: Marker[];
+  private zoom: number = 10;
+  private lat = 53.837918599999995;
+  private lng = 27.647920400000004;
+  private markers: Marker[];
 
 
   constructor(private targetObjectService: TargetObjectService) {
@@ -52,6 +51,7 @@ export class GoogleMapComponent implements OnInit {
   onMapClicked(event: any) {
     let newMarker = new Marker(null, 'image.png', 'Untitled', event.coords.lat, event.coords.lng, true);
     this.markers.push(newMarker);
+    this.positionObject.emit(newMarker);
   }
 
   onClickMarker(marker: Marker, index: number) {

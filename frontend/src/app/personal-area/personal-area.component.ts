@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Marker} from "./model/marker.model";
 
 @Component({
   selector: 'app-personal-area',

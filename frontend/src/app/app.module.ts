@@ -16,8 +16,10 @@ import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-trans
 import {LocaleComponent} from "./header/locale/locale.component";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
-import {GoogleMapComponent} from "./personal-area/google-map/google-map.component";
-import { InfoTargetObjectComponent } from './personal-area/info-target-object/info-target-object.component';
+import {GoogleMapComponent} from "./personal-area/target-object/google-map/google-map.component";
+import { InfoTargetObjectComponent } from './personal-area/target-object/info-target-object/info-target-object.component';
+import { TargetObjectComponent } from './personal-area/target-object/target-object.component';
+import { CommentComponent } from './personal-area/target-object/comment/comment.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -37,7 +39,9 @@ export function createTranslateLoader(http: Http) {
     HeaderComponent,
     FooterComponent,
     GoogleMapComponent,
-    InfoTargetObjectComponent
+    InfoTargetObjectComponent,
+    TargetObjectComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

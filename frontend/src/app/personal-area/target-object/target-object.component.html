@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()">
+  <app-info-target-object (nameObject)="getNameObject($event)"></app-info-target-object>
+  <app-google-map (positionObject)="getPositionObject($event)"></app-google-map>
+  <app-comment (comment)="getComment($event)"></app-comment>
+  <button type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
+</form>

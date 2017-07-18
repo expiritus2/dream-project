@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {FileUploadService} from "../service/file-upload.service";
-import {TargetObjectService} from "../service/target-object.service";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FileUploadService} from "../../service/file-upload.service";
+import {TargetObjectService} from "../../service/target-object.service";
 import {Http, Response} from "@angular/http";
+import {NgModel} from "@angular/forms";
 
 @Component({
   selector: 'app-info-target-object',
@@ -12,11 +12,14 @@ import {Http, Response} from "@angular/http";
 })
 export class InfoTargetObjectComponent implements OnInit {
 
-  namesObjects: string[];
+  @Output() nameObject = new EventEmitter<string>();
+
+  private namesObjects: string[];
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService,
-              private http: Http) { }
+              private http: Http) {
+  }
 
   ngOnInit() {
     this.targetObjectService.findAllExistsNamesObjects()
@@ -31,12 +34,16 @@ export class InfoTargetObjectComponent implements OnInit {
       );
   }
 
+  onChangeName(event: any){
+    this.nameObject.emit(event);
+  }
+
 
   onFileChange(event: any) {
     let fileList: FileList = event.target.files;
-    if(fileList.length > 0){
+    if (fileList.length > 0) {
       let countFiles = fileList.length;
-      for(let i = 0; i < countFiles; i++){
+      for (let i = 0; i < countFiles; i++) {
         let file: File = fileList[i];
         this.fileUploadService.uploadImage(file)
           .subscribe(
@@ -47,8 +54,5 @@ export class InfoTargetObjectComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
-    console.info(form);
-  }
 
 }
