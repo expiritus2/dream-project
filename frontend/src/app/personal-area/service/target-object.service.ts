@@ -1,27 +1,27 @@
 import {Injectable} from "@angular/core";
-import {Headers, RequestOptions, Http} from "@angular/http";
+import {Http} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 
 @Injectable()
-export class TargetObjectService{
+export class TargetObjectService {
 
-  constructor(private http: Http){
+  constructor(private http: Http) {
   }
 
   findOwnObjects() {
     return this.http.get(WebConfig.HOST + "/api/target/findOwn", {withCredentials: true});
   }
 
-  findAllExistsNamesObjects(){
+  findAllExistsNamesObjects() {
     return this.http.get(WebConfig.HOST + "/api/target/findAllExistsNames", {withCredentials: true});
   }
 
-  packObjects(objects: any): Marker[]{
+  packObjects(objects: any): Marker[] {
     let markers: Marker[] = [];
     let countObjects = objects.length;
     let lang = localStorage.getItem("language");
-    for(let i = 0; i < countObjects; i++){
+    for (let i = 0; i < countObjects; i++) {
       let object = objects[i];
       let id = object.id;
       let name = lang == "en" ? object.typeObject.nameEn : object.typeObject.nameRu;

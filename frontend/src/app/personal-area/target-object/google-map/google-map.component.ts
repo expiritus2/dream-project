@@ -4,7 +4,6 @@ import {Response} from "@angular/http";
 import {TargetObjectService} from "../../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
 import "rxjs/Rx";
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-google-map',

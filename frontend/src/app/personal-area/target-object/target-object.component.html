@@ -1,6 +1,45 @@
-<form (ngSubmit)="onSubmit()">
-  <app-info-target-object (nameObject)="getNameObject($event)"></app-info-target-object>
-  <app-google-map (positionObject)="getPositionObject($event)"></app-google-map>
-  <app-comment (comment)="getComment($event)"></app-comment>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div>
+    <input
+      list="objects"
+      placeholder="{{ 'PersonalArea.InputNameObject' | translate }}"
+      name="nameObject"
+      autocomplete="off"
+      ngModel
+    />
+    <datalist id="objects">
+      <option *ngFor="let object of namesObjects" value="{{ object.nameEn }}">
+      <option *ngFor="let object of namesObjects" value="{{ object.nameRu }}">
+    </datalist>
+  </div>
+  <div>
+    <app-google-map (positionObject)="getPositionObject($event)"></app-google-map>
+  </div>
+  <div>
+    <p><label for="imageObject">{{ 'PersonalArea.InputFileLabel' | translate }}</label></p>
+    <p>
+      <input
+        (change)="onFileChange($event)"
+        type="file"
+        name="imageObject"
+        [multiple]="true"
+        id="imageObject"
+        ngModel
+      />
+    </p>
+    <p *ngFor="let previewImage of previewImages">
+      <img [src]="previewImage" [alt]="previewImage" style="max-width: 300px;">
+    </p>
+  </div>
+  <div>
+    <textarea
+      name="comment"
+      id="comment"
+      cols="30"
+      rows="10"
+      placeholder="{{ 'PersonalArea.CommentLabel' | translate }}"
+      ngModel
+    ></textarea>
+  </div>
   <button type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
 </form>
