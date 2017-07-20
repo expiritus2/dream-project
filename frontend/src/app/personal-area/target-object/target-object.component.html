@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
   <div>
     <input
       list="objects"
@@ -6,6 +6,7 @@
       name="nameObject"
       autocomplete="off"
       ngModel
+      required
     />
     <datalist id="objects">
       <option *ngFor="let object of namesObjects" value="{{ object.nameEn }}">
@@ -24,11 +25,10 @@
         name="imageObject"
         [multiple]="true"
         id="imageObject"
-        ngModel
       />
     </p>
     <p *ngFor="let previewImage of previewImages">
-      <img [src]="previewImage" [alt]="previewImage" style="max-width: 300px;">
+      <img *ngIf="previewImage != null" [src]="previewImage" [alt]="previewImage" style="max-width: 300px;">
     </p>
   </div>
   <div>
@@ -41,5 +41,5 @@
       ngModel
     ></textarea>
   </div>
-  <button type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
+  <button [disabled]="!f.valid && !isNewObject" type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
 </form>

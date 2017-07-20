@@ -13,9 +13,10 @@ import {NgForm} from "@angular/forms";
 })
 export class TargetObjectComponent implements OnInit {
 
-  private namesObjects: string[];
+  public namesObjects: string[];
+  public previewImages: File[] = [];
   private positionObject: Marker;
-  private previewImages: File[] = [];
+  private filesList: FileList;
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService) {
@@ -35,34 +36,42 @@ export class TargetObjectComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.info(form);
-    console.info(this.positionObject);
-  }
-
-
-  onFileChange(event: any) {
-    let fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-      let countFiles = fileList.length;
+    let formValue = form.value;
+    if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
+      let countFiles = this.filesList.length;
       for (let i = 0; i < countFiles; i++) {
-        let file: File = fileList[i];
-        this.showImage(file, i);
+        let file: File = this.filesList[i];
         this.fileUploadService.uploadImage(file)
           .subscribe(
             data => console.log(data),
             error => console.log(error)
           )
       }
+    }
+
+    let nameObject = formValue.nameObject;
+    let comment = formValue.comment;
+  }
+
+
+  onFileChange(event: any) {
+    this.filesList = event.target.files;
+    if (this.filesList.length > 0) {
+      let countFiles = this.filesList.length;
+      for (let i = 0; i < countFiles; i++) {
+        let file: File = this.filesList[i];
+        this.showImage(file, i);
+      }
     } else {
       this.previewImages = [];
     }
   }
 
+
   private showImage(file: File, index: number){
     let reader = new FileReader();
     reader.onload = () => {
       this.previewImages[index] = reader.result;
-      console.info(reader.result);
     };
     reader.readAsDataURL(file);
   }

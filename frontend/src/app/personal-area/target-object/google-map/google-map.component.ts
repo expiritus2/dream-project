@@ -15,10 +15,10 @@ export class GoogleMapComponent implements OnInit {
 
   @Output() positionObject = new EventEmitter<Marker>();
 
-  private zoom: number = 10;
-  private lat = 53.837918599999995;
-  private lng = 27.647920400000004;
-  private markers: Marker[];
+  public zoom: number = 10;
+  public lat = 53.837918599999995;
+  public lng = 27.647920400000004;
+  public markers: Marker[];
 
 
   constructor(private targetObjectService: TargetObjectService) {
