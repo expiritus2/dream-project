@@ -17,7 +17,8 @@ import {LocaleComponent} from "./header/locale/locale.component";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {GoogleMapComponent} from "./personal-area/target-object/google-map/google-map.component";
-import { TargetObjectComponent } from './personal-area/target-object/target-object.component';
+import {TargetObjectComponent} from './personal-area/target-object/target-object.component';
+import {NguiDatetimePickerModule} from '@ngui/datetime-picker';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -45,6 +46,7 @@ export function createTranslateLoader(http: Http) {
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
+    NguiDatetimePickerModule,
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),

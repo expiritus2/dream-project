@@ -14,7 +14,16 @@
     </datalist>
   </div>
   <div>
-    <app-google-map (positionObject)="getPositionObject($event)"></app-google-map>
+    <app-google-map (positionObject)="getPositionObject($event)" (isNewObject)="setNewObject($event)"></app-google-map>
+  </div>
+  <div>
+    <input
+      required
+      type="text"
+      name="date"
+      ngui-datetime-picker
+      [close-on-select]="true"
+      [(ngModel)]="date"/>
   </div>
   <div>
     <p><label for="imageObject">{{ 'PersonalArea.InputFileLabel' | translate }}</label></p>
@@ -41,5 +50,5 @@
       ngModel
     ></textarea>
   </div>
-  <button [disabled]="!f.valid && !isNewObject" type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
+  <button [disabled]="!f.valid || !isNewObject" type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
 </form>

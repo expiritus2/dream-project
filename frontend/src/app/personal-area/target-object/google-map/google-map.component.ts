@@ -14,6 +14,7 @@ import "rxjs/Rx";
 export class GoogleMapComponent implements OnInit {
 
   @Output() positionObject = new EventEmitter<Marker>();
+  @Output() isNewObject = new EventEmitter<boolean>();
 
   public zoom: number = 10;
   public lat = 53.837918599999995;
@@ -51,6 +52,7 @@ export class GoogleMapComponent implements OnInit {
     let newMarker = new Marker(null, 'image.png', 'Untitled', event.coords.lat, event.coords.lng, true);
     this.markers.push(newMarker);
     this.positionObject.emit(newMarker);
+    this.isNewObject.emit(true);
   }
 
   onClickMarker(marker: Marker, index: number) {
@@ -67,6 +69,7 @@ export class GoogleMapComponent implements OnInit {
 
   onDeleteMarker(marker: Marker, index: number) {
     this.markers.splice(index, 1);
+    this.isNewObject.emit(false);
   }
 
 

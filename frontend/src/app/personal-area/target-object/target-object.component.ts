@@ -13,10 +13,12 @@ import {NgForm} from "@angular/forms";
 })
 export class TargetObjectComponent implements OnInit {
 
-  public namesObjects: string[];
-  public previewImages: File[] = [];
-  private positionObject: Marker;
-  private filesList: FileList;
+  namesObjects: string[];
+  previewImages: File[] = [];
+  marker: Marker;
+  filesList: FileList;
+  isNewObject = false;
+  date: Date;
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService) {
@@ -35,6 +37,10 @@ export class TargetObjectComponent implements OnInit {
       );
   }
 
+  setNewObject(isNewObj: boolean){
+    this.isNewObject = isNewObj;
+  }
+
   onSubmit(form: NgForm) {
     let formValue = form.value;
     if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
@@ -51,6 +57,9 @@ export class TargetObjectComponent implements OnInit {
 
     let nameObject = formValue.nameObject;
     let comment = formValue.comment;
+    console.info(this.marker);
+    form.value.date = this.date;
+    console.info(form);
   }
 
 
@@ -77,7 +86,7 @@ export class TargetObjectComponent implements OnInit {
   }
 
   getPositionObject(event: any) {
-    this.positionObject = event;
+    this.marker = event;
   }
 
 
