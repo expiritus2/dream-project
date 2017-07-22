@@ -10,11 +10,11 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    return this.http.put(WebConfig.HOST + "/api/auth/signup", user);
+    return this.http.put(WebConfig.host + "/api/auth/signup", user);
   }
 
   sendCredential(username: string, password: string){
-    const url = WebConfig.HOST + '/login';
+    const url = WebConfig.host + '/login';
     const params = 'username=' + username + '&password=' + password;
     const headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   logout(){
-    const url = WebConfig.HOST + '/logout';
+    const url = WebConfig.host + '/logout';
     return this.http.get(url, { withCredentials: true });
   }
 }

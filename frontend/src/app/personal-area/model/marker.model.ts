@@ -1,8 +1,10 @@
+import {WebConfig} from "../../webconfig.config";
+
 export class Marker{
 
   constructor(private _id: number,
               private _name: string,
-              private _fileName: string,
+              private _fileName: string = WebConfig.defaultImage,
               private _lat: number,
               private _lng: number,
               private _draggable: boolean = false,

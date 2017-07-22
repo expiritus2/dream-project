@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {Marker} from "../../model/marker.model";
 import {Response} from "@angular/http";
 import {TargetObjectService} from "../../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
 import "rxjs/Rx";
+import {WebConfig} from "../../../webconfig.config";
 
 @Component({
   selector: 'app-google-map',
@@ -16,17 +17,23 @@ export class GoogleMapComponent implements OnInit {
   @Output() positionObject = new EventEmitter<Marker>();
   @Output() isNewObject = new EventEmitter<boolean>();
 
-  public zoom: number = 10;
-  public lat = 53.837918599999995;
-  public lng = 27.647920400000004;
-  public markers: Marker[];
+  zoom: number = 10;
+  lat: number = 53.837918599999995;
+  lng: number = 27.647920400000004;
+  markers: Marker[];
+  nameObject: string;
+  newMarker: Marker;
+  imageObject: string = WebConfig.defaultImage;
+  previewImages: File[];
+  isNewMarker: boolean = false;
+
 
 
   constructor(private targetObjectService: TargetObjectService) {
   }
 
   ngOnInit() {
-    this.setCurrentPosition();
+    this.setCurrentLocation();
     this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
@@ -38,7 +45,15 @@ export class GoogleMapComponent implements OnInit {
       );
   }
 
-  private setCurrentPosition() {
+  setNameObject(nameObject: string){
+    this.nameObject = nameObject;
+  }
+
+  setPreviewImages(previewImages: File[]){
+    this.previewImages = previewImages;
+  }
+
+  private setCurrentLocation() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
@@ -49,10 +64,17 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onMapClicked(event: any) {
-    let newMarker = new Marker(null, 'image.png', 'Untitled', event.coords.lat, event.coords.lng, true);
-    this.markers.push(newMarker);
-    this.positionObject.emit(newMarker);
+    this.newMarker = new Marker(null, this.nameObject, this.imageObject, event.coords.lat, event.coords.lng, true);
+    this.markers.push(this.newMarker);
+    this.positionObject.emit(this.newMarker);
     this.isNewObject.emit(true);
+    this.isNewMarker = true;
+  }
+
+  updateMarker(){
+    if(typeof this.newMarker != 'undefined'){
+      this.newMarker.name = this.nameObject;
+    }
   }
 
   onClickMarker(marker: Marker, index: number) {

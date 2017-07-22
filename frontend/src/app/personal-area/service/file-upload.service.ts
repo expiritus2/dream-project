@@ -13,7 +13,7 @@ export class FileUploadService{
       let headers = new Headers();
       headers.append('Content-Type', 'multipart/form-data');
       headers.append('Accept', 'application/json');
-      return this.http.post(WebConfig.HOST + "/api/target/uploadImage", formData);
+      return this.http.post(WebConfig.host + "/api/target/uploadImage", formData);
   }
 
 }

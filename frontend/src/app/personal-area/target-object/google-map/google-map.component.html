@@ -18,8 +18,19 @@
   >
     <agm-info-window #info>
       <p><strong>{{ marker.name }}</strong></p>
-      <p><img src="{{ marker.filename }}"></p>
+      <!--<p><img-->
+        <!--[src]="marker.fileName"-->
+        <!--style="max-width: 50px;"-->
+      <!--&gt;</p>-->
+      <p><img
+        *ngFor="let previewImage of previewImages"
+        [src]="previewImage"
+        style="max-width: 50px;"
+      ></p>
       <a class="deleteMarker" (click)="onDeleteMarker(marker, i)">Delete</a>
     </agm-info-window>
   </agm-marker>
 </agm-map>
+<!--*ngFor="let previewImage of previewImages" -->
+<!--[src]="previewImage" -->
+<!--style="max-width: 50px;"-->

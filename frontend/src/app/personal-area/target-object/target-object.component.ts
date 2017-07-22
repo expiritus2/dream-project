@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Marker} from "../model/marker.model";
 import {TargetObjectService} from "../service/target-object.service";
 import {FileUploadService} from "../service/file-upload.service";
 import {Response} from "@angular/http";
 import {NgForm} from "@angular/forms";
+import {GoogleMapComponent} from "./google-map/google-map.component";
 
 @Component({
   selector: 'app-target-object',
@@ -13,7 +14,10 @@ import {NgForm} from "@angular/forms";
 })
 export class TargetObjectComponent implements OnInit {
 
+  @ViewChild(GoogleMapComponent) map: GoogleMapComponent;
+
   namesObjects: string[];
+  nameObject: string;
   previewImages: File[] = [];
   marker: Marker;
   filesList: FileList;
@@ -37,7 +41,18 @@ export class TargetObjectComponent implements OnInit {
       );
   }
 
-  setNewObject(isNewObj: boolean){
+  setNameObjectToMarker(event: any){
+    this.nameObject = event.target.value;
+    this.map.setNameObject(this.nameObject);
+    this.map.updateMarker();
+  }
+
+  setImageObjectToMarker(previewImages: File[]){
+    this.map.setPreviewImages(previewImages);
+    this.map.updateMarker();
+  }
+
+  isSetNewObject(isNewObj: boolean){
     this.isNewObject = isNewObj;
   }
 
@@ -55,11 +70,7 @@ export class TargetObjectComponent implements OnInit {
       }
     }
 
-    let nameObject = formValue.nameObject;
-    let comment = formValue.comment;
-    console.info(this.marker);
-    form.value.date = this.date;
-    console.info(form);
+    this.targetObjectService.sendObjectData(formValue, this.marker);
   }
 
 
@@ -71,18 +82,20 @@ export class TargetObjectComponent implements OnInit {
         let file: File = this.filesList[i];
         this.showImage(file, i);
       }
+      this.setImageObjectToMarker(this.previewImages);
     } else {
       this.previewImages = [];
+      this.setImageObjectToMarker(this.previewImages);
     }
   }
 
 
   private showImage(file: File, index: number){
     let reader = new FileReader();
+    reader.readAsDataURL(file);
     reader.onload = () => {
       this.previewImages[index] = reader.result;
     };
-    reader.readAsDataURL(file);
   }
 
   getPositionObject(event: any) {

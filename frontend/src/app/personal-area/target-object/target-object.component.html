@@ -5,6 +5,7 @@
       placeholder="{{ 'PersonalArea.InputNameObject' | translate }}"
       name="nameObject"
       autocomplete="off"
+      (input)="setNameObjectToMarker($event)"
       ngModel
       required
     />
@@ -14,7 +15,7 @@
     </datalist>
   </div>
   <div>
-    <app-google-map (positionObject)="getPositionObject($event)" (isNewObject)="setNewObject($event)"></app-google-map>
+    <app-google-map (positionObject)="getPositionObject($event)" (isNewObject)="isSetNewObject($event)"></app-google-map>
   </div>
   <div>
     <input
@@ -23,7 +24,7 @@
       name="date"
       ngui-datetime-picker
       [close-on-select]="true"
-      [(ngModel)]="date"/>
+      ngModel/>
   </div>
   <div>
     <p><label for="imageObject">{{ 'PersonalArea.InputFileLabel' | translate }}</label></p>
@@ -36,8 +37,10 @@
         id="imageObject"
       />
     </p>
-    <p *ngFor="let previewImage of previewImages">
-      <img *ngIf="previewImage != null" [src]="previewImage" [alt]="previewImage" style="max-width: 300px;">
+    <p>
+      <span *ngFor="let previewImage of previewImages">
+        <img *ngIf="previewImage != null" [src]="previewImage" [alt]="previewImage" style="max-height: 300px;">
+      </span>
     </p>
   </div>
   <div>

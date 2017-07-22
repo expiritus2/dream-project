@@ -10,11 +10,11 @@ export class TargetObjectService {
   }
 
   findOwnObjects() {
-    return this.http.get(WebConfig.HOST + "/api/target/findOwn", {withCredentials: true});
+    return this.http.get(WebConfig.host + "/api/target/findOwn", {withCredentials: true});
   }
 
   findAllExistsNamesObjects() {
-    return this.http.get(WebConfig.HOST + "/api/target/findAllExistsNames", {withCredentials: true});
+    return this.http.get(WebConfig.host + "/api/target/findAllExistsNames", {withCredentials: true});
   }
 
   packObjects(objects: any): Marker[] {
@@ -33,6 +33,11 @@ export class TargetObjectService {
       markers.push(new Marker(id, name, fileName, lat, lng, draggable, positionIsChanged))
     }
     return markers;
+  }
+
+  sendObjectData(formValue: FormData, marker: Marker){
+    console.info(formValue);
+    console.info(marker);
   }
 
 }
