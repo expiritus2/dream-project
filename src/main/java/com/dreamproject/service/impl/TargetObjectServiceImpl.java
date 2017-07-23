@@ -1,6 +1,8 @@
 package com.dreamproject.service.impl;
 
+import com.dreamproject.dao.ImageObjectDao;
 import com.dreamproject.dao.TargetObjectDao;
+import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.service.TargetObjectService;
 import org.slf4j.Logger;
@@ -20,6 +22,9 @@ public class TargetObjectServiceImpl implements TargetObjectService {
     @Autowired
     private TargetObjectDao targetObjectDao;
 
+    @Autowired
+    private ImageObjectDao imageObjectDao;
+
     public void save(TargetObject targetObject) {
         targetObjectDao.save(targetObject);
     }
@@ -29,6 +34,7 @@ public class TargetObjectServiceImpl implements TargetObjectService {
     }
 
     public List<TargetObject> findObjectByUserId(long id){
-        return targetObjectDao.findAllByUserUserId(id);
+        List<TargetObject> allObjectsByUserId = targetObjectDao.findAllByUserUserId(id);
+        return allObjectsByUserId;
     }
 }

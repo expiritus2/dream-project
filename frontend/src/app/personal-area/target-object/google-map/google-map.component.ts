@@ -37,6 +37,7 @@ export class GoogleMapComponent implements OnInit {
     this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
+          console.info(response.json());
           this.markers = this.targetObjectService.packObjects(response.json());
         },
         (err) => {
@@ -64,7 +65,7 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onMapClicked(event: any) {
-    this.newMarker = new Marker(null, this.nameObject, this.imageObject, event.coords.lat, event.coords.lng, true);
+    this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, true);
     this.markers.push(this.newMarker);
     this.positionObject.emit(this.newMarker);
     this.isNewObject.emit(true);
@@ -74,6 +75,7 @@ export class GoogleMapComponent implements OnInit {
   updateMarker(){
     if(typeof this.newMarker != 'undefined'){
       this.newMarker.name = this.nameObject;
+      this.newMarker.imagesObject = this.previewImages;
     }
   }
 
@@ -89,7 +91,7 @@ export class GoogleMapComponent implements OnInit {
 
   }
 
-  onDeleteMarker(marker: Marker, index: number) {
+  onDeleteMarker(index: number) {
     this.markers.splice(index, 1);
     this.isNewObject.emit(false);
   }

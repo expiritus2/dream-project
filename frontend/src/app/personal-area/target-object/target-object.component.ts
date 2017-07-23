@@ -22,7 +22,6 @@ export class TargetObjectComponent implements OnInit {
   marker: Marker;
   filesList: FileList;
   isNewObject = false;
-  date: Date;
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService) {
@@ -47,7 +46,7 @@ export class TargetObjectComponent implements OnInit {
     this.map.updateMarker();
   }
 
-  setImageObjectToMarker(previewImages: File[]){
+  setImagesObjectToMarker(previewImages: File[]){
     this.map.setPreviewImages(previewImages);
     this.map.updateMarker();
   }
@@ -82,10 +81,10 @@ export class TargetObjectComponent implements OnInit {
         let file: File = this.filesList[i];
         this.showImage(file, i);
       }
-      this.setImageObjectToMarker(this.previewImages);
+      this.setImagesObjectToMarker(this.previewImages);
     } else {
       this.previewImages = [];
-      this.setImageObjectToMarker(this.previewImages);
+      this.setImagesObjectToMarker(this.previewImages);
     }
   }
 

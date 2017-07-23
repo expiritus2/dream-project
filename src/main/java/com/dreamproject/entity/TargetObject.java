@@ -1,6 +1,7 @@
 package com.dreamproject.entity;
 
 import com.dreamproject.config.WebConfig;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -15,7 +16,6 @@ public class TargetObject {
     private Long id;
 
     @OneToMany(mappedBy = "targetObject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
     private List<ImageObject> imageObject;
 
     private double latitude;
@@ -25,7 +25,7 @@ public class TargetObject {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnore
+    @JsonBackReference
     private User user;
 
     @ManyToOne

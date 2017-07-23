@@ -1,6 +1,7 @@
 package com.dreamproject.entity;
 
 import com.dreamproject.config.WebConfig;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ public class ImageObject {
 
     @ManyToOne
     @JoinColumn(name = "target_object_id")
+    @JsonBackReference
     private TargetObject targetObject;
 
     public ImageObject(String name, TargetObject targetObject) {
@@ -54,7 +56,6 @@ public class ImageObject {
         return "ImageObject{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", targetObject=" + targetObject +
                 '}';
     }
 }
