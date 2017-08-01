@@ -37,7 +37,6 @@ export class GoogleMapComponent implements OnInit {
     this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
-          console.info(response.json());
           this.markers = this.targetObjectService.packObjects(response.json());
         },
         (err) => {

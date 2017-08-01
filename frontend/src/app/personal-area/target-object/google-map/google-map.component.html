@@ -18,11 +18,14 @@
   >
     <agm-info-window #info>
       <p><strong>{{ marker.name }}</strong></p>
-      <p><img
-        *ngFor="let image of marker.imagesObject"
-        [src]="image"
-        style="max-width: 50px;"
-      ></p>
+      <p>
+        <span *ngFor="let image of marker.imagesObject">
+          <img
+            *ngIf="image != null"
+            [src]="image"
+            style="max-width: 50px;">
+        </span>
+      </p>
       <!--<p><img-->
       <!--*ngFor="let previewImage of previewImages"-->
       <!--[src]="previewImage"-->
