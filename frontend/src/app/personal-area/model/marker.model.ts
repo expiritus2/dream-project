@@ -1,5 +1,7 @@
 export class Marker {
 
+  private _date: string;
+
   constructor(private _id: number,
               private _name: string,
               private _imagesObject: any,
@@ -66,5 +68,14 @@ export class Marker {
 
   set imagesObject(value: any) {
     this._imagesObject = value;
+  }
+
+
+  get date(): string {
+    return this._date;
+  }
+
+  set date(value: string) {
+    this._date = value;
   }
 }

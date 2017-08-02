@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 
@@ -35,9 +35,22 @@ export class TargetObjectService {
     return markers;
   }
 
-  sendObjectData(formValue: FormData, marker: Marker){
-    console.info(formValue);
+  sendObjectData(marker: Marker, files: FileList){
     console.info(marker);
+    // let data = new URLSearchParams();
+    let params = "name=" + marker.name;
+    const headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    // data.append("name", marker.name);
+    // for(let i = 0; i < files.length; i++){
+    //   data.append("imageObject", files[i].name);
+    // }
+    // data.append("latitude", marker.lat.toString());
+    // data.append("longitude", marker.lng.toString());
+    // data.append("draggable", String(marker.draggable));
+    // data.append("positionIsChanged", String(marker.positionIsChanged));
+    return this.http.put(WebConfig.host + "/api/target/putObject", params, {headers: headers, withCredentials: true});
   }
 
 }

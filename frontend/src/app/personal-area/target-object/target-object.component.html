@@ -53,5 +53,5 @@
       ngModel
     ></textarea>
   </div>
-  <button [disabled]="!f.valid || !isNewObject || !isDateSelected || !isFileSelected" type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
+  <button [disabled]="validForm()" type="submit">{{ 'PersonalArea.SubmitObject' | translate }}</button>
 </form>

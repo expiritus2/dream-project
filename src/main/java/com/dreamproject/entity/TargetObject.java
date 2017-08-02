@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,8 @@ public class TargetObject {
     @ManyToOne
     @JoinColumn(name = "type_object_id")
     private TypeObject typeObject;
+
+    private Date date;
 
     public TargetObject() {
     }
@@ -108,6 +111,14 @@ public class TargetObject {
         this.typeObject = typeObject;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "TargetObject{" +
@@ -119,6 +130,7 @@ public class TargetObject {
                 ", positionIsChanged=" + positionIsChanged +
                 ", user=" + user +
                 ", typeObject=" + typeObject +
+                ", date=" + date +
                 '}';
     }
 }

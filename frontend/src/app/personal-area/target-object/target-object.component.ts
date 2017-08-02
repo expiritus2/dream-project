@@ -25,6 +25,7 @@ export class TargetObjectComponent implements OnInit {
   isNewObject: boolean = false;
   isDateSelected: boolean = false;
   isFileSelected: boolean = false;
+  date: string;
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService) {
@@ -43,8 +44,17 @@ export class TargetObjectComponent implements OnInit {
       );
   }
 
+  validForm(){
+    return !this.form.valid || !this.isNewObject || !this.isDateSelected || !this.isFileSelected;
+  }
+
   onDateInput(event: any) {
-    event.length != 0 ? this.isDateSelected = true : this.isDateSelected = false;
+    if(event.length != 0) {
+      this.isDateSelected = true;
+      this.date = event;
+    } else {
+      this.isDateSelected = false;
+    }
   }
 
   setNameObjectToMarker(event: any) {
@@ -75,8 +85,16 @@ export class TargetObjectComponent implements OnInit {
           )
       }
     }
-
-    this.targetObjectService.sendObjectData(formValue, this.marker);
+    this.marker.date = this.date;
+    this.targetObjectService.sendObjectData(this.marker, this.filesList)
+      .subscribe(
+        (response: Response) => {
+          console.info(response);
+        },
+        (err) => {
+          console.info(err)
+        }
+      );
   }
 
 
