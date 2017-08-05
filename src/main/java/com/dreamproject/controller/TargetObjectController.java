@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -55,9 +56,10 @@ public class TargetObjectController {
         return fileUploadService.uploadFiles(files, request);
     }
 
-    @RequestMapping(value = "/putObject", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Object> putObject(@RequestParam Map<String, String> body){
-        return new ResponseEntity<Object>("body => " + body, HttpStatus.OK);
+    @RequestMapping(value = "/putObject", method = RequestMethod.POST, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<Object> putObject(@RequestBody String body){
+        System.out.println(body);
+        return new ResponseEntity<Object>(body, HttpStatus.OK);
 
     }
 }

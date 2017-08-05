@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers} from "@angular/http";
+import {Http, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 
@@ -36,21 +36,24 @@ export class TargetObjectService {
   }
 
   sendObjectData(marker: Marker, files: FileList){
-    console.info(marker);
-    // let data = new URLSearchParams();
-    let params = "name=" + marker.name;
+    let data = {
+      name: marker.name,
+      imageObject: [],
+      latitude: marker.lat,
+      longitude: marker.lng,
+      comment: marker.comment,
+      draggable: marker.draggable,
+      positionIsChanged: marker.positionIsChanged
+    };
+
+    for(let i = 0; i < files.length; i++){
+      data.imageObject.push(files[i].name);
+    }
+
     const headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
     });
-    // data.append("name", marker.name);
-    // for(let i = 0; i < files.length; i++){
-    //   data.append("imageObject", files[i].name);
-    // }
-    // data.append("latitude", marker.lat.toString());
-    // data.append("longitude", marker.lng.toString());
-    // data.append("draggable", String(marker.draggable));
-    // data.append("positionIsChanged", String(marker.positionIsChanged));
-    return this.http.put(WebConfig.host + "/api/target/putObject", params, {headers: headers, withCredentials: true});
+    return this.http.post(WebConfig.host + "/api/target/putObject", JSON.stringify(data), {headers: headers, withCredentials: true});
   }
 
 }

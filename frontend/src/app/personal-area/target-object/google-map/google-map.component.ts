@@ -64,7 +64,7 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onMapClicked(event: any) {
-    this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, true);
+    this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
     this.markers.push(this.newMarker);
     this.positionObject.emit(this.newMarker);
     this.isNewObject.emit(true);

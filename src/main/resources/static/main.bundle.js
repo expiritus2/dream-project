@@ -3082,12 +3082,8 @@ var TargetObjectService = (function () {
         return markers;
     };
     TargetObjectService.prototype.sendObjectData = function (marker, files) {
-        console.info(marker);
+        // console.info(marker);
         // let data = new URLSearchParams();
-        var params = "name=" + marker.name;
-        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["l" /* Headers */]({
-            'Content-Type': 'application/x-www-form-urlencoded'
-        });
         // data.append("name", marker.name);
         // for(let i = 0; i < files.length; i++){
         //   data.append("imageObject", files[i].name);
@@ -3096,7 +3092,21 @@ var TargetObjectService = (function () {
         // data.append("longitude", marker.lng.toString());
         // data.append("draggable", String(marker.draggable));
         // data.append("positionIsChanged", String(marker.positionIsChanged));
-        return this.http.put(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].host + "/api/target/putObject", params, { headers: headers, withCredentials: true });
+        //
+        // let requestOptions = new RequestOptions({
+        //
+        // });
+        var data = {
+            name: marker.name,
+            imageObject: []
+        };
+        for (var i = 0; i < files.length; i++) {
+            data.imageObject.push(files[i].name);
+        }
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["l" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].host + "/api/target/putObject", JSON.stringify(data), { headers: headers, withCredentials: true });
     };
     TargetObjectService.ctorParameters = function () { return [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_http__["i" /* Http */] }]; };
     return TargetObjectService;

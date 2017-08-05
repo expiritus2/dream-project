@@ -7,6 +7,7 @@ export class Marker {
               private _imagesObject: any,
               private _lat: number,
               private _lng: number,
+              private _comment: string,
               private _draggable: boolean = false,
               private _positionIsChanged: boolean = false) {
   }
@@ -61,6 +62,14 @@ export class Marker {
     this._positionIsChanged = value;
   }
 
+
+  get comment(): string {
+    return this._comment;
+  }
+
+  set comment(value: string) {
+    this._comment = value;
+  }
 
   get imagesObject(): any {
     return this._imagesObject;

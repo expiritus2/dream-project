@@ -85,11 +85,13 @@ export class TargetObjectComponent implements OnInit {
           )
       }
     }
+
     this.marker.date = this.date;
+    this.marker.comment = formValue.comment;
     this.targetObjectService.sendObjectData(this.marker, this.filesList)
       .subscribe(
         (response: Response) => {
-          console.info(response);
+          console.info(response.json());
         },
         (err) => {
           console.info(err)
