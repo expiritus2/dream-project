@@ -74,24 +74,24 @@ export class TargetObjectComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     let formValue = form.value;
-    if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
-      let countFiles = this.filesList.length;
-      for (let i = 0; i < countFiles; i++) {
-        let file: File = this.filesList[i];
-        this.fileUploadService.uploadImage(file)
-          .subscribe(
-            data => console.log(data),
-            error => console.log(error)
-          )
-      }
-    }
+    // if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
+    //   let countFiles = this.filesList.length;
+    //   for (let i = 0; i < countFiles; i++) {
+    //     let file: File = this.filesList[i];
+    //     this.fileUploadService.uploadImage(file)
+    //       .subscribe(
+    //         data => console.log(data),
+    //         error => console.log(error)
+    //       )
+    //   }
+    // }
 
     this.marker.date = this.date;
     this.marker.comment = formValue.comment;
     this.targetObjectService.sendObjectData(this.marker, this.filesList)
       .subscribe(
         (response: Response) => {
-          console.info(response.json());
+          // console.info(response.json());
         },
         (err) => {
           console.info(err)

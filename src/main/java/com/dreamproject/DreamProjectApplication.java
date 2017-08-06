@@ -16,10 +16,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @SpringBootApplication
 public class DreamProjectApplication implements CommandLineRunner {
@@ -102,7 +100,10 @@ public class DreamProjectApplication implements CommandLineRunner {
         typeObjectService.save(typeObject4);
 
 
-        TargetObject targetObject1 = new TargetObject(typeObject1, 53.844627797824955, 27.627525329589844, user2);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
+        cal.setTime(sdf.parse("2017-08-09 23:01"));
+        TargetObject targetObject1 = new TargetObject(typeObject1, 53.844627797824955, 27.627525329589844, user2, cal);
         targetObjectService.save(targetObject1);
         ImageObject imageObject1 = new ImageObject("file1OfOne.txt", targetObject1);
         imageObjectService.save(imageObject1);
@@ -112,7 +113,7 @@ public class DreamProjectApplication implements CommandLineRunner {
         imageObjectService.save(imageObject3);
 
 
-        TargetObject targetObject2 = new TargetObject(typeObject2, 53.861638751487305, 27.6361083984375, user1);
+        TargetObject targetObject2 = new TargetObject(typeObject2, 53.861638751487305, 27.6361083984375, user1, cal);
         targetObjectService.save(targetObject2);
         ImageObject imageObject4 = new ImageObject("file1OfTwo.txt", targetObject2);
         imageObjectService.save(imageObject4);
@@ -122,7 +123,7 @@ public class DreamProjectApplication implements CommandLineRunner {
         imageObjectService.save(imageObject6);
 
 
-        TargetObject targetObject3 = new TargetObject(typeObject3, 53.8577916408477, 27.660484313964844, user3);
+        TargetObject targetObject3 = new TargetObject(typeObject3, 53.8577916408477, 27.660484313964844, user3, cal);
         targetObjectService.save(targetObject3);
         ImageObject imageObject10 = new ImageObject("file1OfThree.txt", targetObject3);
         imageObjectService.save(imageObject10);
@@ -132,7 +133,7 @@ public class DreamProjectApplication implements CommandLineRunner {
         imageObjectService.save(imageObject12);
 
 
-        TargetObject targetObject4 = new TargetObject(typeObject4, 53.84705835738316, 27.691383361816406, user3);
+        TargetObject targetObject4 = new TargetObject(typeObject4, 53.84705835738316, 27.691383361816406, user3, cal);
         targetObjectService.save(targetObject4);
         ImageObject imageObject13 = new ImageObject("file1OfFour.txt", targetObject4);
         imageObjectService.save(imageObject13);

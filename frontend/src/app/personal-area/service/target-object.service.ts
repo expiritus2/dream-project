@@ -42,9 +42,11 @@ export class TargetObjectService {
       latitude: marker.lat,
       longitude: marker.lng,
       comment: marker.comment,
+      date: marker.date.toString(),
       draggable: marker.draggable,
       positionIsChanged: marker.positionIsChanged
     };
+
 
     for(let i = 0; i < files.length; i++){
       data.imageObject.push(files[i].name);

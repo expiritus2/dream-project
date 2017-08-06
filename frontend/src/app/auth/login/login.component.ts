@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     this.authService.sendCredential(value.username, value.password).subscribe(
       (response: Response) => {
         if(response.status === 200){
-          console.info(response);
           localStorage.setItem("userName", response.text());
           this.router.navigate(["/personal-area"]);
         }

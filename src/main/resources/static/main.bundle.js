@@ -115,7 +115,7 @@ var LocaleComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Marker; });
 var Marker = (function () {
-    function Marker(_id, _name, _imagesObject, _lat, _lng, _draggable, _positionIsChanged) {
+    function Marker(_id, _name, _imagesObject, _lat, _lng, _comment, _draggable, _positionIsChanged) {
         if (_draggable === void 0) { _draggable = false; }
         if (_positionIsChanged === void 0) { _positionIsChanged = false; }
         this._id = _id;
@@ -123,6 +123,7 @@ var Marker = (function () {
         this._imagesObject = _imagesObject;
         this._lat = _lat;
         this._lng = _lng;
+        this._comment = _comment;
         this._draggable = _draggable;
         this._positionIsChanged = _positionIsChanged;
     }
@@ -182,6 +183,16 @@ var Marker = (function () {
         },
         set: function (value) {
             this._positionIsChanged = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Marker.prototype, "comment", {
+        get: function () {
+            return this._comment;
+        },
+        set: function (value) {
+            this._comment = value;
         },
         enumerable: true,
         configurable: true
@@ -266,7 +277,7 @@ var GoogleMapComponent = (function () {
         }
     };
     GoogleMapComponent.prototype.onMapClicked = function (event) {
-        this.newMarker = new __WEBPACK_IMPORTED_MODULE_1__model_marker_model__["a" /* Marker */](null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, true);
+        this.newMarker = new __WEBPACK_IMPORTED_MODULE_1__model_marker_model__["a" /* Marker */](null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
         this.markers.push(this.newMarker);
         this.positionObject.emit(this.newMarker);
         this.isNewObject.emit(true);
@@ -355,18 +366,22 @@ var TargetObjectComponent = (function () {
     };
     TargetObjectComponent.prototype.onSubmit = function (form) {
         var formValue = form.value;
-        if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
-            var countFiles = this.filesList.length;
-            for (var i = 0; i < countFiles; i++) {
-                var file = this.filesList[i];
-                this.fileUploadService.uploadImage(file)
-                    .subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
-            }
-        }
+        // if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
+        //   let countFiles = this.filesList.length;
+        //   for (let i = 0; i < countFiles; i++) {
+        //     let file: File = this.filesList[i];
+        //     this.fileUploadService.uploadImage(file)
+        //       .subscribe(
+        //         data => console.log(data),
+        //         error => console.log(error)
+        //       )
+        //   }
+        // }
         this.marker.date = this.date;
+        this.marker.comment = formValue.comment;
         this.targetObjectService.sendObjectData(this.marker, this.filesList)
             .subscribe(function (response) {
-            console.info(response);
+            // console.info(response.json());
         }, function (err) {
             console.info(err);
         });
@@ -3082,27 +3097,20 @@ var TargetObjectService = (function () {
         return markers;
     };
     TargetObjectService.prototype.sendObjectData = function (marker, files) {
-        // console.info(marker);
-        // let data = new URLSearchParams();
-        // data.append("name", marker.name);
-        // for(let i = 0; i < files.length; i++){
-        //   data.append("imageObject", files[i].name);
-        // }
-        // data.append("latitude", marker.lat.toString());
-        // data.append("longitude", marker.lng.toString());
-        // data.append("draggable", String(marker.draggable));
-        // data.append("positionIsChanged", String(marker.positionIsChanged));
-        //
-        // let requestOptions = new RequestOptions({
-        //
-        // });
         var data = {
             name: marker.name,
-            imageObject: []
+            imageObject: [],
+            latitude: marker.lat,
+            longitude: marker.lng,
+            comment: marker.comment,
+            date: marker.date.toString(),
+            draggable: marker.draggable,
+            positionIsChanged: marker.positionIsChanged
         };
         for (var i = 0; i < files.length; i++) {
             data.imageObject.push(files[i].name);
         }
+        console.info(JSON.stringify(data));
         var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["l" /* Headers */]({
             'Content-Type': 'application/json'
         });
@@ -3235,7 +3243,6 @@ var LoginComponent = (function () {
         var value = this.loginForm.value;
         this.authService.sendCredential(value.username, value.password).subscribe(function (response) {
             if (response.status === 200) {
-                console.info(response);
                 localStorage.setItem("userName", response.text());
                 _this.router.navigate(["/personal-area"]);
             }

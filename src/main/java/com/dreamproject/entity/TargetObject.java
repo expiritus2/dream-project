@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,17 +34,18 @@ public class TargetObject {
     @JoinColumn(name = "type_object_id")
     private TypeObject typeObject;
 
-    private Date date;
+    private Calendar date;
 
     public TargetObject() {
     }
 
 
-    public TargetObject(TypeObject typeObject, double latitude, double longitude, User user) {
+    public TargetObject(TypeObject typeObject, double latitude, double longitude, User user, Calendar date) {
         this.typeObject = typeObject;
         this.latitude = latitude;
         this.longitude = longitude;
         this.user = user;
+        this.date = date;
     }
 
 
@@ -111,11 +113,11 @@ public class TargetObject {
         this.typeObject = typeObject;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
