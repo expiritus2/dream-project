@@ -31,6 +31,11 @@ public class TypeObject {
         this.nameEn = nameEn;
     }
 
+
+    public Long getId() {
+        return id;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -50,11 +55,6 @@ public class TypeObject {
     public void setNameRu(String nameRu) {
         this.nameRu = nameRu;
     }
-
-    public Long getId() {
-        return id;
-    }
-
 
     public List<TargetObject> getTargetObjects() {
         return targetObjects;

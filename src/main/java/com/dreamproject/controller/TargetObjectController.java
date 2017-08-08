@@ -7,8 +7,11 @@ import com.dreamproject.service.FileUploadService;
 import com.dreamproject.service.TargetObjectService;
 import com.dreamproject.service.TypeObjectService;
 import com.dreamproject.service.UserService;
+import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -58,8 +61,17 @@ public class TargetObjectController {
 
     @RequestMapping(value = "/putObject", method = RequestMethod.POST, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Object> putObject(@RequestBody String body){
-        System.out.println(body);
+        JsonParser jsonParser = JsonParserFactory.getJsonParser();
+        Map<String, Object> param = jsonParser.parseMap(body);
+        String nameObject = param.get("name").toString();
+        TypeObject typeObject = getTypeObjectWithLocale(nameObject);
+        if(typeObject == null){
+            typeObject = typeObjectService.save(new TypeObject(nameObject));
+        }
         return new ResponseEntity<Object>(body, HttpStatus.OK);
+    }
 
+    private TypeObject getTypeObjectWithLocale(String name){
+        return typeObjectService.findByNameEnOrNameRu(name);
     }
 }

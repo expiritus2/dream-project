@@ -17,11 +17,17 @@ public class TargetObject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "type_object_id")
+    private TypeObject typeObject;
+
     @OneToMany(mappedBy = "targetObject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ImageObject> imageObject;
 
     private double latitude;
     private double longitude;
+    private String comment;
+    private Calendar date;
     private boolean draggable = false;
     private boolean positionIsChanged = false;
 
@@ -30,24 +36,17 @@ public class TargetObject {
     @JsonBackReference
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "type_object_id")
-    private TypeObject typeObject;
-
-    private Calendar date;
-
     public TargetObject() {
     }
 
-
-    public TargetObject(TypeObject typeObject, double latitude, double longitude, User user, Calendar date) {
+    public TargetObject(TypeObject typeObject, double latitude, double longitude, String comment, User user, Calendar date) {
         this.typeObject = typeObject;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.user = user;
+        this.comment = comment;
         this.date = date;
+        this.user = user;
     }
-
 
     public Long getId() {
         return id;
@@ -55,6 +54,14 @@ public class TargetObject {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TypeObject getTypeObject() {
+        return typeObject;
+    }
+
+    public void setTypeObject(TypeObject typeObject) {
+        this.typeObject = typeObject;
     }
 
     public List<ImageObject> getImageObject() {
@@ -81,6 +88,30 @@ public class TargetObject {
         this.longitude = longitude;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public boolean isDraggable() {
+        return draggable;
+    }
+
+    public void setDraggable(boolean draggable) {
+        this.draggable = draggable;
+    }
+
     public boolean isPositionIsChanged() {
         return positionIsChanged;
     }
@@ -97,42 +128,19 @@ public class TargetObject {
         this.user = user;
     }
 
-    public boolean isDraggable() {
-        return draggable;
-    }
-
-    public void setDraggable(boolean draggable) {
-        this.draggable = draggable;
-    }
-
-    public TypeObject getTypeObject() {
-        return typeObject;
-    }
-
-    public void setTypeObject(TypeObject typeObject) {
-        this.typeObject = typeObject;
-    }
-
-    public Calendar getDate() {
-        return date;
-    }
-
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
         return "TargetObject{" +
                 "id=" + id +
+                ", typeObject=" + typeObject +
                 ", imageObject=" + imageObject +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
+                ", comment='" + comment + '\'' +
+                ", date=" + date +
                 ", draggable=" + draggable +
                 ", positionIsChanged=" + positionIsChanged +
                 ", user=" + user +
-                ", typeObject=" + typeObject +
-                ", date=" + date +
                 '}';
     }
 }

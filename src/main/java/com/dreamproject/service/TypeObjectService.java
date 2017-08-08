@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface TypeObjectService {
 
-    void save(TypeObject typeObject);
+    TypeObject save(TypeObject typeObject);
 
-    public List<TypeObject> findAll();
+    List<TypeObject> findAll();
+
+    TypeObject findByNameEnOrNameRu(String name);
 }

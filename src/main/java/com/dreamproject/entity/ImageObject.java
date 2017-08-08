@@ -19,6 +19,10 @@ public class ImageObject {
     @JsonBackReference
     private TargetObject targetObject;
 
+    public ImageObject(String name) {
+        this.name = name;
+    }
+
     public ImageObject(String name, TargetObject targetObject) {
         this.name = name;
         this.targetObject = targetObject;
