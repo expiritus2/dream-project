@@ -42,6 +42,7 @@ export class TargetObjectComponent implements OnInit {
           console.info(err);
         }
       );
+
   }
 
   validForm(){
@@ -88,7 +89,8 @@ export class TargetObjectComponent implements OnInit {
 
     this.marker.date = this.date;
     this.marker.comment = formValue.comment;
-    this.targetObjectService.sendObjectData(this.marker, this.filesList)
+    let locale = localStorage.getItem("language");
+    this.targetObjectService.sendObjectData(this.marker, this.filesList, locale)
       .subscribe(
         (response: Response) => {
           // console.info(response.json());

@@ -49,6 +49,7 @@ export class LocaleComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.setItem("language", this.selectedLang);
   }
 
   ngOnDestroy() {

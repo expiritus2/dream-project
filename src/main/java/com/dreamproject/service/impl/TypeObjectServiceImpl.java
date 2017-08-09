@@ -25,7 +25,7 @@ public class TypeObjectServiceImpl implements TypeObjectService {
         return (List<TypeObject>) typeObjectDao.findAll();
     }
 
-    public TypeObject findByNameEnOrNameRu(String name){
-        return typeObjectDao.findByNameEnOrNameRu(name, name);
+    public TypeObject findByName(String name){
+        return typeObjectDao.findByName(name);
     }
 }

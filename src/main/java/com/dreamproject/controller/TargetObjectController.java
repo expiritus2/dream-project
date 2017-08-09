@@ -64,14 +64,15 @@ public class TargetObjectController {
         JsonParser jsonParser = JsonParserFactory.getJsonParser();
         Map<String, Object> param = jsonParser.parseMap(body);
         String nameObject = param.get("name").toString();
-        TypeObject typeObject = getTypeObjectWithLocale(nameObject);
+        TypeObject typeObject = getTypeObject(nameObject);
         if(typeObject == null){
             typeObject = typeObjectService.save(new TypeObject(nameObject));
         }
+        System.out.println(param);
         return new ResponseEntity<Object>(body, HttpStatus.OK);
     }
 
-    private TypeObject getTypeObjectWithLocale(String name){
-        return typeObjectService.findByNameEnOrNameRu(name);
+    private TypeObject getTypeObject(String name){
+        return typeObjectService.findByName(name);
     }
 }

@@ -14,11 +14,9 @@ public class TypeObject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name_en")
-    private String nameEn;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "name_ru")
-    private String nameRu;
 
     @OneToMany(mappedBy = "typeObject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
@@ -27,10 +25,9 @@ public class TypeObject {
     public TypeObject() {
     }
 
-    public TypeObject(String nameEn) {
-        this.nameEn = nameEn;
+    public TypeObject(String name) {
+        this.name = name;
     }
-
 
     public Long getId() {
         return id;
@@ -40,20 +37,12 @@ public class TypeObject {
         this.id = id;
     }
 
-    public String getNameEn() {
-        return nameEn;
+    public String getName() {
+        return name;
     }
 
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    public String getNameRu() {
-        return nameRu;
-    }
-
-    public void setNameRu(String nameRu) {
-        this.nameRu = nameRu;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<TargetObject> getTargetObjects() {
@@ -68,8 +57,7 @@ public class TypeObject {
     public String toString() {
         return "TypeObject{" +
                 "id=" + id +
-                ", nameEn='" + nameEn + '\'' +
-                ", nameRu='" + nameRu + '\'' +
+                ", name='" + name + '\'' +
                 ", targetObjects=" + targetObjects +
                 '}';
     }

@@ -10,5 +10,5 @@ public interface TypeObjectService {
 
     List<TypeObject> findAll();
 
-    TypeObject findByNameEnOrNameRu(String name);
+    TypeObject findByName(String name);
 }

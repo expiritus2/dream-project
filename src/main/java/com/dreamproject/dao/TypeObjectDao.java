@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TypeObjectDao extends CrudRepository<TypeObject, Long> {
 
-    TypeObject findByNameEnOrNameRu(String nameEn, String nameRu);
+    TypeObject findByName(String name);
 }

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers, RequestOptions, URLSearchParams} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 import {WebConfig} from "../../webconfig.config";
 import {Marker} from "../model/marker.model";
 
@@ -35,7 +35,7 @@ export class TargetObjectService {
     return markers;
   }
 
-  sendObjectData(marker: Marker, files: FileList){
+  sendObjectData(marker: Marker, files: FileList, locale: string){
     let data = {
       name: marker.name,
       imageObject: [],
@@ -44,7 +44,8 @@ export class TargetObjectService {
       comment: marker.comment,
       date: marker.date.toString(),
       draggable: marker.draggable,
-      positionIsChanged: marker.positionIsChanged
+      positionIsChanged: marker.positionIsChanged,
+      locale: locale
     };
 
 

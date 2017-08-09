@@ -84,19 +84,15 @@ public class DreamProjectApplication implements CommandLineRunner {
         userService.createUser(user3, userRoles3);
 
         TypeObject typeObject1 = new TypeObject("First Marker");
-        typeObject1.setNameRu("Первый Маркер");
         typeObjectService.save(typeObject1);
 
         TypeObject typeObject2 = new TypeObject("Second Marker");
-        typeObject2.setNameRu("Второй Маркер");
         typeObjectService.save(typeObject2);
 
         TypeObject typeObject3 = new TypeObject("Third Marker");
-        typeObject3.setNameRu("Третий Маркер");
         typeObjectService.save(typeObject3);
 
         TypeObject typeObject4 = new TypeObject("Fourth Marker");
-        typeObject4.setNameRu("Четвертый Маркер");
         typeObjectService.save(typeObject4);
 
 
