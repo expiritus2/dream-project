@@ -6,10 +6,12 @@ import java.util.List;
 
 public interface TargetObjectService {
 
-    void save(TargetObject targetObject);
+    TargetObject save(TargetObject targetObject);
 
     List<TargetObject> findAll();
 
     List<TargetObject> findObjectByUserId(long id);
+
+    TargetObject findOne(Long targetObjectId);
 
 }

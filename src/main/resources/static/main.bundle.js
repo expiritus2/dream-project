@@ -366,24 +366,25 @@ var TargetObjectComponent = (function () {
         this.isNewObject = isNewObj;
     };
     TargetObjectComponent.prototype.onSubmit = function (form) {
+        var _this = this;
         var formValue = form.value;
-        // if (typeof this.filesList != "undefined" && this.filesList.length > 0) {
-        //   let countFiles = this.filesList.length;
-        //   for (let i = 0; i < countFiles; i++) {
-        //     let file: File = this.filesList[i];
-        //     this.fileUploadService.uploadImage(file)
-        //       .subscribe(
-        //         data => console.log(data),
-        //         error => console.log(error)
-        //       )
-        //   }
-        // }
         this.marker.date = this.date;
         this.marker.comment = formValue.comment;
         var locale = localStorage.getItem("language");
         this.targetObjectService.sendObjectData(this.marker, this.filesList, locale)
             .subscribe(function (response) {
-            // console.info(response.json());
+            var targetObjectId = response.json();
+            console.info(targetObjectId);
+            if (response.status == 200) {
+                if (typeof _this.filesList != "undefined" && _this.filesList.length > 0) {
+                    var countFiles = _this.filesList.length;
+                    for (var i = 0; i < countFiles; i++) {
+                        var file = _this.filesList[i];
+                        _this.fileUploadService.uploadImage(file, targetObjectId)
+                            .subscribe(function (data) { return console.log(data); }, function (error) { return console.log(error); });
+                    }
+                }
+            }
         }, function (err) {
             console.info(err);
         });
@@ -3364,9 +3365,10 @@ var FileUploadService = (function () {
     function FileUploadService(http) {
         this.http = http;
     }
-    FileUploadService.prototype.uploadImage = function (file) {
+    FileUploadService.prototype.uploadImage = function (file, targetObjectId) {
         var formData = new FormData();
         formData.append("file", file, file.name);
+        formData.append("targetObjectId", targetObjectId);
         var headers = new Headers();
         headers.append('Content-Type', 'multipart/form-data');
         headers.append('Accept', 'application/json');

@@ -25,8 +25,8 @@ public class TargetObjectServiceImpl implements TargetObjectService {
     @Autowired
     private ImageObjectDao imageObjectDao;
 
-    public void save(TargetObject targetObject) {
-        targetObjectDao.save(targetObject);
+    public TargetObject save(TargetObject targetObject) {
+        return targetObjectDao.save(targetObject);
     }
 
     public List<TargetObject> findAll() {
@@ -34,7 +34,11 @@ public class TargetObjectServiceImpl implements TargetObjectService {
     }
 
     public List<TargetObject> findObjectByUserId(long id){
-        List<TargetObject> allObjectsByUserId = targetObjectDao.findAllByUserUserId(id);
-        return allObjectsByUserId;
+        return targetObjectDao.findAllByUserUserId(id);
+    }
+
+    @Override
+    public TargetObject findOne(Long targetObjectId) {
+        return targetObjectDao.findOne(targetObjectId);
     }
 }

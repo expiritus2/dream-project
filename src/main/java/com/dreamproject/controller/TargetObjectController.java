@@ -22,7 +22,11 @@ import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @RestController
@@ -55,21 +59,38 @@ public class TargetObjectController {
 
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, HttpServletRequest request) {
-        return fileUploadService.uploadFiles(files, request);
+    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, @RequestParam("targetObjectId") Long targetObjectId, HttpServletRequest request) {
+        return fileUploadService.uploadFiles(files, request, targetObjectId);
     }
 
     @RequestMapping(value = "/putObject", method = RequestMethod.POST, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Object> putObject(@RequestBody String body){
+    public ResponseEntity<Object> putObject(@RequestBody String body, Principal principal) throws ParseException {
         JsonParser jsonParser = JsonParserFactory.getJsonParser();
         Map<String, Object> param = jsonParser.parseMap(body);
+        System.out.println(param);
         String nameObject = param.get("name").toString();
+        double latitude = Double.parseDouble(param.get("latitude").toString());
+        double longitude = Double.parseDouble(param.get("longitude").toString());
+        String comment = param.get("comment").toString();
+        String date = param.get("date").toString();
+        boolean draggable = Boolean.parseBoolean(param.get("draggable").toString());
+        boolean positionIsChanged = Boolean.parseBoolean(param.get("positionIsChanged").toString());
         TypeObject typeObject = getTypeObject(nameObject);
         if(typeObject == null){
             typeObject = typeObjectService.save(new TypeObject(nameObject));
         }
-        System.out.println(param);
-        return new ResponseEntity<Object>(body, HttpStatus.OK);
+
+
+        User user = userService.findByUsername(principal.getName());
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-dd HH:mm", Locale.ENGLISH);
+        calendar.setTime(simpleDateFormat.parse(date));
+        TargetObject newTargetObject = new TargetObject(typeObject, latitude, longitude, comment, user, calendar);
+        newTargetObject.setDraggable(draggable);
+        newTargetObject.setPositionIsChanged(positionIsChanged);
+        TargetObject targetObject = targetObjectService.save(newTargetObject);
+        return new ResponseEntity<Object>(targetObject.getId(), HttpStatus.OK);
     }
 
     private TypeObject getTypeObject(String name){
