@@ -3,11 +3,17 @@ package com.dreamproject.entity;
 import com.dreamproject.config.WebConfig;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = WebConfig.PREFIX + "target_object")
@@ -31,6 +37,12 @@ public class TargetObject {
     private boolean draggable = false;
     private boolean positionIsChanged = false;
 
+    @Column(name = "create_at")
+    private Date createdAt;
+
+    @Column(name = "update_at")
+    private Date updatedAt;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
@@ -47,6 +59,18 @@ public class TargetObject {
         this.date = date;
         this.user = user;
     }
+
+
+    @PrePersist
+    public void onPrePersist(){
+        createdAt = new Date();
+    }
+
+    @PreUpdate
+    public void onPreOpdate(){
+        updatedAt = new Date();
+    }
+
 
     public Long getId() {
         return id;
@@ -128,6 +152,22 @@ public class TargetObject {
         this.user = user;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public String toString() {
         return "TargetObject{" +
@@ -140,6 +180,8 @@ public class TargetObject {
                 ", date=" + date +
                 ", draggable=" + draggable +
                 ", positionIsChanged=" + positionIsChanged +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 ", user=" + user +
                 '}';
     }
