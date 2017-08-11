@@ -28,9 +28,10 @@ export class TargetObjectService {
       let fileName = object.filename;
       let lat = object.latitude;
       let lng = object.longitude;
-      let draggable = object.draggable;
+      let comment = object.comment;
+      let draggable = true;
       let positionIsChanged = object.positionIsChanged;
-      markers.push(new Marker(id, name, fileName, lat, lng, draggable, positionIsChanged))
+      markers.push(new Marker(id, name, fileName, lat, lng, comment, draggable, positionIsChanged))
     }
     return markers;
   }
@@ -43,7 +44,7 @@ export class TargetObjectService {
       longitude: marker.lng,
       comment: marker.comment,
       date: marker.date.toString(),
-      draggable: marker.draggable,
+      draggable: false,
       positionIsChanged: marker.positionIsChanged,
       locale: locale
     };
