@@ -23,7 +23,6 @@ export class GoogleMapComponent implements OnInit {
   markers: Marker[];
   nameObject: string;
   newMarker: Marker;
-  imageObject: string = WebConfig.defaultImage;
   previewImages: File[];
   isNewMarker: boolean = false;
 
@@ -37,6 +36,7 @@ export class GoogleMapComponent implements OnInit {
     this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
+          console.info(response.json());
           this.markers = this.targetObjectService.packObjects(response.json());
         },
         (err) => {
@@ -64,11 +64,13 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onMapClicked(event: any) {
-    this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
-    this.markers.push(this.newMarker);
-    this.positionObject.emit(this.newMarker);
-    this.isNewObject.emit(true);
-    this.isNewMarker = true;
+    if(!this.isNewMarker){
+      this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
+      this.markers.push(this.newMarker);
+      this.positionObject.emit(this.newMarker);
+      this.isNewObject.emit(true);
+      this.isNewMarker = true;
+    }
   }
 
   updateMarker(){
@@ -93,6 +95,7 @@ export class GoogleMapComponent implements OnInit {
   onDeleteMarker(index: number) {
     this.markers.splice(index, 1);
     this.isNewObject.emit(false);
+    this.isNewMarker = false;
   }
 
 

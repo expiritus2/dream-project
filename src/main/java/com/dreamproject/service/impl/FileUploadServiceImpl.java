@@ -1,5 +1,6 @@
 package com.dreamproject.service.impl;
 
+import com.dreamproject.config.WebConfig;
 import com.dreamproject.dao.ImageObjectDao;
 import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
@@ -37,7 +38,6 @@ public class FileUploadServiceImpl implements FileUploadService {
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUploadService.class);
 
-    private static final String UPLOADED_FOLDER = "src/main/resources/files";
 
 
     @Override
@@ -73,7 +73,7 @@ public class FileUploadServiceImpl implements FileUploadService {
         String originalFileName = file.getOriginalFilename();
         String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
         String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
-        Path path = Paths.get(UPLOADED_FOLDER + "/" + unicFileName);
+        Path path = Paths.get(WebConfig.UPLOADED_FOLDER + "/" + unicFileName);
         Files.write(path, bytes);
         return unicFileName;
     }

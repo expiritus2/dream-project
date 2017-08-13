@@ -234,9 +234,7 @@ var Marker = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_target_object_service__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__webconfig_config__ = __webpack_require__(61);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleMapComponent; });
-
 
 
 
@@ -249,7 +247,6 @@ var GoogleMapComponent = (function () {
         this.zoom = 10;
         this.lat = 53.837918599999995;
         this.lng = 27.647920400000004;
-        this.imageObject = __WEBPACK_IMPORTED_MODULE_4__webconfig_config__["a" /* WebConfig */].defaultImage;
         this.isNewMarker = false;
     }
     GoogleMapComponent.prototype.ngOnInit = function () {
@@ -278,11 +275,13 @@ var GoogleMapComponent = (function () {
         }
     };
     GoogleMapComponent.prototype.onMapClicked = function (event) {
-        this.newMarker = new __WEBPACK_IMPORTED_MODULE_1__model_marker_model__["a" /* Marker */](null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
-        this.markers.push(this.newMarker);
-        this.positionObject.emit(this.newMarker);
-        this.isNewObject.emit(true);
-        this.isNewMarker = true;
+        if (!this.isNewMarker) {
+            this.newMarker = new __WEBPACK_IMPORTED_MODULE_1__model_marker_model__["a" /* Marker */](null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
+            this.markers.push(this.newMarker);
+            this.positionObject.emit(this.newMarker);
+            this.isNewObject.emit(true);
+            this.isNewMarker = true;
+        }
     };
     GoogleMapComponent.prototype.updateMarker = function () {
         if (typeof this.newMarker != 'undefined') {
@@ -300,6 +299,7 @@ var GoogleMapComponent = (function () {
     GoogleMapComponent.prototype.onDeleteMarker = function (index) {
         this.markers.splice(index, 1);
         this.isNewObject.emit(false);
+        this.isNewMarker = false;
     };
     GoogleMapComponent.prototype.onMarkerDragEnd = function (marker, event) {
         marker.lat = event.coords.lat;
@@ -319,7 +319,7 @@ var GoogleMapComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__service_target_object_service__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_file_upload_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_file_upload_service__ = __webpack_require__(88);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TargetObjectComponent; });
 
 
@@ -487,7 +487,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_component_css_shim_ngstyle__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_admin_admin_component__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_admin_admin_component__ = __webpack_require__(81);
 /* unused harmony export RenderType_AdminComponent */
 /* unused harmony export View_AdminComponent_0 */
 /* unused harmony export View_AdminComponent_Host_0 */
@@ -628,17 +628,17 @@ var AppComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["ɵccf"]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ngui_datetime_picker_dist_datetime__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ngui_datetime_picker_dist_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__ngui_datetime_picker_dist_datetime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_translate_src_translate_service__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ng2_translate_src_translate_parser__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__agm_core_utils_browser_globals__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ng2_translate_src_translate_parser__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__agm_core_utils_browser_globals__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__agm_core_services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__app_home_home_component__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__app_admin_admin_component__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__app_personal_area_personal_area_component__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__app_auth_login_login_component__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__app_auth_signup_signup_component__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__app_auth_access_denied_access_denied_component__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__app_not_found_not_found_component__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__agm_core_services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__app_home_home_component__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__app_admin_admin_component__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__app_personal_area_personal_area_component__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__app_auth_login_login_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__app_auth_signup_signup_component__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__app_auth_access_denied_access_denied_component__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__app_not_found_not_found_component__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__app_app_routing_module__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ngui_datetime_picker_dist_datetime_picker_module__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ngui_datetime_picker_dist_datetime_picker_module___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__ngui_datetime_picker_dist_datetime_picker_module__);
@@ -761,7 +761,7 @@ var AppModuleNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ɵcmf"](__
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__access_denied_component_css_shim_ngstyle__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_auth_access_denied_access_denied_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_auth_access_denied_access_denied_component__ = __webpack_require__(82);
 /* unused harmony export RenderType_AccessDeniedComponent */
 /* unused harmony export View_AccessDeniedComponent_0 */
 /* unused harmony export View_AccessDeniedComponent_Host_0 */
@@ -822,7 +822,7 @@ var AccessDeniedComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_translate_src_translate_pipe__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_translate_src_translate_service__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_login_login_component__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_login_login_component__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_auth_service_auth_service__ = __webpack_require__(60);
@@ -1035,7 +1035,7 @@ var LoginComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["ɵccf
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_translate_src_translate_pipe__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_translate_src_translate_service__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_signup_signup_component__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_signup_signup_component__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_auth_service_auth_service__ = __webpack_require__(60);
@@ -1677,7 +1677,7 @@ var LocaleComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["ɵcc
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_component_css_shim_ngstyle__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_home_home_component__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_home_home_component__ = __webpack_require__(85);
 /* unused harmony export RenderType_HomeComponent */
 /* unused harmony export View_HomeComponent_0 */
 /* unused harmony export View_HomeComponent_Host_0 */
@@ -1737,7 +1737,7 @@ var HomeComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["ɵccf"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__not_found_component_css_shim_ngstyle__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_not_found_not_found_component__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_not_found_not_found_component__ = __webpack_require__(86);
 /* unused harmony export RenderType_NotFoundComponent */
 /* unused harmony export View_NotFoundComponent_0 */
 /* unused harmony export View_NotFoundComponent_Host_0 */
@@ -1797,11 +1797,11 @@ var NotFoundComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["ɵ
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__personal_area_component_css_shim_ngstyle__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__target_object_target_object_component_ngfactory__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_file_upload_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_personal_area_service_file_upload_service__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_personal_area_service_target_object_service__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_personal_area_target_object_target_object_component__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_personal_area_personal_area_component__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_personal_area_personal_area_component__ = __webpack_require__(87);
 /* unused harmony export RenderType_PersonalAreaComponent */
 /* unused harmony export View_PersonalAreaComponent_0 */
 /* unused harmony export View_PersonalAreaComponent_Host_0 */
@@ -1882,7 +1882,7 @@ var PersonalAreaComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__agm_core_services_managers_data_layer_manager__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__agm_core_directives_map__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__agm_core_directives_map__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_personal_area_service_target_object_service__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_http__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_GoogleMapComponent; });
@@ -2066,7 +2066,7 @@ var GoogleMapComponentNgFactory = __WEBPACK_IMPORTED_MODULE_1__angular_core__["�
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ngui_datetime_picker_dist_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__ngui_datetime_picker_dist_datetime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ngui_datetime_picker_dist_datetime_picker_directive__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ngui_datetime_picker_dist_datetime_picker_directive___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__ngui_datetime_picker_dist_datetime_picker_directive__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_personal_area_service_file_upload_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_personal_area_service_file_upload_service__ = __webpack_require__(88);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_TargetObjectComponent; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_TargetObjectComponent_0;
 /* unused harmony export View_TargetObjectComponent_Host_0 */
@@ -2407,7 +2407,7 @@ var AgmInfoWindowNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_core__["ɵccf"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__agm_core_services_managers_kml_layer_manager__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__agm_core_services_managers_data_layer_manager__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__agm_core_services_maps_api_loader_maps_api_loader__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__agm_core_directives_map__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__agm_core_directives_map__ = __webpack_require__(78);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RenderType_AgmMap; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = View_AgmMap_0;
 /* unused harmony export View_AgmMap_Host_0 */
@@ -2956,13 +2956,13 @@ var NguiDatetimePickerComponentNgFactory = __WEBPACK_IMPORTED_MODULE_0__angular_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_admin_component__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_home_home_component__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_not_found_component__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_login_login_component__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_signup_signup_component__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__personal_area_personal_area_component__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_access_denied_access_denied_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_admin_component__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_home_home_component__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__not_found_not_found_component__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_login_login_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_signup_signup_component__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__personal_area_personal_area_component__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_access_denied_access_denied_component__ = __webpack_require__(82);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 
 
@@ -3053,7 +3053,7 @@ var environment = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_marker_model__ = __webpack_require__(123);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TargetObjectService; });
 
@@ -3080,9 +3080,10 @@ var TargetObjectService = (function () {
             var fileName = object.filename;
             var lat = object.latitude;
             var lng = object.longitude;
-            var draggable = object.draggable;
+            var comment = object.comment;
+            var draggable = true;
             var positionIsChanged = object.positionIsChanged;
-            markers.push(new __WEBPACK_IMPORTED_MODULE_2__model_marker_model__["a" /* Marker */](id, name, fileName, lat, lng, draggable, positionIsChanged));
+            markers.push(new __WEBPACK_IMPORTED_MODULE_2__model_marker_model__["a" /* Marker */](id, name, fileName, lat, lng, comment, draggable, positionIsChanged));
         }
         return markers;
     };
@@ -3094,7 +3095,7 @@ var TargetObjectService = (function () {
             longitude: marker.lng,
             comment: marker.comment,
             date: marker.date.toString(),
-            draggable: marker.draggable,
+            draggable: false,
             positionIsChanged: marker.positionIsChanged,
             locale: locale
         };
@@ -3127,7 +3128,7 @@ module.exports = __webpack_require__(184);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__webconfig_config__ = __webpack_require__(89);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 
 
@@ -3158,24 +3159,7 @@ var AuthService = (function () {
 
 /***/ }),
 
-/***/ 61:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebConfig; });
-var WebConfig = (function () {
-    function WebConfig() {
-    }
-    return WebConfig;
-}());
-
-WebConfig.host = "http://localhost:8080";
-WebConfig.defaultImage = "http://english.tw/wp-content/themes/qaengine/img/default-thumbnail.jpg";
-//# sourceMappingURL=webconfig.config.js.map
-
-/***/ }),
-
-/***/ 82:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3193,7 +3177,7 @@ var AdminComponent = (function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3211,7 +3195,7 @@ var AccessDeniedComponent = (function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3249,7 +3233,7 @@ var LoginComponent = (function () {
 
 /***/ }),
 
-/***/ 85:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3294,7 +3278,7 @@ var SignupComponent = (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3316,7 +3300,7 @@ var HomeComponent = (function () {
 
 /***/ }),
 
-/***/ 87:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3334,7 +3318,7 @@ var NotFoundComponent = (function () {
 
 /***/ }),
 
-/***/ 88:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3352,11 +3336,11 @@ var PersonalAreaComponent = (function () {
 
 /***/ }),
 
-/***/ 89:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__webconfig_config__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__webconfig_config__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(18);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FileUploadService; });
 
@@ -3379,6 +3363,23 @@ var FileUploadService = (function () {
 }());
 
 //# sourceMappingURL=file-upload.service.js.map
+
+/***/ }),
+
+/***/ 89:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebConfig; });
+var WebConfig = (function () {
+    function WebConfig() {
+    }
+    return WebConfig;
+}());
+
+WebConfig.host = "http://localhost:8080";
+WebConfig.defaultImage = "http://english.tw/wp-content/themes/qaengine/img/default-thumbnail.jpg";
+//# sourceMappingURL=webconfig.config.js.map
 
 /***/ })
 

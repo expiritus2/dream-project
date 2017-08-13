@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/images/**",
+            "/files/**",
             "/assets/**",
             "/inline.bundle.js.map",
             "/inline.bundle.js",

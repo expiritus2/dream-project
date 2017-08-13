@@ -20,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     public static final String PREFIX = "drp_";
+    public static final String UPLOADED_FOLDER = "src/main/resources/static/images";
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
