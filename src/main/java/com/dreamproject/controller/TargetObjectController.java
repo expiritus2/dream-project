@@ -3,10 +3,7 @@ package com.dreamproject.controller;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.entity.TypeObject;
 import com.dreamproject.entity.User;
-import com.dreamproject.service.FileUploadService;
-import com.dreamproject.service.TargetObjectService;
-import com.dreamproject.service.TypeObjectService;
-import com.dreamproject.service.UserService;
+import com.dreamproject.service.*;
 import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +44,7 @@ public class TargetObjectController {
     @Autowired
     private FileUploadService fileUploadService;
 
+
     @RequestMapping(value = "/findOwn", method = RequestMethod.GET)
     public List<TargetObject> getObjects(Principal principal) {
         User user = userService.findByUsername(principal.getName());
@@ -59,7 +58,7 @@ public class TargetObjectController {
 
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, @RequestParam("targetObjectId") Long targetObjectId, HttpServletRequest request) {
+    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, @RequestParam("targetObjectId") Long targetObjectId, HttpServletRequest request) throws IOException {
         return fileUploadService.uploadFiles(files, request, targetObjectId);
     }
 

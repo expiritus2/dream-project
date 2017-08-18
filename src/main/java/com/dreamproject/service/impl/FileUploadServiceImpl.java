@@ -1,7 +1,9 @@
 package com.dreamproject.service.impl;
 
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.*;
 import com.dreamproject.config.WebConfig;
-import com.dreamproject.dao.ImageObjectDao;
 import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.service.FileUploadService;
@@ -20,9 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -37,7 +37,6 @@ public class FileUploadServiceImpl implements FileUploadService {
     private TargetObjectService targetObjectService;
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUploadService.class);
-
 
 
     @Override
@@ -69,12 +68,73 @@ public class FileUploadServiceImpl implements FileUploadService {
     }
 
     private String saveUploadedFile(MultipartFile file) throws IOException {
-        byte[] bytes = file.getBytes();
-        String originalFileName = file.getOriginalFilename();
-        String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-        String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
-        Path path = Paths.get(WebConfig.UPLOADED_FOLDER + "/" + unicFileName);
-        Files.write(path, bytes);
-        return unicFileName;
+
+        try {
+            BasicAWSCredentials awsCreds = new BasicAWSCredentials(WebConfig.ACCESS_KEY_ID, WebConfig.SECRET_KEY_ID);
+
+            AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
+
+//            for(Bucket bucket : s3Client.listBuckets()){
+//                s3Client.deleteBucket(bucket.getName());
+//                System.out.println(bucket.getName());
+//            }
+
+
+//            String newBucketName = "dream-project/imageObject";
+//            s3Client.createBucket(newBucketName);
+
+            String originalFileName = file.getOriginalFilename();
+            String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+            String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
+
+
+            InputStream is = file.getInputStream();
+            PutObjectRequest putObjectRequest = new PutObjectRequest("dream-project/imageObject", unicFileName, is, new ObjectMetadata()).withCannedAcl(CannedAccessControlList.PublicRead);
+            PutObjectResult response = s3Client.putObject(putObjectRequest);
+            System.out.println("Uploaded object ecryption status is " + response.getSSEAlgorithm());
+        } catch (Exception e) {
+
+        }
+//        byte[] bytes = file.getBytes();
+//        String originalFileName = file.getOriginalFilename();
+//        String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+//        String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
+//        Path path = Paths.get(WebConfig.UPLOADED_FOLDER + "/" + unicFileName);
+//        Files.write(path, bytes);
+//        return unicFileName;
+
+//        String originalFileName = file.getOriginalFilename();
+//        String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+//        String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
+//
+//        AmazonS3Client s3Client = new AmazonS3Client(new ProfileCredentialsProvider());
+//
+//        String bucketName = "rende-" + UUID.randomUUID();
+//        s3Client.createBucket(bucketName);
+//        try {
+//            InputStream is = file.getInputStream();
+//            s3Client.putObject(new PutObjectRequest(bucketName, unicFileName, is, new ObjectMetadata()).withCannedAcl(CannedAccessControlList.PublicRead));
+//
+//            S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, unicFileName));
+//        } catch (IOException e){
+//
+//        }
+//
+//        return unicFileName;
+        return null;
+    }
+
+    public static String createAndPopulateSimpleBucket() throws Exception {
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(WebConfig.ACCESS_KEY_ID, WebConfig.SECRET_KEY_ID);
+
+        AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
+
+        String newBucketName = "mattua" + System.currentTimeMillis();
+        s3Client.createBucket(newBucketName);
+
+        final String fileName = "sometext.txt";
+
+        return newBucketName;
+
     }
 }

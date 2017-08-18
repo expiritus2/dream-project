@@ -254,6 +254,7 @@ var GoogleMapComponent = (function () {
         this.setCurrentLocation();
         this.targetObjectService.findOwnObjects()
             .subscribe(function (response) {
+            console.info(response.json());
             _this.markers = _this.targetObjectService.packObjects(response.json());
         }, function (err) {
         });
