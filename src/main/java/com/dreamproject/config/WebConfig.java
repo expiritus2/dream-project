@@ -22,9 +22,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public static final String PREFIX = "drp_";
     public static final String UPLOADED_FOLDER = "src/main/resources/static/images";
 
-    public static final String ACCESS_KEY_ID = "AKIAIAHNO6UDH6DSWX2Q";
-    public static final String SECRET_KEY_ID = "0nPGkY+Cr4VzmxmLnKomucmt6fBWpUaa63SDg6aS";
-
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/notFound").setViewName("forward:/index.html");

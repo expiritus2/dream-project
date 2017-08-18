@@ -1,8 +1,14 @@
 package com.dreamproject.service.impl;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.AmazonSNSClient;
+import com.dreamproject.config.ApplicationConfig;
 import com.dreamproject.config.WebConfig;
 import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
@@ -70,9 +76,10 @@ public class FileUploadServiceImpl implements FileUploadService {
     private String saveUploadedFile(MultipartFile file) throws IOException {
 
         try {
-            BasicAWSCredentials awsCreds = new BasicAWSCredentials(WebConfig.ACCESS_KEY_ID, WebConfig.SECRET_KEY_ID);
+            BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
 
             AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
+
 
 //            for(Bucket bucket : s3Client.listBuckets()){
 //                s3Client.deleteBucket(bucket.getName());
@@ -125,7 +132,7 @@ public class FileUploadServiceImpl implements FileUploadService {
     }
 
     public static String createAndPopulateSimpleBucket() throws Exception {
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials(WebConfig.ACCESS_KEY_ID, WebConfig.SECRET_KEY_ID);
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
 
         AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
 
