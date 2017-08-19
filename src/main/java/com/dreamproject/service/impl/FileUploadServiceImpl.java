@@ -1,15 +1,12 @@
 package com.dreamproject.service.impl;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.*;
-import com.amazonaws.services.sns.AmazonSNS;
-import com.amazonaws.services.sns.AmazonSNSClient;
-import com.dreamproject.config.ApplicationConfig;
-import com.dreamproject.config.WebConfig;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
 import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.service.FileUploadService;
@@ -20,6 +17,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,6 +33,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@PropertySource("file:///${user.home}/.expiritus/application-common.properties")
 public class FileUploadServiceImpl implements FileUploadService {
 
     @Autowired
@@ -41,6 +41,9 @@ public class FileUploadServiceImpl implements FileUploadService {
 
     @Autowired
     private TargetObjectService targetObjectService;
+
+    @Value("${aws.s3.profile}")
+    private String awsProfileName;
 
     private static final Logger LOG = LoggerFactory.getLogger(FileUploadService.class);
 
@@ -76,19 +79,11 @@ public class FileUploadServiceImpl implements FileUploadService {
     private String saveUploadedFile(MultipartFile file) throws IOException {
 
         try {
-            BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
+//            BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
+            AWSCredentials awsCreds = new ProfileCredentialsProvider(awsProfileName).getCredentials();
 
             AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
 
-
-//            for(Bucket bucket : s3Client.listBuckets()){
-//                s3Client.deleteBucket(bucket.getName());
-//                System.out.println(bucket.getName());
-//            }
-
-
-//            String newBucketName = "dream-project/imageObject";
-//            s3Client.createBucket(newBucketName);
 
             String originalFileName = file.getOriginalFilename();
             String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
@@ -102,46 +97,20 @@ public class FileUploadServiceImpl implements FileUploadService {
         } catch (Exception e) {
 
         }
-//        byte[] bytes = file.getBytes();
-//        String originalFileName = file.getOriginalFilename();
-//        String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-//        String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
-//        Path path = Paths.get(WebConfig.UPLOADED_FOLDER + "/" + unicFileName);
-//        Files.write(path, bytes);
-//        return unicFileName;
-
-//        String originalFileName = file.getOriginalFilename();
-//        String ext = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-//        String unicFileName = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
-//
-//        AmazonS3Client s3Client = new AmazonS3Client(new ProfileCredentialsProvider());
-//
-//        String bucketName = "rende-" + UUID.randomUUID();
-//        s3Client.createBucket(bucketName);
-//        try {
-//            InputStream is = file.getInputStream();
-//            s3Client.putObject(new PutObjectRequest(bucketName, unicFileName, is, new ObjectMetadata()).withCannedAcl(CannedAccessControlList.PublicRead));
-//
-//            S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, unicFileName));
-//        } catch (IOException e){
-//
-//        }
-//
-//        return unicFileName;
         return null;
     }
 
-    public static String createAndPopulateSimpleBucket() throws Exception {
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
-
-        AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
-
-        String newBucketName = "mattua" + System.currentTimeMillis();
-        s3Client.createBucket(newBucketName);
-
-        final String fileName = "sometext.txt";
-
-        return newBucketName;
-
-    }
+//    public static String createAndPopulateSimpleBucket() throws Exception {
+//        BasicAWSCredentials awsCreds = new BasicAWSCredentials(ApplicationConfig.ACCESS_KEY_ID, ApplicationConfig.SECRET_KEY_ID);
+//
+//        AmazonS3Client s3Client = new AmazonS3Client(awsCreds);
+//
+//        String newBucketName = "mattua" + System.currentTimeMillis();
+//        s3Client.createBucket(newBucketName);
+//
+//        final String fileName = "sometext.txt";
+//
+//        return newBucketName;
+//
+//    }
 }
