@@ -3063,6 +3063,7 @@ var environment = {
 var TargetObjectService = (function () {
     function TargetObjectService(http) {
         this.http = http;
+        this.imageUrl = "https://s3-us-west-2.amazonaws.com/dream-project/imageObject";
     }
     TargetObjectService.prototype.findOwnObjects = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].host + "/api/target/findOwn", { withCredentials: true });
@@ -3073,18 +3074,23 @@ var TargetObjectService = (function () {
     TargetObjectService.prototype.packObjects = function (objects) {
         var markers = [];
         var countObjects = objects.length;
-        var lang = localStorage.getItem("language");
         for (var i = 0; i < countObjects; i++) {
             var object = objects[i];
             var id = object.id;
-            var name = lang == "en" ? object.typeObject.nameEn : object.typeObject.nameRu;
-            var fileName = object.filename;
+            var name = object.typeObject.name;
+            var images = [];
+            for (var i_1 = 0; i_1 < object.imageObject.length; i_1++) {
+                var fileName = object.imageObject[i_1].name;
+                var fileUrl = this.imageUrl + "/" + fileName;
+                images.push(fileUrl);
+            }
+            console.info(images);
             var lat = object.latitude;
             var lng = object.longitude;
             var comment = object.comment;
             var draggable = true;
             var positionIsChanged = object.positionIsChanged;
-            markers.push(new __WEBPACK_IMPORTED_MODULE_2__model_marker_model__["a" /* Marker */](id, name, fileName, lat, lng, comment, draggable, positionIsChanged));
+            markers.push(new __WEBPACK_IMPORTED_MODULE_2__model_marker_model__["a" /* Marker */](id, name, images, lat, lng, comment, draggable, positionIsChanged));
         }
         return markers;
     };

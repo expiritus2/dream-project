@@ -4,7 +4,7 @@ export class Marker {
 
   constructor(private _id: number,
               private _name: string,
-              private _imagesObject: any,
+              private _imagesObject: any[],
               private _lat: number,
               private _lng: number,
               private _comment: string,
@@ -71,6 +71,7 @@ export class Marker {
     this._comment = value;
   }
 
+
   get imagesObject(): any {
     return this._imagesObject;
   }
@@ -78,7 +79,6 @@ export class Marker {
   set imagesObject(value: any) {
     this._imagesObject = value;
   }
-
 
   get date(): string {
     return this._date;

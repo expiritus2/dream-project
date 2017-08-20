@@ -10,7 +10,7 @@ public interface TargetObjectService {
 
     List<TargetObject> findAll();
 
-    List<TargetObject> findObjectByUserId(long id);
+    List<TargetObject> findObjectsByUserId(long id);
 
     TargetObject findOne(Long targetObjectId);
 

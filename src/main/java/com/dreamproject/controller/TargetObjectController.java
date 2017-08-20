@@ -1,5 +1,6 @@
 package com.dreamproject.controller;
 
+import com.dreamproject.config.WebConfig;
 import com.dreamproject.entity.TargetObject;
 import com.dreamproject.entity.TypeObject;
 import com.dreamproject.entity.User;
@@ -48,7 +49,7 @@ public class TargetObjectController {
     @RequestMapping(value = "/findOwn", method = RequestMethod.GET)
     public List<TargetObject> getObjects(Principal principal) {
         User user = userService.findByUsername(principal.getName());
-        return targetObjectService.findObjectByUserId(user.getUserId());
+        return targetObjectService.findObjectsByUserId(user.getUserId());
     }
 
     @RequestMapping(value = "/findAllExistsNames", method = RequestMethod.GET)
@@ -59,7 +60,7 @@ public class TargetObjectController {
 
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
     public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile[] files, @RequestParam("targetObjectId") Long targetObjectId, HttpServletRequest request) throws IOException {
-        return fileUploadService.uploadFiles(files, request, targetObjectId);
+        return fileUploadService.uploadFiles(files, request, targetObjectId, WebConfig.BUCKET_NAME);
     }
 
     @RequestMapping(value = "/putObject", method = RequestMethod.POST, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
@@ -79,9 +80,7 @@ public class TargetObjectController {
             typeObject = typeObjectService.save(new TypeObject(nameObject));
         }
 
-
         User user = userService.findByUsername(principal.getName());
-
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy-MM-dd HH:mm", Locale.ENGLISH);
         calendar.setTime(simpleDateFormat.parse(date));

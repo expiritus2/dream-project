@@ -7,5 +7,5 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface FileUploadService {
 
-    ResponseEntity<?> uploadFiles(MultipartFile[] files, HttpServletRequest request, Long targetObjectId);
+    ResponseEntity<?> uploadFiles(MultipartFile[] files, HttpServletRequest request, Long targetObjectId, String bucketName);
 }

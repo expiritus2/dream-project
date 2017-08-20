@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     public static final String PREFIX = "drp_";
-    public static final String UPLOADED_FOLDER = "src/main/resources/static/images";
+    public static final String BUCKET_NAME = "dream-project/imageObject";
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -41,12 +41,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public CommonsMultipartResolver multipartResolver() {
-
         CommonsMultipartResolver cmr = new CommonsMultipartResolver();
         cmr.setMaxUploadSize(maxUploadSizeInMb * 2);
         cmr.setMaxUploadSizePerFile(maxUploadSizeInMb); //bytes
         return cmr;
-
     }
 
 

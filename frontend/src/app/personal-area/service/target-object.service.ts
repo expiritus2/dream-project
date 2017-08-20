@@ -6,6 +6,8 @@ import {Marker} from "../model/marker.model";
 @Injectable()
 export class TargetObjectService {
 
+  imageUrl: string = "https://s3-us-west-2.amazonaws.com/dream-project/imageObject";
+
   constructor(private http: Http) {
   }
 
@@ -20,18 +22,24 @@ export class TargetObjectService {
   packObjects(objects: any): Marker[] {
     let markers: Marker[] = [];
     let countObjects = objects.length;
-    let lang = localStorage.getItem("language");
     for (let i = 0; i < countObjects; i++) {
       let object = objects[i];
       let id = object.id;
-      let name = lang == "en" ? object.typeObject.nameEn : object.typeObject.nameRu;
-      let fileName = object.filename;
+      let name = object.typeObject.name;
+      let images: string[] = [];
+
+      for(let i = 0; i < object.imageObject.length; i++){
+        let fileName = object.imageObject[i].name;
+        let fileUrl = this.imageUrl + "/" + fileName;
+        images.push(fileUrl);
+      }
+
       let lat = object.latitude;
       let lng = object.longitude;
       let comment = object.comment;
       let draggable = true;
       let positionIsChanged = object.positionIsChanged;
-      markers.push(new Marker(id, name, fileName, lat, lng, comment, draggable, positionIsChanged))
+      markers.push(new Marker(id, name, images, lat, lng, comment, draggable, positionIsChanged))
     }
     return markers;
   }
