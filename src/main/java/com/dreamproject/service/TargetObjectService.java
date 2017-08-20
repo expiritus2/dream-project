@@ -14,4 +14,6 @@ public interface TargetObjectService {
 
     TargetObject findOne(Long targetObjectId);
 
+    void delete(Long id);
+
 }

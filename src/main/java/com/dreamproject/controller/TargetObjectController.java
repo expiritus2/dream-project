@@ -63,11 +63,9 @@ public class TargetObjectController {
         return fileUploadService.uploadFiles(files, request, targetObjectId, WebConfig.BUCKET_NAME);
     }
 
-    @RequestMapping(value = "/putObject", method = RequestMethod.POST, produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/putObject", method = RequestMethod.POST)
     public ResponseEntity<Object> putObject(@RequestBody String body, Principal principal) throws ParseException {
-        JsonParser jsonParser = JsonParserFactory.getJsonParser();
-        Map<String, Object> param = jsonParser.parseMap(body);
-        System.out.println(param);
+        Map<String, Object> param = parseJson(body);
         String nameObject = param.get("name").toString();
         double latitude = Double.parseDouble(param.get("latitude").toString());
         double longitude = Double.parseDouble(param.get("longitude").toString());
@@ -89,6 +87,19 @@ public class TargetObjectController {
         newTargetObject.setPositionIsChanged(positionIsChanged);
         TargetObject targetObject = targetObjectService.save(newTargetObject);
         return new ResponseEntity<Object>(targetObject.getId(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ResponseEntity<Object> deleteObject(@RequestBody String body){
+        Map<String, Object> param = parseJson(body);
+        Long id = Long.parseLong(param.get("id").toString());
+        targetObjectService.delete(id);
+        return new ResponseEntity<Object>(body, HttpStatus.OK);
+    }
+
+    public static Map<String, Object> parseJson(String body){
+        JsonParser jsonParser = JsonParserFactory.getJsonParser();
+        return jsonParser.parseMap(body);
     }
 
     private TypeObject getTypeObject(String name){

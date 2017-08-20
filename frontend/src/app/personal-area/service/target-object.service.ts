@@ -19,6 +19,13 @@ export class TargetObjectService {
     return this.http.get(WebConfig.host + "/api/target/findAllExistsNames", {withCredentials: true});
   }
 
+  deleteObject(id: number){
+    let params = {
+      id: id
+    };
+    return this.http.post(WebConfig.host + "/api/target/delete", JSON.stringify(params), {withCredentials: true});
+  }
+
   packObjects(objects: any): Marker[] {
     let markers: Marker[] = [];
     let countObjects = objects.length;

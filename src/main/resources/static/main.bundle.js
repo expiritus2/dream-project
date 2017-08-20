@@ -298,6 +298,10 @@ var GoogleMapComponent = (function () {
     GoogleMapComponent.prototype.onMouseOut = function (event, info) {
     };
     GoogleMapComponent.prototype.onDeleteMarker = function (index) {
+        this.targetObjectService.deleteObject(this.markers[index].id)
+            .subscribe(function (response) {
+            console.info(response);
+        });
         this.markers.splice(index, 1);
         this.isNewObject.emit(false);
         this.isNewMarker = false;
@@ -3071,6 +3075,12 @@ var TargetObjectService = (function () {
     TargetObjectService.prototype.findAllExistsNamesObjects = function () {
         return this.http.get(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].host + "/api/target/findAllExistsNames", { withCredentials: true });
     };
+    TargetObjectService.prototype.deleteObject = function (id) {
+        var params = {
+            id: id
+        };
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_1__webconfig_config__["a" /* WebConfig */].host + "/api/target/delete", JSON.stringify(params), { withCredentials: true });
+    };
     TargetObjectService.prototype.packObjects = function (objects) {
         var markers = [];
         var countObjects = objects.length;
@@ -3084,7 +3094,6 @@ var TargetObjectService = (function () {
                 var fileUrl = this.imageUrl + "/" + fileName;
                 images.push(fileUrl);
             }
-            console.info(images);
             var lat = object.latitude;
             var lng = object.longitude;
             var comment = object.comment;

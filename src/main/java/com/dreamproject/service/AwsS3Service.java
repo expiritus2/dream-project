@@ -6,5 +6,5 @@ public interface AwsS3Service {
 
     AmazonS3Client s3Client();
 
-    public String createSimpleBucket(String newBucketName) throws Exception;
+    String createSimpleBucket(String newBucketName) throws Exception;
 }

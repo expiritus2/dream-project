@@ -93,6 +93,12 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onDeleteMarker(index: number) {
+    this.targetObjectService.deleteObject(this.markers[index].id)
+      .subscribe(
+        (response: Response) => {
+          console.info(response);
+        }
+      );
     this.markers.splice(index, 1);
     this.isNewObject.emit(false);
     this.isNewMarker = false;
