@@ -45,6 +45,9 @@ public class TargetObjectController {
     @Autowired
     private FileUploadService fileUploadService;
 
+    @Autowired
+    private AwsS3Service awsS3Service;
+
 
     @RequestMapping(value = "/findOwn", method = RequestMethod.GET)
     public List<TargetObject> getObjects(Principal principal) {
@@ -86,7 +89,10 @@ public class TargetObjectController {
         newTargetObject.setDraggable(draggable);
         newTargetObject.setPositionIsChanged(positionIsChanged);
         TargetObject targetObject = targetObjectService.save(newTargetObject);
-        return new ResponseEntity<Object>(targetObject.getId(), HttpStatus.OK);
+        if(targetObject != null){
+            return new ResponseEntity<Object>(targetObject.getId(), HttpStatus.OK);
+        }
+        return new ResponseEntity<Object>("Can't save target object", HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

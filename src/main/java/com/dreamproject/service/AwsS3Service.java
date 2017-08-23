@@ -7,4 +7,9 @@ public interface AwsS3Service {
     AmazonS3Client s3Client();
 
     String createSimpleBucket(String newBucketName) throws Exception;
+
+    void deleteObject(String fileName);
+
+    void deleteBucket(String bucketName);
+
 }

@@ -1,5 +1,6 @@
 package com.dreamproject;
 
+import com.amazonaws.services.s3.model.Bucket;
 import com.dreamproject.dao.RoleDao;
 import com.dreamproject.entity.ImageObject;
 import com.dreamproject.entity.TargetObject;
@@ -7,10 +8,7 @@ import com.dreamproject.entity.TypeObject;
 import com.dreamproject.entity.User;
 import com.dreamproject.entity.security.Role;
 import com.dreamproject.entity.security.UserRole;
-import com.dreamproject.service.ImageObjectService;
-import com.dreamproject.service.TargetObjectService;
-import com.dreamproject.service.TypeObjectService;
-import com.dreamproject.service.UserService;
+import com.dreamproject.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -38,6 +36,9 @@ public class DreamProjectApplication implements CommandLineRunner {
     @Autowired
     private ImageObjectService imageObjectService;
 
+    @Autowired
+    private AwsS3Service awsS3Service;
+
 
     public static void main(String[] args) {
         SpringApplication.run(DreamProjectApplication.class, args);
@@ -46,7 +47,6 @@ public class DreamProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-
 
         Role role1 = new Role();
         role1.setName("ROLE_ADMIN");

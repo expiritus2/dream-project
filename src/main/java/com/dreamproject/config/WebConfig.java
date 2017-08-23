@@ -28,7 +28,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/access-denied").setViewName("forward:/index.html");
     }
 
-
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
         return container -> {
@@ -37,11 +36,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         };
     }
 
-    private int maxUploadSizeInMb = 5 * 1024 * 1024;
-
     @Bean
     public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver cmr = new CommonsMultipartResolver();
+        int maxUploadSizeInMb = 5 * 1024 * 1024;
         cmr.setMaxUploadSize(maxUploadSizeInMb * 2);
         cmr.setMaxUploadSizePerFile(maxUploadSizeInMb); //bytes
         return cmr;

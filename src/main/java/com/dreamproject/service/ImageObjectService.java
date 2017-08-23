@@ -3,6 +3,8 @@ package com.dreamproject.service;
 
 import com.dreamproject.entity.ImageObject;
 
+import java.util.List;
+
 public interface ImageObjectService {
 
     void save(ImageObject imageObject);
@@ -10,5 +12,7 @@ public interface ImageObjectService {
     void delete(Long id);
 
     void deleteAllByTargetObjectId(Long targetObjectId);
+
+    List<ImageObject> findAll();
 
 }
