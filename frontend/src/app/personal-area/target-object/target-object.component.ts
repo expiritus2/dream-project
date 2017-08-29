@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Marker} from "../model/marker.model";
 import {TargetObjectService} from "../service/target-object.service";
 import {FileUploadService} from "../service/file-upload.service";
@@ -26,6 +26,7 @@ export class TargetObjectComponent implements OnInit {
   isDateSelected: boolean = false;
   isFileSelected: boolean = false;
   date: string;
+  selectedStatus: string = "lost";
 
   constructor(private fileUploadService: FileUploadService,
               private targetObjectService: TargetObjectService) {
@@ -75,6 +76,7 @@ export class TargetObjectComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     let formValue = form.value;
+    console.info(formValue);
 
     this.marker.date = this.date;
     this.marker.comment = formValue.comment;

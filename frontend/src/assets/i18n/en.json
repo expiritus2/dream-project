@@ -1,5 +1,9 @@
 {
   "WelcomeTxt": "Welcome",
+  "Home": {
+    "FindButtonText": "I'm find",
+    "LostButtonText": "I'm lost"
+  },
   "Login": {
     "UsernameLabel": "Email",
     "PasswordLabel": "Password",
@@ -22,6 +26,8 @@
     "InputNameObject": "Enter the name of the object you are looking for",
     "InputFileLabel": "Please upload image of search object",
     "CommentLabel": "Comment",
-    "SubmitObject": "Send"
+    "SubmitObject": "Send",
+    "LostObjectStatus": "Lost",
+    "FindObjectStatus": "Find"
   }
 }

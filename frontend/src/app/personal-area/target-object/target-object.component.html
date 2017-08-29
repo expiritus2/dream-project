@@ -1,5 +1,11 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data">
   <div>
+    <select [(ngModel)]="selectedStatus" name="status" id="status">
+      <option [ngValue]="'lost'">{{ 'PersonalArea.LostObjectStatus' | translate }}</option>
+      <option [ngValue]="'find'">{{ 'PersonalArea.FindObjectStatus' | translate }}</option>
+    </select>
+  </div>
+  <div>
     <input
       list="objects"
       placeholder="{{ 'PersonalArea.InputNameObject' | translate }}"

@@ -1,5 +1,9 @@
 {
   "WelcomeTxt": "Приветствие",
+  "Home": {
+    "FindButtonText": "Я нашел",
+    "LostButtonText": "Я потерял"
+  },
   "Login": {
     "UsernameLabel": "Эл. Почта",
     "PasswordLabel": "Пароль",
@@ -22,6 +26,8 @@
     "InputNameObject": "Введите имя искомого объекта",
     "InputFileLabel": "Пожалуйста загрузите изображение искомого объекта",
     "CommentLabel": "Комментарий",
-    "SubmitObject": "Отправить"
+    "SubmitObject": "Отправить",
+    "LostObjectStatus": "Потерял",
+    "FindObjectStatus": "Нашел"
   }
 }

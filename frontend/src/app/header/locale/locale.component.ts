@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/Subscription";
 import {TranslateService} from "ng2-translate";
 import {ActivatedRoute} from "@angular/router";
@@ -21,7 +21,7 @@ export class LocaleComponent implements OnInit {
 
     const browserLang = translate.getBrowserLang();
     let preferLanguage = localStorage.getItem("language");
-    if(preferLanguage != null){
+    if (preferLanguage != null) {
       translate.use(preferLanguage);
       this.selectedLang = preferLanguage;
     } else {
@@ -34,7 +34,7 @@ export class LocaleComponent implements OnInit {
     this.subscription = this.activatedRoute.queryParams.subscribe(
       (param: any) => {
         let locale = param['locale'];
-        if(locale !== undefined){
+        if (locale !== undefined) {
           this.translate.use(locale);
           this.selectedLang = locale;
         }
@@ -42,7 +42,7 @@ export class LocaleComponent implements OnInit {
     );
   }
 
-  onChangeLanguage(event: any){
+  onChangeLanguage(event: any) {
     let lang = event.target.value;
     this.translate.use(lang);
     localStorage.setItem("language", lang);

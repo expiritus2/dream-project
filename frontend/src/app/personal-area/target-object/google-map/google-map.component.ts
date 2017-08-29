@@ -1,10 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import {Marker} from "../../model/marker.model";
 import {Response} from "@angular/http";
 import {TargetObjectService} from "../../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
 import "rxjs/Rx";
-import {WebConfig} from "../../../webconfig.config";
 
 @Component({
   selector: 'app-google-map',
@@ -27,7 +26,6 @@ export class GoogleMapComponent implements OnInit {
   isNewMarker: boolean = false;
 
 
-
   constructor(private targetObjectService: TargetObjectService) {
   }
 
@@ -45,11 +43,11 @@ export class GoogleMapComponent implements OnInit {
       );
   }
 
-  setNameObject(nameObject: string){
+  setNameObject(nameObject: string) {
     this.nameObject = nameObject;
   }
 
-  setPreviewImages(previewImages: File[]){
+  setPreviewImages(previewImages: File[]) {
     this.previewImages = previewImages;
   }
 
@@ -64,7 +62,7 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onMapClicked(event: any) {
-    if(!this.isNewMarker){
+    if (!this.isNewMarker) {
       this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
       this.markers.push(this.newMarker);
       this.positionObject.emit(this.newMarker);
@@ -73,8 +71,8 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
-  updateMarker(){
-    if(typeof this.newMarker != 'undefined'){
+  updateMarker() {
+    if (typeof this.newMarker != 'undefined') {
       this.newMarker.name = this.nameObject;
       this.newMarker.imagesObject = this.previewImages;
     }
@@ -93,12 +91,14 @@ export class GoogleMapComponent implements OnInit {
   }
 
   onDeleteMarker(index: number) {
-    this.targetObjectService.deleteObject(this.markers[index].id)
-      .subscribe(
-        (response: Response) => {
-          console.info(response);
-        }
-      );
+    if (!this.isNewMarker) {
+      this.targetObjectService.deleteObject(this.markers[index].id)
+        .subscribe(
+          (response: Response) => {
+            console.info(response);
+          }
+        );
+    }
     this.markers.splice(index, 1);
     this.isNewObject.emit(false);
     this.isNewMarker = false;
