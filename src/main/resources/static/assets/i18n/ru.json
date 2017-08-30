@@ -1,0 +1,33 @@
+{
+  "WelcomeTxt": "Приветствие",
+  "Home": {
+    "FindButtonText": "Я нашел",
+    "LostButtonText": "Я потерял"
+  },
+  "Login": {
+    "UsernameLabel": "Эл. Почта",
+    "PasswordLabel": "Пароль",
+    "SubmitBtnText": "Войти",
+    "ErrorText": "Не верный логин/пароль"
+  },
+  "SignUp": {
+    "FirstNameLabel": "Имя",
+    "LastNameLabel": "Фамилия",
+    "EmailLabel": "Эл. Почта",
+    "PasswordLabel": "Пароль",
+    "RepeatPasswordLabel": "Повторить пароль",
+    "PasswordsNotMatch": "Пароли не совпадают",
+    "SubmitButtonText": "Зарегистрироваться",
+    "CreateUserSuccess": "Пользователь создан",
+    "UserAlreadyExist": "Пользователь с такой эл. почтой уже существует",
+    "InvalidEmail": "Пожалуйста введите действующую эл. почту"
+  },
+  "PersonalArea": {
+    "InputNameObject": "Введите имя искомого объекта",
+    "InputFileLabel": "Пожалуйста загрузите изображение искомого объекта",
+    "CommentLabel": "Комментарий",
+    "SubmitObject": "Отправить",
+    "LostObjectStatus": "Потерял",
+    "FindObjectStatus": "Нашел"
+  }
+}

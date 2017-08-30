@@ -36,6 +36,7 @@ public class TargetObject {
     private Calendar date;
     private boolean draggable = false;
     private boolean positionIsChanged = false;
+    private String statusObject = "lost";
 
     @Column(name = "create_at")
     private Date createdAt;
@@ -168,6 +169,14 @@ public class TargetObject {
         this.updatedAt = updatedAt;
     }
 
+    public String getStatusObject() {
+        return statusObject;
+    }
+
+    public void setStatusObject(String statusObject) {
+        this.statusObject = statusObject;
+    }
+
     @Override
     public String toString() {
         return "TargetObject{" +
@@ -180,6 +189,7 @@ public class TargetObject {
                 ", date=" + date +
                 ", draggable=" + draggable +
                 ", positionIsChanged=" + positionIsChanged +
+                ", statusObject='" + statusObject + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", user=" + user +

@@ -9,7 +9,8 @@ export class Marker {
               private _lng: number,
               private _comment: string,
               private _draggable: boolean = false,
-              private _positionIsChanged: boolean = false) {
+              private _positionIsChanged: boolean = false,
+              private _statusObject: string = "lost") {
   }
 
 
@@ -86,5 +87,14 @@ export class Marker {
 
   set date(value: string) {
     this._date = value;
+  }
+
+
+  get statusObject(): string {
+    return this._statusObject;
+  }
+
+  set statusObject(value: string) {
+    this._statusObject = value;
   }
 }

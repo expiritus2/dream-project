@@ -80,6 +80,7 @@ export class TargetObjectComponent implements OnInit {
 
     this.marker.date = this.date;
     this.marker.comment = formValue.comment;
+    this.marker.statusObject = this.selectedStatus;
     let locale = localStorage.getItem("language");
     this.targetObjectService.sendObjectData(this.marker, this.filesList, locale)
       .subscribe(

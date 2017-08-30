@@ -76,6 +76,7 @@ public class TargetObjectController {
         String date = param.get("date").toString();
         boolean draggable = Boolean.parseBoolean(param.get("draggable").toString());
         boolean positionIsChanged = Boolean.parseBoolean(param.get("positionIsChanged").toString());
+        String statusObject = param.get("statusObject").toString();
         TypeObject typeObject = getTypeObject(nameObject);
         if(typeObject == null){
             typeObject = typeObjectService.save(new TypeObject(nameObject));
@@ -88,6 +89,7 @@ public class TargetObjectController {
         TargetObject newTargetObject = new TargetObject(typeObject, latitude, longitude, comment, user, calendar);
         newTargetObject.setDraggable(draggable);
         newTargetObject.setPositionIsChanged(positionIsChanged);
+        newTargetObject.setStatusObject(statusObject);
         TargetObject targetObject = targetObjectService.save(newTargetObject);
         if(targetObject != null){
             return new ResponseEntity<Object>(targetObject.getId(), HttpStatus.OK);

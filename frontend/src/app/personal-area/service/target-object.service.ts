@@ -61,6 +61,7 @@ export class TargetObjectService {
       date: marker.date.toString(),
       draggable: false,
       positionIsChanged: marker.positionIsChanged,
+      statusObject: marker.statusObject,
       locale: locale
     };
 
