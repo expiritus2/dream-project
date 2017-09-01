@@ -5,18 +5,13 @@ import com.dreamproject.entity.TargetObject;
 import com.dreamproject.entity.TypeObject;
 import com.dreamproject.entity.User;
 import com.dreamproject.service.*;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.apache.catalina.core.ApplicationContext;
+import com.dreamproject.utils.ParseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.JsonParser;
-import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import sun.plugin2.message.Message;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -68,15 +63,15 @@ public class TargetObjectController {
 
     @RequestMapping(value = "/putObject", method = RequestMethod.POST)
     public ResponseEntity<Object> putObject(@RequestBody String body, Principal principal) throws ParseException {
-        Map<String, Object> param = parseJson(body);
-        String nameObject = param.get("name").toString();
-        double latitude = Double.parseDouble(param.get("latitude").toString());
-        double longitude = Double.parseDouble(param.get("longitude").toString());
-        String comment = param.get("comment").toString();
-        String date = param.get("date").toString();
-        boolean draggable = Boolean.parseBoolean(param.get("draggable").toString());
-        boolean positionIsChanged = Boolean.parseBoolean(param.get("positionIsChanged").toString());
-        String statusObject = param.get("statusObject").toString();
+        Map<String, Object> params = ParseUtils.parseJson(body);
+        String nameObject = params.get("name").toString();
+        double latitude = Double.parseDouble(params.get("latitude").toString());
+        double longitude = Double.parseDouble(params.get("longitude").toString());
+        String comment = params.get("comment").toString();
+        String date = params.get("date").toString();
+        boolean draggable = Boolean.parseBoolean(params.get("draggable").toString());
+        boolean positionIsChanged = Boolean.parseBoolean(params.get("positionIsChanged").toString());
+        String statusObject = params.get("statusObject").toString();
         TypeObject typeObject = getTypeObject(nameObject);
         if(typeObject == null){
             typeObject = typeObjectService.save(new TypeObject(nameObject));
@@ -99,16 +94,12 @@ public class TargetObjectController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public ResponseEntity<Object> deleteObject(@RequestBody String body){
-        Map<String, Object> param = parseJson(body);
-        Long id = Long.parseLong(param.get("id").toString());
+        Map<String, Object> params = ParseUtils.parseJson(body);
+        Long id = Long.parseLong(params.get("id").toString());
         targetObjectService.delete(id);
         return new ResponseEntity<Object>(body, HttpStatus.OK);
     }
 
-    public static Map<String, Object> parseJson(String body){
-        JsonParser jsonParser = JsonParserFactory.getJsonParser();
-        return jsonParser.parseMap(body);
-    }
 
     private TypeObject getTypeObject(String name){
         return typeObjectService.findByName(name);

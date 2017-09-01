@@ -74,14 +74,14 @@ public class DreamProjectApplication implements CommandLineRunner {
         userRoles2.add(new UserRole(user2, roleDao.findByName("ROLE_USER")));
         userService.createUser(user2, userRoles2);
 
-        User user3 = new User();
-        user3.setFirstName("Test");
-        user3.setLastName("User");
-        user3.setUsername("test.user@gmail.com");
-        user3.setPassword("210280");
-        Set<UserRole> userRoles3 = new HashSet<>();
-        userRoles3.add(new UserRole(user3, roleDao.findByName("ROLE_USER")));
-        userService.createUser(user3, userRoles3);
+//        User user3 = new User();
+//        user3.setFirstName("Test");
+//        user3.setLastName("User");
+//        user3.setUsername("test.user@gmail.com");
+//        user3.setPassword("210280");
+//        Set<UserRole> userRoles3 = new HashSet<>();
+//        userRoles3.add(new UserRole(user3, roleDao.findByName("ROLE_USER")));
+//        userService.createUser(user3, userRoles3);
 
         TypeObject typeObject1 = new TypeObject("First Marker");
         typeObjectService.save(typeObject1);
@@ -89,18 +89,18 @@ public class DreamProjectApplication implements CommandLineRunner {
         TypeObject typeObject2 = new TypeObject("Second Marker");
         typeObjectService.save(typeObject2);
 
-        TypeObject typeObject3 = new TypeObject("Third Marker");
-        typeObjectService.save(typeObject3);
-
-        TypeObject typeObject4 = new TypeObject("Fourth Marker");
-        typeObjectService.save(typeObject4);
+//        TypeObject typeObject3 = new TypeObject("Third Marker");
+//        typeObjectService.save(typeObject3);
+//
+//        TypeObject typeObject4 = new TypeObject("Fourth Marker");
+//        typeObjectService.save(typeObject4);
 
 
         String defaultImage = "default-thumbnail.jpg";
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
         cal.setTime(sdf.parse("2017-08-09 23:01"));
-        TargetObject targetObject1 = new TargetObject(typeObject1, 53.844627797824955, 27.627525329589844, "comment1", user2, cal);
+        TargetObject targetObject1 = new TargetObject(typeObject1, 53.844627797824955, 27.627525329589844, "comment1", user1, cal);
         targetObjectService.save(targetObject1);
         ImageObject imageObject1 = new ImageObject(defaultImage, targetObject1);
         imageObjectService.save(imageObject1);
@@ -110,7 +110,7 @@ public class DreamProjectApplication implements CommandLineRunner {
         imageObjectService.save(imageObject3);
 
 
-        TargetObject targetObject2 = new TargetObject(typeObject2, 53.861638751487305, 27.6361083984375, "comment2", user1, cal);
+        TargetObject targetObject2 = new TargetObject(typeObject2, 53.861638751487305 + 0.065, 27.6361083984375 + 0.12, "comment2", user2, cal);
         targetObjectService.save(targetObject2);
         ImageObject imageObject4 = new ImageObject(defaultImage, targetObject2);
         imageObjectService.save(imageObject4);
@@ -119,24 +119,24 @@ public class DreamProjectApplication implements CommandLineRunner {
         ImageObject imageObject6 = new ImageObject(defaultImage, targetObject2);
         imageObjectService.save(imageObject6);
 
-
-        TargetObject targetObject3 = new TargetObject(typeObject3, 53.8577916408477, 27.660484313964844, "comment3", user3, cal);
-        targetObjectService.save(targetObject3);
-        ImageObject imageObject10 = new ImageObject(defaultImage, targetObject3);
-        imageObjectService.save(imageObject10);
-        ImageObject imageObject11 = new ImageObject(defaultImage, targetObject3);
-        imageObjectService.save(imageObject11);
-        ImageObject imageObject12 = new ImageObject(defaultImage, targetObject3);
-        imageObjectService.save(imageObject12);
-
-
-        TargetObject targetObject4 = new TargetObject(typeObject4, 53.84705835738316, 27.691383361816406, "comment4", user3, cal);
-        targetObjectService.save(targetObject4);
-        ImageObject imageObject13 = new ImageObject(defaultImage, targetObject4);
-        imageObjectService.save(imageObject13);
-        ImageObject imageObject14 = new ImageObject(defaultImage, targetObject4);
-        imageObjectService.save(imageObject14);
-        ImageObject imageObject15 = new ImageObject(defaultImage, targetObject4);
-        imageObjectService.save(imageObject15);
+//
+//        TargetObject targetObject3 = new TargetObject(typeObject3, 53.8577916408477, 27.660484313964844, "comment3", user3, cal);
+//        targetObjectService.save(targetObject3);
+//        ImageObject imageObject10 = new ImageObject(defaultImage, targetObject3);
+//        imageObjectService.save(imageObject10);
+//        ImageObject imageObject11 = new ImageObject(defaultImage, targetObject3);
+//        imageObjectService.save(imageObject11);
+//        ImageObject imageObject12 = new ImageObject(defaultImage, targetObject3);
+//        imageObjectService.save(imageObject12);
+//
+//
+//        TargetObject targetObject4 = new TargetObject(typeObject4, 53.84705835738316, 27.691383361816406, "comment4", user3, cal);
+//        targetObjectService.save(targetObject4);
+//        ImageObject imageObject13 = new ImageObject(defaultImage, targetObject4);
+//        imageObjectService.save(imageObject13);
+//        ImageObject imageObject14 = new ImageObject(defaultImage, targetObject4);
+//        imageObjectService.save(imageObject14);
+//        ImageObject imageObject15 = new ImageObject(defaultImage, targetObject4);
+//        imageObjectService.save(imageObject15);
     }
 }

@@ -4,12 +4,13 @@ import {Response} from "@angular/http";
 import {TargetObjectService} from "../../service/target-object.service";
 import {AgmInfoWindow} from "@agm/core";
 import "rxjs/Rx";
+import {SearchObjectService} from "../../service/search-object.service";
 
 @Component({
   selector: 'app-google-map',
   templateUrl: './google-map.component.html',
   styleUrls: ['./google-map.component.css'],
-  providers: [TargetObjectService]
+  providers: [TargetObjectService, SearchObjectService]
 })
 export class GoogleMapComponent implements OnInit {
 
@@ -25,8 +26,11 @@ export class GoogleMapComponent implements OnInit {
   previewImages: File[];
   isNewMarker: boolean = false;
 
+  // testLng: number = 0;
 
-  constructor(private targetObjectService: TargetObjectService) {
+
+  constructor(private targetObjectService: TargetObjectService,
+              private searchObjectService: SearchObjectService) {
   }
 
   ngOnInit() {
@@ -34,8 +38,19 @@ export class GoogleMapComponent implements OnInit {
     this.targetObjectService.findOwnObjects()
       .subscribe(
         (response: Response) => {
-          console.info(response.json());
+          // console.info(response.json());
           this.markers = this.targetObjectService.packObjects(response.json());
+          for (let i = 0; i < this.markers.length; i++) {
+            this.searchObjectService.search(this.markers[i])
+              .subscribe(
+                (response: Response) => {
+                  console.info(response.json());
+                },
+                (error2) => {
+                  console.info(error2)
+                }
+              );
+          }
         },
         (err) => {
 
@@ -64,6 +79,7 @@ export class GoogleMapComponent implements OnInit {
   onMapClicked(event: any) {
     if (!this.isNewMarker) {
       this.newMarker = new Marker(null, this.nameObject, this.previewImages, event.coords.lat, event.coords.lng, "", true);
+      // console.info(this.testLng = this.newMarker.lng);
       this.markers.push(this.newMarker);
       this.positionObject.emit(this.newMarker);
       this.isNewObject.emit(true);
@@ -108,6 +124,7 @@ export class GoogleMapComponent implements OnInit {
   onMarkerDragEnd(marker: Marker, event: any) {
     marker.lat = event.coords.lat;
     marker.lng = event.coords.lng;
+    // console.info(this.testLng - marker.lng);
     marker.positionIsChanged = true;
   }
 
