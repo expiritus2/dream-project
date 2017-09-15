@@ -44,6 +44,10 @@ export class GoogleMapComponent implements OnInit {
             this.searchObjectService.search(this.markers[i])
               .subscribe(
                 (response: Response) => {
+                  let similarMarkers = this.targetObjectService.packObjects(response.json());
+                  for(let j = 0; j < similarMarkers.length; j++){
+                    this.markers.push(similarMarkers[j]);
+                  }
                   console.info(response.json());
                 },
                 (error2) => {
